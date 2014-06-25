@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="MDA" version="3">
+  <DEPS>
+    <ID name="MDA" mc="Project" uid="68bd4535-a96f-4c2e-9882-48b9ab53d226"/>
+    <COMPID name="MDA" mc="DiagramSet" uid="085b2bc3-4e4f-4978-979a-ee095548f33a"/>
+    <COMPID name="mda" mc="Package" uid="f7298cf9-7a4b-411a-949a-fd899f7fc99a"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="MDA" mc="Project" uid="68bd4535-a96f-4c2e-9882-48b9ab53d226"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[MDA]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="DiagramRoot">
+        <COMPID name="MDA" mc="DiagramSet" uid="085b2bc3-4e4f-4978-979a-ee095548f33a"/>
+      </COMP>
+      <COMP relation="Model">
+        <COMPID name="mda" mc="Package" uid="f7298cf9-7a4b-411a-949a-fd899f7fc99a"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

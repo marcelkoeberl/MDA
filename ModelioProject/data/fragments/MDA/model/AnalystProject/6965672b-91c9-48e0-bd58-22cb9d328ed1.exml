@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="MDA" version="3">
+  <DEPS>
+    <ID name="MDA" mc="AnalystProject" uid="6965672b-91c9-48e0-bd58-22cb9d328ed1"/>
+    <COMPID name="MDA" mc="PropertyContainer" uid="9e5f4c9b-191b-405f-89bf-dcd152f989ba"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="MDA" mc="AnalystProject" uid="6965672b-91c9-48e0-bd58-22cb9d328ed1"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[MDA]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="PropertyRoot">
+        <COMPID name="MDA" mc="PropertyContainer" uid="9e5f4c9b-191b-405f-89bf-dcd152f989ba"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

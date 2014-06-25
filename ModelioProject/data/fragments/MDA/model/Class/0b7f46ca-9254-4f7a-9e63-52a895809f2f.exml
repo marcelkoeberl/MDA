@@ -1,0 +1,188 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="ScenarioRecord" version="3">
+  <DEPS>
+    <ID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+    <EXTID name="Operation" mc="Class" uid="9fa55ed6-5129-4bdb-a024-fd0b4aaff5fd"/>
+    <EXTID name="Participant" mc="Class" uid="96a1810a-f4dc-4111-b06a-547eec39c35c"/>
+    <EXTID name="ScenarioTable" mc="Class" uid="b41625e7-2b27-47b8-8f26-63efbb1c4c64"/>
+    <EXTID name="State" mc="Class" uid="1a57b688-ea74-4f97-b354-3a3532ccb4c9"/>
+    <EXTID name="Value" mc="Class" uid="76129cac-7b4e-4ca8-93cd-bfb1b0899244"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+    <PID name="mda" mc="Package" uid="f7298cf9-7a4b-411a-949a-fd899f7fc99a"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[ScenarioRecord]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedEnd">
+        <REFOBJ>
+          <ID name="" mc="AssociationEnd" uid="31ec632e-5344-4457-b973-55b333b2ebcb"/>
+          <PID name="ScenarioTable" mc="Class" uid="b41625e7-2b27-47b8-8f26-63efbb1c4c64"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="preState" mc="AssociationEnd" uid="aeaa4d3f-a644-4de7-a618-c4664a22d0dc"/>
+          <PID name="State" mc="Class" uid="1a57b688-ea74-4f97-b354-3a3532ccb4c9"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="postState" mc="AssociationEnd" uid="13f8a5c1-a9f8-4bbb-8728-d34f38bec92d"/>
+          <PID name="State" mc="Class" uid="1a57b688-ea74-4f97-b354-3a3532ccb4c9"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="sender" mc="AssociationEnd" uid="7f0817cc-6585-41a0-a519-71201b878cb4"/>
+          <PID name="Participant" mc="Class" uid="96a1810a-f4dc-4111-b06a-547eec39c35c"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="receiver" mc="AssociationEnd" uid="84d9a705-8337-45e9-82b1-2987ac6d7905"/>
+          <PID name="Participant" mc="Class" uid="96a1810a-f4dc-4111-b06a-547eec39c35c"/>
+        </REFOBJ>
+        <OBJECT>
+          <ID name="operation" mc="AssociationEnd" uid="64b615f5-f5cf-4308-b8d5-849454123233"/>
+          <PID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsAssociation</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[operation]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID name="" mc="AssociationEnd" uid="176b4146-a4ac-4315-abe8-702aca71b013"/>
+                <PID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[*]]></ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID name="operation" mc="AssociationEnd" uid="64b615f5-f5cf-4308-b8d5-849454123233"/>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID name="" mc="Association" uid="7dc9f5e2-2d57-49bf-bbf9-6cce8ae265b3"/>
+                      <PID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <OBJECT>
+                <ID name="" mc="Association" uid="7dc9f5e2-2d57-49bf-bbf9-6cce8ae265b3"/>
+                <PID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="returnValue" mc="AssociationEnd" uid="0bf9f5f5-6aad-4067-8404-6435bf2b2624"/>
+          <PID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsAssociation</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[returnValue]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID name="" mc="AssociationEnd" uid="1e6fcb5e-d51d-4a40-ac5f-9475291c50e1"/>
+                <PID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[*]]></ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID name="returnValue" mc="AssociationEnd" uid="0bf9f5f5-6aad-4067-8404-6435bf2b2624"/>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID name="" mc="Association" uid="ea4f1720-0ef9-4398-9deb-199bdc12459b"/>
+                      <PID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <OBJECT>
+                <ID name="" mc="Association" uid="ea4f1720-0ef9-4398-9deb-199bdc12459b"/>
+                <PID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

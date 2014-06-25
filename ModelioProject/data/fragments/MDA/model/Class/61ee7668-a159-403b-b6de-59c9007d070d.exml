@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="BehaviorRecord" version="3">
+  <DEPS>
+    <ID name="BehaviorRecord" mc="Class" uid="61ee7668-a159-403b-b6de-59c9007d070d"/>
+    <EXTID name="BehaviorTable" mc="Class" uid="fb69f2d7-4ca8-4385-9b97-6fedf6b00346"/>
+    <EXTID name="Message" mc="Class" uid="af9c9677-b701-4fd9-9730-88eeb970db11"/>
+    <EXTID name="Operation" mc="Class" uid="9fa55ed6-5129-4bdb-a024-fd0b4aaff5fd"/>
+    <EXTID name="State" mc="Class" uid="1a57b688-ea74-4f97-b354-3a3532ccb4c9"/>
+    <EXTID name="Value" mc="Class" uid="76129cac-7b4e-4ca8-93cd-bfb1b0899244"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="BehaviorRecord" mc="Class" uid="61ee7668-a159-403b-b6de-59c9007d070d"/>
+    <PID name="mda" mc="Package" uid="f7298cf9-7a4b-411a-949a-fd899f7fc99a"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[BehaviorRecord]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedEnd">
+        <REFOBJ>
+          <ID name="" mc="AssociationEnd" uid="da14dce7-9eb7-4fc0-b2fe-b1ed6b1fd87e"/>
+          <PID name="BehaviorTable" mc="Class" uid="fb69f2d7-4ca8-4385-9b97-6fedf6b00346"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="preState" mc="AssociationEnd" uid="ce4a3c4f-f149-49ff-af16-c446c21f0ae8"/>
+          <PID name="State" mc="Class" uid="1a57b688-ea74-4f97-b354-3a3532ccb4c9"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="postState" mc="AssociationEnd" uid="e377765a-31fc-45cc-af0e-070217200f92"/>
+          <PID name="State" mc="Class" uid="1a57b688-ea74-4f97-b354-3a3532ccb4c9"/>
+        </REFOBJ>
+        <OBJECT>
+          <ID name="messageIn" mc="AssociationEnd" uid="dc0c11c4-01a8-4513-9c1a-1d54850ff0e6"/>
+          <PID name="BehaviorRecord" mc="Class" uid="61ee7668-a159-403b-b6de-59c9007d070d"/>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsAssociation</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[messageIn]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID name="" mc="AssociationEnd" uid="f268bc84-5555-4a18-98ac-93a70630d8fe"/>
+                <PID name="BehaviorRecord" mc="Class" uid="61ee7668-a159-403b-b6de-59c9007d070d"/>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[*]]></ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID name="messageIn" mc="AssociationEnd" uid="dc0c11c4-01a8-4513-9c1a-1d54850ff0e6"/>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID name="" mc="Association" uid="ac464a90-0b0b-4a0e-81b6-5f4067c35150"/>
+                      <PID name="BehaviorRecord" mc="Class" uid="61ee7668-a159-403b-b6de-59c9007d070d"/>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <OBJECT>
+                <ID name="" mc="Association" uid="ac464a90-0b0b-4a0e-81b6-5f4067c35150"/>
+                <PID name="BehaviorRecord" mc="Class" uid="61ee7668-a159-403b-b6de-59c9007d070d"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <REFOBJ>
+          <ID name="messageOut" mc="AssociationEnd" uid="07a1ee4e-e220-4f46-b5c9-764b69401287"/>
+          <PID name="Message" mc="Class" uid="af9c9677-b701-4fd9-9730-88eeb970db11"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="returnValue" mc="AssociationEnd" uid="769fb8d5-4c7e-4d63-8468-4aa94048ce09"/>
+          <PID name="Value" mc="Class" uid="76129cac-7b4e-4ca8-93cd-bfb1b0899244"/>
+        </REFOBJ>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

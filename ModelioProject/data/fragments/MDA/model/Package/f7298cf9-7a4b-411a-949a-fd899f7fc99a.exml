@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="mda" version="3">
+  <DEPS>
+    <ID name="mda" mc="Package" uid="f7298cf9-7a4b-411a-949a-fd899f7fc99a"/>
+    <COMPID name="Automaton" mc="Class" uid="25fe04f1-27c4-4617-ab7d-aaf7720d0370"/>
+    <COMPID name="BehaviorRecord" mc="Class" uid="61ee7668-a159-403b-b6de-59c9007d070d"/>
+    <COMPID name="BehaviorTable" mc="ClassDiagram" uid="cbdedbfd-7d18-4ef1-b29e-ac661bbe1d88"/>
+    <COMPID name="BehaviorTable" mc="Class" uid="fb69f2d7-4ca8-4385-9b97-6fedf6b00346"/>
+    <COMPID name="IOAutomaton" mc="ClassDiagram" uid="224f5b27-4c23-4533-9637-f09d66c4a6a9"/>
+    <COMPID name="Message" mc="Class" uid="af9c9677-b701-4fd9-9730-88eeb970db11"/>
+    <COMPID name="Operation" mc="Class" uid="9fa55ed6-5129-4bdb-a024-fd0b4aaff5fd"/>
+    <COMPID name="Participant" mc="Class" uid="96a1810a-f4dc-4111-b06a-547eec39c35c"/>
+    <COMPID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+    <COMPID name="ScenarioTable" mc="Class" uid="b41625e7-2b27-47b8-8f26-63efbb1c4c64"/>
+    <COMPID name="ScenarioTable" mc="ClassDiagram" uid="1d0295e3-30e4-4b1c-83f7-d880e1063e8f"/>
+    <COMPID name="State" mc="Class" uid="1a57b688-ea74-4f97-b354-3a3532ccb4c9"/>
+    <COMPID name="Transition" mc="Class" uid="ad35b53a-c1cb-45b4-9b40-7823fbd1431e"/>
+    <COMPID name="Value" mc="Class" uid="76129cac-7b4e-4ca8-93cd-bfb1b0899244"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="mda" mc="Package" uid="f7298cf9-7a4b-411a-949a-fd899f7fc99a"/>
+    <PID name="MDA" mc="Project" uid="68bd4535-a96f-4c2e-9882-48b9ab53d226"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[mda]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="ScenarioTable" mc="Class" uid="b41625e7-2b27-47b8-8f26-63efbb1c4c64"/>
+        <COMPID name="ScenarioRecord" mc="Class" uid="0b7f46ca-9254-4f7a-9e63-52a895809f2f"/>
+        <COMPID name="State" mc="Class" uid="1a57b688-ea74-4f97-b354-3a3532ccb4c9"/>
+        <COMPID name="Participant" mc="Class" uid="96a1810a-f4dc-4111-b06a-547eec39c35c"/>
+        <COMPID name="Operation" mc="Class" uid="9fa55ed6-5129-4bdb-a024-fd0b4aaff5fd"/>
+        <COMPID name="BehaviorTable" mc="Class" uid="fb69f2d7-4ca8-4385-9b97-6fedf6b00346"/>
+        <COMPID name="BehaviorRecord" mc="Class" uid="61ee7668-a159-403b-b6de-59c9007d070d"/>
+        <COMPID name="Message" mc="Class" uid="af9c9677-b701-4fd9-9730-88eeb970db11"/>
+        <COMPID name="Automaton" mc="Class" uid="25fe04f1-27c4-4617-ab7d-aaf7720d0370"/>
+        <COMPID name="Value" mc="Class" uid="76129cac-7b4e-4ca8-93cd-bfb1b0899244"/>
+        <COMPID name="Transition" mc="Class" uid="ad35b53a-c1cb-45b4-9b40-7823fbd1431e"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="ScenarioTable" mc="ClassDiagram" uid="1d0295e3-30e4-4b1c-83f7-d880e1063e8f"/>
+        <COMPID name="BehaviorTable" mc="ClassDiagram" uid="cbdedbfd-7d18-4ef1-b29e-ac661bbe1d88"/>
+        <COMPID name="IOAutomaton" mc="ClassDiagram" uid="224f5b27-4c23-4533-9637-f09d66c4a6a9"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

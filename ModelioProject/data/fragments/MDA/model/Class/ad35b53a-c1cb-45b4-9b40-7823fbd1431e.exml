@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Transition" version="3">
+  <DEPS>
+    <ID name="Transition" mc="Class" uid="ad35b53a-c1cb-45b4-9b40-7823fbd1431e"/>
+    <EXTID name="BehaviorRecord" mc="Class" uid="61ee7668-a159-403b-b6de-59c9007d070d"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Transition" mc="Class" uid="ad35b53a-c1cb-45b4-9b40-7823fbd1431e"/>
+    <PID name="mda" mc="Package" uid="f7298cf9-7a4b-411a-949a-fd899f7fc99a"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Transition]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="Generalization" mc="Generalization" uid="a5ba1fa7-71c5-475a-84ff-d3dfd97f8dc1"/>
+          <PID name="Transition" mc="Class" uid="ad35b53a-c1cb-45b4-9b40-7823fbd1431e"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"><![CDATA[Generalization]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <ID name="BehaviorRecord" mc="Class" uid="61ee7668-a159-403b-b6de-59c9007d070d"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
