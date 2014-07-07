@@ -1,0 +1,54 @@
+modeltype MDAScenarioTable uses MDAScenarios('mda.de.uni-augsburg');
+modeltype MDAParticipantsScenarioTable uses MDAParticipantScenarios('mdaParticipantScenarios.de.uni-augsburg');
+	
+
+transformation projectScenarios(in input : MDAScenarioTable, out output : MDAParticipantsScenarioTable);
+
+main() {
+	input.objectsOfType(Content).map mapContent();
+}
+
+mapping MDAScenarios::Content::mapContent() : MDAParticipantScenarios::Content {
+	name := self.name;
+	states += self.states.map copy();
+	participants += self.participants.map copy();
+	operations += self.operations.map copy();
+	self.participants->forEach(participant) {
+		scenarios += self.scenarios.map project(participant);
+	}
+}
+
+mapping MDAScenarios::ScenarioTable::project(in participant : MDAScenarios::Participant) : MDAParticipantsScenarioTable::ScenarioTable {
+	name := self.name;
+	result.participant := participant.map copy();
+	result.participant.scenarios += result;
+	records += self.records.map filter(participant);
+}
+
+mapping MDAScenarios::ScenarioRecord::filter(in participant : MDAScenarios::Participant) : MDAParticipantScenarios::ScenarioRecord
+	when {
+		self.sender = participant or self.receiver = participant
+	} {
+	preState := self.preState.map copy();
+	sender := self.sender.map copy();
+	operation := self.operation.map copy();
+	receiver := self.receiver.map copy();
+	postState := self.postState.map copy();
+	returnValue := self.returnValue.map copy();
+}
+
+mapping MDAScenarios::State::copy() : MDAParticipantScenarios::State {
+	name := self.name;
+}
+
+mapping MDAScenarios::Participant::copy() : MDAParticipantScenarios::Participant {
+	name := self.name;
+}
+
+mapping MDAScenarios::Operation::copy() : MDAParticipantScenarios::Operation {
+	name := self.name;
+}
+
+mapping MDAScenarios::Value::copy() : MDAParticipantScenarios::Value {
+	value := self.value;
+}
