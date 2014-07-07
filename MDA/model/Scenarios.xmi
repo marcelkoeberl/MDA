@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
-<mda:Scenarios
+<mda:Content
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:mda="mda.de.uni-augsburg"
-    xsi:schemaLocation="mda.de.uni-augsburg ScenarioTable.ecore"
+    xmlns:mda="mdaScenarios.de.uni-augsburg"
+    xsi:schemaLocation="mdaScenarios.de.uni-augsburg ScenarioTable.ecore"
     name="test">
   <scenarios
       name="BadAccount">
@@ -202,4 +202,4 @@
       name="consortium"/>
   <participants
       name="bank"/>
-</mda:Scenarios>
+</mda:Content>
