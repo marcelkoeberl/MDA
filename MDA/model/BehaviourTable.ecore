@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MDA" nsURI="mda.de.uni-augsburg" nsPrefix="mda">
+  <eClassifiers xsi:type="ecore:EClass" name="Content">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" eType="#//Participant"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messages" eType="#//Message"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviourTables" eType="#//BehaviourTable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BehaviourTable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="records" eType="#//BehaviourRecord"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BehaviourRecord">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preState" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postState" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageIn" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//Value"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageOut" eType="#//Message"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Message">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" eType="#//Participant"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//Value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Value"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Participant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
