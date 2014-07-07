@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_tY4KAAYHEeS6ksiDewSsiA" name="Test">
+  <imports href="ScenarioTable.ecore#/"/>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_vPz2cAYHEeS6ksiDewSsiA" name="main" subUnits="_1QrMsAYHEeS6ksiDewSsiA _YTUc0AYYEeSYXuvVsoVlPA">
+    <parameters xmi:id="_JKa-UAYIEeS6ksiDewSsiA" name="title">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_JKa-UQYIEeS6ksiDewSsiA" name="root">
+      <type xsi:type="ecore:EClass" href="ScenarioTable.ecore#//Content"/>
+    </parameters>
+    <parameters xmi:id="_FWddIAYLEeS6ksiDewSsiA" name="base">
+      <type xsi:type="ecore:EClass" href="ScenarioTable.ecore#//Content"/>
+    </parameters>
+    <parameterMappings xmi:id="_GPmroAYLEeS6ksiDewSsiA" source="_JKa-UQYIEeS6ksiDewSsiA" target="_5ESoQAYHEeS6ksiDewSsiA"/>
+    <parameterMappings xmi:id="_GPmroQYLEeS6ksiDewSsiA" source="_5ESoQAYHEeS6ksiDewSsiA" target="_JKa-UQYIEeS6ksiDewSsiA"/>
+    <parameterMappings xmi:id="_GPnSsAYLEeS6ksiDewSsiA" source="_FWddIAYLEeS6ksiDewSsiA" target="_EFN3sAYLEeS6ksiDewSsiA"/>
+    <parameterMappings xmi:id="_GPnSsQYLEeS6ksiDewSsiA" source="_EFN3sAYLEeS6ksiDewSsiA" target="_FWddIAYLEeS6ksiDewSsiA"/>
+    <parameterMappings xmi:id="_GPnSsgYLEeS6ksiDewSsiA" source="_JKa-UAYIEeS6ksiDewSsiA" target="_B9VFgAYIEeS6ksiDewSsiA"/>
+    <parameterMappings xmi:id="_GPnSswYLEeS6ksiDewSsiA" source="_B9VFgAYIEeS6ksiDewSsiA" target="_JKa-UAYIEeS6ksiDewSsiA"/>
+    <parameterMappings xmi:id="_dXycQAYYEeSYXuvVsoVlPA" source="_JKa-UQYIEeS6ksiDewSsiA" target="_ZjWhUAYYEeSYXuvVsoVlPA"/>
+    <parameterMappings xmi:id="_dXycQQYYEeSYXuvVsoVlPA" source="_ZjWhUAYYEeSYXuvVsoVlPA" target="_JKa-UQYIEeS6ksiDewSsiA"/>
+    <parameterMappings xmi:id="_dXycQgYYEeSYXuvVsoVlPA" source="_FWddIAYLEeS6ksiDewSsiA" target="_ZjWhUQYYEeSYXuvVsoVlPA"/>
+    <parameterMappings xmi:id="_dXycQwYYEeSYXuvVsoVlPA" source="_ZjWhUQYYEeSYXuvVsoVlPA" target="_FWddIAYLEeS6ksiDewSsiA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_1QrMsAYHEeS6ksiDewSsiA" name="init">
+    <parameters xmi:id="_5ESoQAYHEeS6ksiDewSsiA" name="root"/>
+    <parameters xmi:id="_EFN3sAYLEeS6ksiDewSsiA" name="base"/>
+    <parameters xmi:id="_B9VFgAYIEeS6ksiDewSsiA" name="title"/>
+    <lhs xmi:id="_1RP0cAYHEeS6ksiDewSsiA" name="Lhs">
+      <nodes xmi:id="_JeBIYAYLEeS6ksiDewSsiA" name="base" description="">
+        <type href="ScenarioTable.ecore#//Content"/>
+        <attributes xmi:id="_NRgoIAYLEeS6ksiDewSsiA" value="title">
+          <type href="ScenarioTable.ecore#//Content/name"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_1RP0cQYHEeS6ksiDewSsiA" name="Rhs">
+      <nodes xmi:id="_6XVkgAYHEeS6ksiDewSsiA" name="root" description="">
+        <type href="ScenarioTable.ecore#//Content"/>
+        <attributes xmi:id="__NfbIAYHEeS6ksiDewSsiA" value="title">
+          <type href="ScenarioTable.ecore#//Content/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_y4oVQAYdEeSYXuvVsoVlPA" name="base" description="">
+        <type href="ScenarioTable.ecore#//Content"/>
+        <attributes xmi:id="_y4oVQQYdEeSYXuvVsoVlPA" value="title">
+          <type href="ScenarioTable.ecore#//Content/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_y4oVQgYdEeSYXuvVsoVlPA" origin="_JeBIYAYLEeS6ksiDewSsiA" image="_y4oVQAYdEeSYXuvVsoVlPA"/>
+    <multiRules xmi:id="_Ez3Q8AYMEeS6ksiDewSsiA">
+      <lhs xmi:id="_Ez5tMAYMEeS6ksiDewSsiA" name="Lhs">
+        <nodes xmi:id="_Ez6UQAYMEeS6ksiDewSsiA" name="base" description="" outgoing="_TzGF0QYLEeS6ksiDewSsiA _nfnFAAYREeS6ksiDewSsiA _yB27wAYREeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Content"/>
+          <attributes xmi:id="_Ez6UQQYMEeS6ksiDewSsiA" value="title">
+            <type href="ScenarioTable.ecore#//Content/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_TzE3sAYLEeS6ksiDewSsiA" name="st" incoming="_TzGF0QYLEeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//State"/>
+        </nodes>
+        <nodes xmi:id="_nfkowAYREeS6ksiDewSsiA" name="op" incoming="_nfnFAAYREeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Operation"/>
+        </nodes>
+        <nodes xmi:id="_yB1toAYREeS6ksiDewSsiA" name="pa" incoming="_yB27wAYREeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Participant"/>
+        </nodes>
+        <edges xmi:id="_TzGF0QYLEeS6ksiDewSsiA" source="_Ez6UQAYMEeS6ksiDewSsiA" target="_TzE3sAYLEeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Content/states"/>
+        </edges>
+        <edges xmi:id="_nfnFAAYREeS6ksiDewSsiA" source="_Ez6UQAYMEeS6ksiDewSsiA" target="_nfkowAYREeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Content/operations"/>
+        </edges>
+        <edges xmi:id="_yB27wAYREeS6ksiDewSsiA" source="_Ez6UQAYMEeS6ksiDewSsiA" target="_yB1toAYREeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Content/participants"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_Ez5tMQYMEeS6ksiDewSsiA" name="Rhs">
+        <nodes xmi:id="_TzFewAYLEeS6ksiDewSsiA" name="stNew" incoming="_ttOFgAYLEeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//State"/>
+        </nodes>
+        <nodes xmi:id="_Ez67UAYMEeS6ksiDewSsiA" name="root" description="" outgoing="_ttOFgAYLEeS6ksiDewSsiA _9piJgAYREeS6ksiDewSsiA _Gg7oAAYSEeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Content"/>
+          <attributes xmi:id="_Ez67UQYMEeS6ksiDewSsiA" value="title">
+            <type href="ScenarioTable.ecore#//Content/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_nfmd8AYREeS6ksiDewSsiA" name="opNew" incoming="_9piJgAYREeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Operation"/>
+        </nodes>
+        <nodes xmi:id="_yB1toQYREeS6ksiDewSsiA" name="paNew" incoming="_Gg7oAAYSEeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Participant"/>
+        </nodes>
+        <nodes xmi:id="_y4oVQwYdEeSYXuvVsoVlPA" name="base" description="">
+          <type href="ScenarioTable.ecore#//Content"/>
+          <attributes xmi:id="_y4oVRAYdEeSYXuvVsoVlPA" value="title">
+            <type href="ScenarioTable.ecore#//Content/name"/>
+          </attributes>
+        </nodes>
+        <edges xmi:id="_ttOFgAYLEeS6ksiDewSsiA" source="_Ez67UAYMEeS6ksiDewSsiA" target="_TzFewAYLEeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Content/states"/>
+        </edges>
+        <edges xmi:id="_9piJgAYREeS6ksiDewSsiA" source="_Ez67UAYMEeS6ksiDewSsiA" target="_nfmd8AYREeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Content/operations"/>
+        </edges>
+        <edges xmi:id="_Gg7oAAYSEeS6ksiDewSsiA" source="_Ez67UAYMEeS6ksiDewSsiA" target="_yB1toQYREeS6ksiDewSsiA">
+          <type href="ScenarioTable.ecore#//Content/participants"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_TzGF0AYLEeS6ksiDewSsiA" origin="_TzE3sAYLEeS6ksiDewSsiA" image="_TzFewAYLEeS6ksiDewSsiA"/>
+      <mappings xmi:id="_nfmd8QYREeS6ksiDewSsiA" origin="_nfkowAYREeS6ksiDewSsiA" image="_nfmd8AYREeS6ksiDewSsiA"/>
+      <mappings xmi:id="_yB2UsAYREeS6ksiDewSsiA" origin="_yB1toAYREeS6ksiDewSsiA" image="_yB1toQYREeS6ksiDewSsiA"/>
+      <mappings xmi:id="_y4oVRQYdEeSYXuvVsoVlPA" origin="_Ez6UQAYMEeS6ksiDewSsiA" image="_y4oVQwYdEeSYXuvVsoVlPA"/>
+      <multiMappings xmi:id="_Ez6UQgYMEeS6ksiDewSsiA" origin="_JeBIYAYLEeS6ksiDewSsiA" image="_Ez6UQAYMEeS6ksiDewSsiA"/>
+      <multiMappings xmi:id="_Ez67UgYMEeS6ksiDewSsiA" origin="_6XVkgAYHEeS6ksiDewSsiA" image="_Ez67UAYMEeS6ksiDewSsiA"/>
+      <multiMappings xmi:id="_y4o8UwYdEeSYXuvVsoVlPA" origin="_y4oVQAYdEeSYXuvVsoVlPA" image="_y4oVQwYdEeSYXuvVsoVlPA"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_zTAy4AYXEeSYXuvVsoVlPA" name="moveScenario">
+    <parameters xmi:id="_5LMuQAYXEeSYXuvVsoVlPA" name="root"/>
+    <parameters xmi:id="_5LMuQQYXEeSYXuvVsoVlPA" name="base"/>
+    <lhs xmi:id="_zTi-YAYXEeSYXuvVsoVlPA" name="Lhs">
+      <nodes xmi:id="_6slBcAYXEeSYXuvVsoVlPA" name="root">
+        <type href="ScenarioTable.ecore#//Content"/>
+      </nodes>
+      <nodes xmi:id="_7o7ViAYXEeSYXuvVsoVlPA" name="base" outgoing="_BuzHAAYYEeSYXuvVsoVlPA">
+        <type href="ScenarioTable.ecore#//Content"/>
+      </nodes>
+      <nodes xmi:id="__GUB0AYXEeSYXuvVsoVlPA" name="sct" incoming="_BuzHAAYYEeSYXuvVsoVlPA">
+        <type href="ScenarioTable.ecore#//ScenarioTable"/>
+      </nodes>
+      <edges xmi:id="_BuzHAAYYEeSYXuvVsoVlPA" source="_7o7ViAYXEeSYXuvVsoVlPA" target="__GUB0AYXEeSYXuvVsoVlPA">
+        <type href="ScenarioTable.ecore#//Content/scenarios"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_zTi-YQYXEeSYXuvVsoVlPA" name="Rhs">
+      <nodes xmi:id="_6smPkAYXEeSYXuvVsoVlPA" name="root" outgoing="__GUo4gYXEeSYXuvVsoVlPA">
+        <type href="ScenarioTable.ecore#//Content"/>
+      </nodes>
+      <nodes xmi:id="_7o7VqQYXEeSYXuvVsoVlPA" name="base">
+        <type href="ScenarioTable.ecore#//Content"/>
+      </nodes>
+      <nodes xmi:id="__GUo4AYXEeSYXuvVsoVlPA" name="sct" incoming="__GUo4gYXEeSYXuvVsoVlPA">
+        <type href="ScenarioTable.ecore#//ScenarioTable"/>
+      </nodes>
+      <edges xmi:id="__GUo4gYXEeSYXuvVsoVlPA" source="_6smPkAYXEeSYXuvVsoVlPA" target="__GUo4AYXEeSYXuvVsoVlPA">
+        <type href="ScenarioTable.ecore#//Content/scenarios"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_6smPkQYXEeSYXuvVsoVlPA" origin="_6slBcAYXEeSYXuvVsoVlPA" image="_6smPkAYXEeSYXuvVsoVlPA"/>
+    <mappings xmi:id="_7o78CQYXEeSYXuvVsoVlPA" origin="_7o7ViAYXEeSYXuvVsoVlPA" image="_7o7VqQYXEeSYXuvVsoVlPA"/>
+    <mappings xmi:id="__GUo4QYXEeSYXuvVsoVlPA" origin="__GUB0AYXEeSYXuvVsoVlPA" image="__GUo4AYXEeSYXuvVsoVlPA"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_YTUc0AYYEeSYXuvVsoVlPA" name="loopMoveScenario" subUnit="_zTAy4AYXEeSYXuvVsoVlPA">
+    <parameters xmi:id="_ZjWhUAYYEeSYXuvVsoVlPA" name="root"/>
+    <parameters xmi:id="_ZjWhUQYYEeSYXuvVsoVlPA" name="base"/>
+    <parameterMappings xmi:id="_bfSpkAYYEeSYXuvVsoVlPA" source="_ZjWhUAYYEeSYXuvVsoVlPA" target="_5LMuQAYXEeSYXuvVsoVlPA"/>
+    <parameterMappings xmi:id="_bfSpkQYYEeSYXuvVsoVlPA" source="_5LMuQAYXEeSYXuvVsoVlPA" target="_ZjWhUAYYEeSYXuvVsoVlPA"/>
+    <parameterMappings xmi:id="_bfSpkgYYEeSYXuvVsoVlPA" source="_ZjWhUQYYEeSYXuvVsoVlPA" target="_5LMuQQYXEeSYXuvVsoVlPA"/>
+    <parameterMappings xmi:id="_bfSpkwYYEeSYXuvVsoVlPA" source="_5LMuQQYXEeSYXuvVsoVlPA" target="_ZjWhUQYYEeSYXuvVsoVlPA"/>
+  </units>
+</henshin:Module>
