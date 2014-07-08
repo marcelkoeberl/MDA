@@ -34,7 +34,7 @@ mapping MDAScenarios::ScenarioRecord::filter(in participant : MDAScenarios::Part
 	operation := self.operation.map copy();
 	receiver := self.receiver.map copy();
 	postState := self.postState.map copy();
-	returnValue := self.returnValue.map copy();
+	returnValue := self.returnValue.copy();
 }
 
 mapping MDAScenarios::State::copy() : MDAParticipantScenarios::State {
@@ -49,6 +49,9 @@ mapping MDAScenarios::Operation::copy() : MDAParticipantScenarios::Operation {
 	name := self.name;
 }
 
-mapping MDAScenarios::Value::copy() : MDAParticipantScenarios::Value {
-	value := self.value;
+helper MDAScenarios::Value::copy() : MDAParticipantScenarios::Value {
+	var res := object MDAParticipantScenarios::Value {
+		value := self.value;
+	};
+	return res;
 }
