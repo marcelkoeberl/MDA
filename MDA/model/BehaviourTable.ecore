@@ -10,7 +10,7 @@
         upperBound="-1" eType="#//Operation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="messages" ordered="false"
         upperBound="-1" eType="#//Message" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviourTables" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviours" ordered="false"
         upperBound="-1" eType="#//BehaviourTable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" ordered="false"
         upperBound="-1" eType="#//Operation" containment="true"/>

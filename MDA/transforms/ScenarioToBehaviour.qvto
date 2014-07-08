@@ -19,7 +19,7 @@ mapping MDAParticipantsScenarioTable::Content::toBehaviour() : MDABehaviourTable
 	var tmpMessages := removeDuplicateMessages(tmpMessagesDupl);
 	messages += self.scenarios.map toMessages(tmpMessages);
 	
-	behaviourTables += self.scenarios.map toBehaviour();
+	behaviours += self.scenarios.map toBehaviour(tmpMessages);
 }
 
 mapping MDAParticipantsScenarioTable::ScenarioTable::toMessages(in msgList : Set(TmpMessage)) : Set(MDABehaviourTable::Message) {
@@ -36,9 +36,9 @@ helper MDAParticipantsScenarioTable::ScenarioTable::collectMessages(in opList : 
 	return list;
 }
 
-mapping MDAParticipantsScenarioTable::ScenarioTable::toBehaviour() : MDABehaviourTable::BehaviourTable {
+mapping MDAParticipantsScenarioTable::ScenarioTable::toBehaviour(in msgList : Set(TmpMessage)) : MDABehaviourTable::BehaviourTable {
 	name := self.name;
-	records += self.records.map toBehaviourRecord(self.participant);
+	records += self.records.map toBehaviourRecord(self.participant, self.records, msgList);
 }
 
 mapping MDAParticipantsScenarioTable::ScenarioRecord::toMessage(in msgList : Set(TmpMessage)) : MDABehaviourTable::Message {
@@ -47,6 +47,19 @@ mapping MDAParticipantsScenarioTable::ScenarioRecord::toMessage(in msgList : Set
 													 msg.receiver = self.receiver.map copy() and
 													 msg.returnValue.value = self.returnValue.value)->any(t : TmpMessage | true).map copy();
 	}
+}
+
+mapping MDAParticipantsScenarioTable::ScenarioRecord::toBehaviourRecord(in subject : MDAParticipantsScenarioTable::Participant,
+																		in messageSequence : OrderedSet(MDAParticipantsScenarioTable::ScenarioRecord),
+																		in msgList : Set(TmpMessage)) : MDABehaviourTable::BehaviourRecord
+	when {
+		subject = self.receiver;
+	} {
+	preState := self.preState.map copy();
+	messageIn := self.operation.map copy();
+	messageOut := messageSequence->messagesAfter(self).map toMessage(msgList);
+	returnValue := self.returnValue.copy();
+	postState := self.postState.map copy();
 }
 
 helper MDAParticipantsScenarioTable::ScenarioRecord::getTmpMessage(in opList : Set(MDABehaviours::Operation)) : TmpMessage {
@@ -59,14 +72,23 @@ helper MDAParticipantsScenarioTable::ScenarioRecord::getTmpMessage(in opList : S
 	};
 }
 
-mapping MDAParticipantsScenarioTable::ScenarioRecord::toBehaviourRecord(in subject : MDAParticipantsScenarioTable::Participant) : MDABehaviourTable::BehaviourRecord
-	when {
-		subject = self.receiver;
-	} {
-	preState := self.preState.map copy();
-	messageIn := self.operation.map copy();
-	returnValue := self.returnValue.copy();
-	postState := self.postState.map copy();
+helper OrderedSet(MDAParticipantsScenarioTable::ScenarioRecord)::messagesAfter(in start : MDAParticipantsScenarioTable::ScenarioRecord) : Sequence(MDAParticipantsScenarioTable::ScenarioRecord) {
+	var list = object Sequence(MDAParticipantsScenarioTable::ScenarioRecord) {};
+	
+	var copying := false;
+	self->forEach(record) {
+		if (record = start) {
+			copying := true;
+		} else if (copying = true) {
+			if (record.receiver = start.receiver) {
+				break;
+			} else {
+				list += record;
+			};
+		};
+	};
+	
+	return list;
 }
 
 mapping MDAParticipantsScenarioTable::State::copy() : MDABehaviourTable::State {
