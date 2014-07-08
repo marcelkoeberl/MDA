@@ -1,14 +1,13 @@
 modeltype MDAScenarioTable uses MDAScenarios('mdaScenarios.de.uni-augsburg');
 modeltype MDAParticipantsScenarioTable uses MDAParticipantScenarios('mdaParticipantScenarios.de.uni-augsburg');
-	
 
 transformation projectScenarios(in input : MDAScenarioTable, out output : MDAParticipantsScenarioTable);
 
 main() {
-	input.objectsOfType(Content).map mapContent();
+	input.objectsOfType(Content).map projectParticipants();
 }
 
-mapping MDAScenarios::Content::mapContent() : MDAParticipantScenarios::Content {
+mapping MDAScenarios::Content::projectParticipants() : MDAParticipantScenarios::Content {
 	name := self.name;
 	states += self.states.map copy();
 	participants += self.participants.map copy();

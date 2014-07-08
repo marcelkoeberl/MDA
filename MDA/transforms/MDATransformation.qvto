@@ -1,0 +1,12 @@
+import ScenarioProjection;
+import ScenarioToBehaviour;
+
+modeltype MDAScenarioTable uses MDAScenarios('mdaScenarios.de.uni-augsburg');
+modeltype MDAParticipantsScenarioTable uses MDAParticipantScenarios('mdaParticipantScenarios.de.uni-augsburg');
+modeltype MDABehaviourTable uses MDABehaviours('mdaBehaviours.de.uni-augsburg');
+
+transformation MDATransformation(in input : MDAScenarioTable, out output : MDABehaviourTable);
+
+main() {
+	input.objectsOfType(Content).map projectParticipants().map toBehaviour();
+}
