@@ -14,11 +14,14 @@
         upperBound="-1" eType="#//BehaviourTable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" ordered="false"
         upperBound="-1" eType="#//Operation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BehaviourTable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="records" upperBound="-1"
         eType="#//BehaviourRecord" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participant" lowerBound="1"
+        eType="#//Participant"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BehaviourRecord">
     <eStructuralFeatures xsi:type="ecore:EReference" name="preState" unique="false"

@@ -8,6 +8,8 @@ main() {
 }
 
 mapping MDAParticipantsScenarioTable::Content::toBehaviour() : MDABehaviourTable::Content {
+	name := self.name;
+	
 	states += self.states.map copy();
 	participants += self.participants.map copy();
 	operations += self.operations.map copy();
@@ -39,6 +41,7 @@ helper MDAParticipantsScenarioTable::ScenarioTable::collectMessages(in opList : 
 mapping MDAParticipantsScenarioTable::ScenarioTable::toBehaviour(in msgList : Set(TmpMessage)) : MDABehaviourTable::BehaviourTable {
 	name := self.name;
 	records += self.records.map toBehaviourRecord(self.participant, self.records, msgList);
+	participant := self.participant.map copy();
 }
 
 mapping MDAParticipantsScenarioTable::ScenarioRecord::toMessage(in msgList : Set(TmpMessage)) : MDABehaviourTable::Message {
