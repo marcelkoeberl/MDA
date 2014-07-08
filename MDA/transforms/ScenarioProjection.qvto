@@ -1,4 +1,4 @@
-modeltype MDAScenarioTable uses MDAScenarios('mda.de.uni-augsburg');
+modeltype MDAScenarioTable uses MDAScenarios('mdaScenarios.de.uni-augsburg');
 modeltype MDAParticipantsScenarioTable uses MDAParticipantScenarios('mdaParticipantScenarios.de.uni-augsburg');
 	
 
