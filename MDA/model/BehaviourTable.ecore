@@ -1,36 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MDABehaviours" nsURI="mda.de.uni-augsburg" nsPrefix="mdaBehaviours">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MDABehaviours" nsURI="mdaBehaviours.de.uni-augsburg" nsPrefix="mdaBehaviours">
   <eClassifiers xsi:type="ecore:EClass" name="Content">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="states" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" eType="#//Participant"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" eType="#//Operation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="messages" eType="#//Message"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="values" eType="#//Value"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviourTables" eType="#//BehaviourTable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" ordered="false"
+        upperBound="-1" eType="#//State" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" ordered="false"
+        upperBound="-1" eType="#//Participant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" ordered="false"
+        upperBound="-1" eType="#//Operation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messages" ordered="false"
+        upperBound="-1" eType="#//Message" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviourTables" ordered="false"
+        upperBound="-1" eType="#//BehaviourTable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" ordered="false"
+        upperBound="-1" eType="#//Operation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BehaviourTable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="records" eType="#//BehaviourRecord"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="records" upperBound="-1"
+        eType="#//BehaviourRecord" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BehaviourRecord">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preState" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="postState" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="messageIn" eType="#//Operation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//Value"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="messageOut" eType="#//Message"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preState" unique="false"
+        lowerBound="1" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postState" unique="false"
+        lowerBound="1" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageIn" unique="false"
+        lowerBound="1" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" unique="false"
+        lowerBound="1" eType="#//Value" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageOut" unique="false"
+        lowerBound="1" upperBound="-1" eType="#//Message"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Message">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" eType="#//Participant"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//Operation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//Value"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Value"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Message">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
+        eType="#//Participant"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" unique="false"
+        lowerBound="1" eType="#//Value" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
+        eType="#//Operation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Value">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Participant">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

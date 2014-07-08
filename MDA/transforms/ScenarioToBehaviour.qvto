@@ -1,0 +1,123 @@
+modeltype MDAParticipantsScenarioTable uses MDAParticipantScenarios('mdaParticipantScenarios.de.uni-augsburg');
+modeltype MDABehaviourTable uses MDABehaviours('mdaBehaviours.de.uni-augsburg');
+
+transformation ScenarioToBehaviour(in input : MDAParticipantsScenarioTable, out output : MDABehaviourTable);
+
+main() {
+	input.objectsOfType(MDAParticipantsScenarioTable::Content).map toBehaviour();
+}
+
+mapping MDAParticipantsScenarioTable::Content::toBehaviour() : MDABehaviourTable::Content {
+	states += self.states.map copy();
+	participants += self.participants.map copy();
+	operations += self.operations.map copy();
+	
+	var tmpMessagesDupl := object Set(TmpMessage) {};
+	self.scenarios->forEach(scenario) {
+		tmpMessagesDupl += scenario.collectMessages(operations);
+	};
+	var tmpMessages := removeDuplicateMessages(tmpMessagesDupl);
+	messages += self.scenarios.map toMessages(tmpMessages);
+	
+	behaviourTables += self.scenarios.map toBehaviour();
+}
+
+mapping MDAParticipantsScenarioTable::ScenarioTable::toMessages(in msgList : Set(TmpMessage)) : Set(MDABehaviourTable::Message) {
+	init {
+		result := self.records.map toMessage(msgList)->asSet();
+	}
+}
+
+helper MDAParticipantsScenarioTable::ScenarioTable::collectMessages(in opList : Set(MDABehaviours::Operation)) : Set(TmpMessage) {
+	var list := object Set(TmpMessage) {};
+	self.records->forEach(record) {
+		list += record.getTmpMessage(opList);
+	};
+	return list;
+}
+
+mapping MDAParticipantsScenarioTable::ScenarioTable::toBehaviour() : MDABehaviourTable::BehaviourTable {
+	name := self.name;
+	records += self.records.map toBehaviourRecord(self.participant);
+}
+
+mapping MDAParticipantsScenarioTable::ScenarioRecord::toMessage(in msgList : Set(TmpMessage)) : MDABehaviourTable::Message {
+	init {
+		result := msgList->select(msg : TmpMessage | msg.operation.name = self.operation.name and
+													 msg.receiver = self.receiver.map copy() and
+													 msg.returnValue.value = self.returnValue.value)->any(t : TmpMessage | true).map copy();
+	}
+}
+
+helper MDAParticipantsScenarioTable::ScenarioRecord::getTmpMessage(in opList : Set(MDABehaviours::Operation)) : TmpMessage {
+	return object TmpMessage {
+		operation := opList->any(op : MDABehaviours::Operation | op.name = self.operation.name);
+		receiver := self.receiver.map copy();
+		returnValue := object TmpValue {
+			value := self.returnValue.value;
+		}
+	};
+}
+
+mapping MDAParticipantsScenarioTable::ScenarioRecord::toBehaviourRecord(in subject : MDAParticipantsScenarioTable::Participant) : MDABehaviourTable::BehaviourRecord
+	when {
+		subject = self.receiver;
+	} {
+	preState := self.preState.map copy();
+	messageIn := self.operation.map copy();
+	returnValue := self.returnValue.copy();
+	postState := self.postState.map copy();
+}
+
+mapping MDAParticipantsScenarioTable::State::copy() : MDABehaviourTable::State {
+	name := self.name;
+}
+
+mapping MDAParticipantsScenarioTable::Participant::copy() : MDABehaviourTable::Participant {
+	name := self.name;
+}
+
+mapping MDAParticipantsScenarioTable::Operation::copy() : MDABehaviourTable::Operation {
+	name := self.name;
+}
+
+helper MDAParticipantsScenarioTable::Value::copy() : MDABehaviourTable::Value {
+	var res := object MDABehaviourTable::Value {
+		value := self.value;
+	};
+	return res;
+}
+
+
+intermediate class TmpMessage {
+	operation : MDABehaviours::Operation;
+	receiver : MDABehaviourTable::Participant;
+	returnValue : TmpValue;
+}
+
+intermediate class TmpValue {
+	value : String;
+}
+
+mapping TmpMessage::copy() : MDABehaviourTable::Message {
+	operation := self.operation;
+	receiver := self.receiver;
+	returnValue := self.returnValue.copy();
+}
+
+helper TmpValue::copy() : MDABehaviourTable::Value {
+	var res := object MDABehaviourTable::Value {
+		value := self.value;
+	};
+	return res;
+}
+
+helper removeDuplicateMessages(in inp : Set(TmpMessage)) : Set(TmpMessage) {
+	var list := object Set(TmpMessage) {};
+	inp->forEach(message) {
+		if (not list->exists(msg : TmpMessage | message.operation = msg.operation and message.receiver = msg.receiver and message.returnValue.value = msg.returnValue.value)) {
+			list += message;
+		};
+	};
+	return list;
+}
