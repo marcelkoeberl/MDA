@@ -4,12 +4,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="Content">
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1"
         upperBound="-1" eType="#//State" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="automatons" lowerBound="1"
-        upperBound="-1" eType="#//Automaton" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="automatons" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Automaton" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" lowerBound="1"
         upperBound="-1" eType="#//Operation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="priticipants" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
         eType="#//Participant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messages" upperBound="-1"
+        eType="#//Message" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -19,7 +22,8 @@
         eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1"
         upperBound="-1" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" eType="#//Transition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" ordered="false"
+        upperBound="-1" eType="#//Transition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="participant" lowerBound="1"
         eType="#//Participant"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -31,7 +35,7 @@
         eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//Operation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" lowerBound="1"
-        upperBound="-1" eType="#//Message" containment="true"/>
+        upperBound="-1" eType="#//Message"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" lowerBound="1"
         eType="#//Value" containment="true"/>
   </eClassifiers>
