@@ -1,12 +1,15 @@
 import ScenarioProjection;
 import ScenarioToBehaviour;
+import transforms.BehaviourToIOAutomaton;
 
 modeltype MDAScenarioTable uses MDAScenarios('mdaScenarios.de.uni-augsburg');
 modeltype MDAParticipantsScenarioTable uses MDAParticipantScenarios('mdaParticipantScenarios.de.uni-augsburg');
 modeltype MDABehaviourTable uses MDABehaviours('mdaBehaviours.de.uni-augsburg');
+modeltype MDAIOAutomaton uses MDAIOAutomata('mdaIOAutomata.de.uni-augsburg');
+	
 
-transformation MDATransformation(in input : MDAScenarioTable, out output : MDABehaviourTable);
+transformation MDATransformation(in input : MDAScenarioTable, out output : MDAIOAutomaton);
 
 main() {
-	input.objectsOfType(Content).map projectParticipants().map toBehaviour();
+	input.objectsOfType(Content).map projectParticipants().map toBehaviour().map toIOAutomaton();
 }
