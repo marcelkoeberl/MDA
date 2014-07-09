@@ -1,0 +1,74 @@
+modeltype Behaviour uses MDABehaviours('mdaBehaviours.de.uni-augsburg');
+modeltype IOAutomaton uses MDAIOAutomata('mdaIOAutomata.de.uni-augsburg');
+
+transformation BehavioursToIOAutomaton(in behaviours : Behaviour, out automaton:IOAutomaton);
+
+main() {
+	behaviours.objectsOfType(Behaviour::Content).map toIOAutomaton();
+}
+
+mapping Behaviour::Content::toIOAutomaton() : IOAutomaton::Content {
+	name := self.name;
+	states += self.states.map copyState();
+	operations += self.operations.map copyOperations();
+	participants += self.participants.map copyParticipant();
+	messages += self.messages.map copyMessages();
+	automatons := self.behaviours->map transformBehaviours();
+}
+
+mapping Behaviour::State::copyState() : IOAutomaton::State {
+	name := self.name;
+}
+
+mapping Behaviour::Operation::copyOperations() : IOAutomaton::Operation {
+	name := self.name;
+}
+
+mapping Behaviour::Participant::copyParticipant() : IOAutomaton::Participant {
+	name := self.name;
+}
+
+mapping Behaviour::Message::copyMessages() : IOAutomaton::Message {
+	returnValue := self.returnValue.map copyValue();
+	operation := self.operation.resolveone(IOAutomaton::Operation);
+	receiver := self.receiver.resolveone(IOAutomaton::Participant);
+}
+
+mapping Behaviour::Value::copyValue() : IOAutomaton::Value {
+	value := self.value;
+}
+
+mapping Set(Behaviour::BehaviourTable)::transformBehaviours() : Set(IOAutomaton::Automaton) {
+	init {
+		self->forEach(table) {
+			if(table.participant.name != "user")then {
+				var list := result->select(e | e.participant = table.participant.resolveone(IOAutomaton::Participant));
+				var automaton := null.oclAsType(Automaton);
+				if(list->isEmpty()) then {
+					automaton := object Automaton {
+						initialState := table.records->first().preState.resolveone(IOAutomaton::State);
+						var tmpParticipant = table.participant.resolveone(IOAutomaton::Participant);
+						participant := tmpParticipant;
+						name := tmpParticipant.name;
+					}
+				} else {
+					automaton := list->asOrderedSet()->first();
+				}endif;
+				table.records->forEach(record){
+					automaton.states += record.preState.resolveone(IOAutomaton::State);
+					automaton.states += record.postState.resolveone(IOAutomaton::State);
+				};
+				automaton.transitions += table.records.map transformToTransition();
+				result += automaton;
+			}endif;
+		};
+	}
+}
+
+mapping Behaviour::BehaviourRecord::transformToTransition() : IOAutomaton::Transition {
+	preState := self.preState.resolveone(IOAutomaton::State);
+	postState := self.postState.resolveone(IOAutomaton::State);
+	input := self.messageIn.resolveone(IOAutomaton::Operation);
+	returnValue := self.returnValue.map copyValue();
+	output += self.messageOut.resolve(IOAutomaton::Message);
+}
