@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_lCPnIAXDEeS7zbVP4_anrw">
+  <imports href="ScenarioTable.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_hwWkUAXeEeSzNbZNy5bjwA" name="CreateRule" description="">
+    <parameters xmi:id="_orQg8AXeEeSzNbZNy5bjwA" name="table" description="TablenameOfTheCleanedScenarioTable">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_v61GAAXeEeSzNbZNy5bjwA" name="participant" description="Name for the Participants Scenariotable">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_hwWkUQXeEeSzNbZNy5bjwA" name="Lhs">
+      <nodes xmi:id="_i9-TYQXxEeSqhumi7M5OIg" name="root">
+        <type href="ScenarioTable.ecore#//Scenarios"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_hwWkUgXeEeSzNbZNy5bjwA" name="Rhs">
+      <nodes xmi:id="_V4KfQAXnEeSzNbZNy5bjwA" name="createdScenario" incoming="_i9-TZAXxEeSqhumi7M5OIg">
+        <type href="ScenarioTable.ecore#//ScenarioTable"/>
+        <attributes xmi:id="_y-e4sAXoEeSzNbZNy5bjwA" value="table+&quot;_&quot;+participant">
+          <type href="ScenarioTable.ecore#//ScenarioTable/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_i9-TYgXxEeSqhumi7M5OIg" name="root" outgoing="_i9-TZAXxEeSqhumi7M5OIg">
+        <type href="ScenarioTable.ecore#//Scenarios"/>
+      </nodes>
+      <edges xmi:id="_i9-TZAXxEeSqhumi7M5OIg" source="_i9-TYgXxEeSqhumi7M5OIg" target="_V4KfQAXnEeSzNbZNy5bjwA">
+        <type href="ScenarioTable.ecore#//Scenarios/scenarios"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_i9-TYwXxEeSqhumi7M5OIg" origin="_i9-TYQXxEeSqhumi7M5OIg" image="_i9-TYgXxEeSqhumi7M5OIg"/>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_I0h-8AXpEeSzNbZNy5bjwA" name="Copy" subUnits="_7kt5QAXpEeSzNbZNy5bjwA _hwWkUAXeEeSzNbZNy5bjwA">
+    <parameters xmi:id="_n6OroAXpEeSzNbZNy5bjwA" name="outerT" description="">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_q8PEEAXpEeSzNbZNy5bjwA" name="outerP">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameterMappings xmi:id="_tUbqgAXpEeSzNbZNy5bjwA" source="_n6OroAXpEeSzNbZNy5bjwA" target="_orQg8AXeEeSzNbZNy5bjwA"/>
+    <parameterMappings xmi:id="_yZgG4AXpEeSzNbZNy5bjwA" source="_q8PEEAXpEeSzNbZNy5bjwA" target="_v61GAAXeEeSzNbZNy5bjwA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_7kt5QAXpEeSzNbZNy5bjwA" name="RenameRule">
+    <lhs xmi:id="_7kt5RQXpEeSzNbZNy5bjwA" name="Lhs">
+      <nodes xmi:id="_oUS30QXxEeSqhumi7M5OIg" name="root">
+        <type href="ScenarioTable.ecore#//Scenarios"/>
+      </nodes>
+      <nodes xmi:id="_v5crUAXxEeSqhumi7M5OIg" name="testpd">
+        <type href="ScenarioTable.ecore#//ScenarioTable"/>
+        <attributes xmi:id="_x4fx8AXxEeSqhumi7M5OIg" value="&quot;BadPassword&quot;">
+          <type href="ScenarioTable.ecore#//ScenarioTable/name"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_7kt5RgXpEeSzNbZNy5bjwA" name="Rhs">
+      <nodes xmi:id="_oUS30gXxEeSqhumi7M5OIg" name="root">
+        <type href="ScenarioTable.ecore#//Scenarios"/>
+      </nodes>
+      <nodes xmi:id="_IdawYAXyEeSqhumi7M5OIg" name="testpd">
+        <type href="ScenarioTable.ecore#//ScenarioTable"/>
+        <attributes xmi:id="_MvAhYAXyEeSqhumi7M5OIg" value="&quot;baderPassword&quot;">
+          <type href="ScenarioTable.ecore#//ScenarioTable/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_oUS30wXxEeSqhumi7M5OIg" origin="_oUS30QXxEeSqhumi7M5OIg" image="_oUS30gXxEeSqhumi7M5OIg"/>
+    <mappings xmi:id="_S7Cl0AXyEeSqhumi7M5OIg" origin="_v5crUAXxEeSqhumi7M5OIg" image="_IdawYAXyEeSqhumi7M5OIg"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_r5N6oAXyEeSqhumi7M5OIg" name="DeleteRule">
+    <parameters xmi:id="_Jw0AAAX0EeSqhumi7M5OIg" name="table">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_r5g1kAXyEeSqhumi7M5OIg" name="Lhs">
+      <nodes xmi:id="_hq0-kAXzEeSqhumi7M5OIg" name="">
+        <type href="ScenarioTable.ecore#//Scenarios"/>
+      </nodes>
+      <nodes xmi:id="_mb3rsAXzEeSqhumi7M5OIg" name="">
+        <type href="ScenarioTable.ecore#//ScenarioRecord"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_r5g1kQXyEeSqhumi7M5OIg" name="Rhs">
+      <nodes xmi:id="_hq0-kQXzEeSqhumi7M5OIg">
+        <type href="ScenarioTable.ecore#//Scenarios"/>
+      </nodes>
+      <nodes xmi:id="_mb3rsQXzEeSqhumi7M5OIg">
+        <type href="ScenarioTable.ecore#//ScenarioRecord"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_hq0-kgXzEeSqhumi7M5OIg" origin="_hq0-kAXzEeSqhumi7M5OIg" image="_hq0-kQXzEeSqhumi7M5OIg"/>
+    <mappings xmi:id="_mb3rsgXzEeSqhumi7M5OIg" origin="_mb3rsAXzEeSqhumi7M5OIg" image="_mb3rsQXzEeSqhumi7M5OIg"/>
+    <multiRules xmi:id="_j4g-JQXzEeSqhumi7M5OIg">
+      <lhs xmi:id="_j4g-JgXzEeSqhumi7M5OIg" name="Lhs">
+        <nodes xmi:id="_j4g-KgXzEeSqhumi7M5OIg" name="" outgoing="_j4g-IwXzEeSqhumi7M5OIg">
+          <type href="ScenarioTable.ecore#//Scenarios"/>
+        </nodes>
+        <nodes xmi:id="_AZXvgAX0EeSqhumi7M5OIg" name="" incoming="_j4g-IwXzEeSqhumi7M5OIg" outgoing="_qtKhwAXzEeSqhumi7M5OIg">
+          <type href="ScenarioTable.ecore#//ScenarioTable"/>
+        </nodes>
+        <nodes xmi:id="_Ecj4IAX0EeSqhumi7M5OIg" name="" incoming="_qtKhwAXzEeSqhumi7M5OIg">
+          <type href="ScenarioTable.ecore#//ScenarioRecord"/>
+        </nodes>
+        <edges xmi:id="_j4g-IwXzEeSqhumi7M5OIg" source="_j4g-KgXzEeSqhumi7M5OIg" target="_AZXvgAX0EeSqhumi7M5OIg">
+          <type href="ScenarioTable.ecore#//Scenarios/scenarios"/>
+        </edges>
+        <edges xmi:id="_qtKhwAXzEeSqhumi7M5OIg" source="_AZXvgAX0EeSqhumi7M5OIg" target="_Ecj4IAX0EeSqhumi7M5OIg">
+          <type href="ScenarioTable.ecore#//ScenarioTable/records"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_j4g-JwXzEeSqhumi7M5OIg" name="Rhs">
+        <nodes xmi:id="_j4g-KAXzEeSqhumi7M5OIg">
+          <type href="ScenarioTable.ecore#//Scenarios"/>
+        </nodes>
+        <nodes xmi:id="_Ecj4IwX0EeSqhumi7M5OIg">
+          <type href="ScenarioTable.ecore#//ScenarioRecord"/>
+        </nodes>
+      </rhs>
+      <mappings xmi:id="_j4g-LwXzEeSqhumi7M5OIg" origin="_j4g-KgXzEeSqhumi7M5OIg" image="_j4g-KAXzEeSqhumi7M5OIg"/>
+      <mappings xmi:id="_Ecj4JQX0EeSqhumi7M5OIg" origin="_Ecj4IAX0EeSqhumi7M5OIg" image="_Ecj4IwX0EeSqhumi7M5OIg"/>
+      <multiMappings xmi:id="_j4g-KQXzEeSqhumi7M5OIg" origin="_hq0-kQXzEeSqhumi7M5OIg" image="_j4g-KAXzEeSqhumi7M5OIg"/>
+      <multiMappings xmi:id="_j4g-KwXzEeSqhumi7M5OIg" origin="_hq0-kAXzEeSqhumi7M5OIg" image="_j4g-KgXzEeSqhumi7M5OIg"/>
+      <multiMappings xmi:id="_Ecj4IQX0EeSqhumi7M5OIg" origin="_mb3rsAXzEeSqhumi7M5OIg" image="_Ecj4IAX0EeSqhumi7M5OIg"/>
+      <multiMappings xmi:id="_Ecj4JAX0EeSqhumi7M5OIg" origin="_mb3rsQXzEeSqhumi7M5OIg" image="_Ecj4IwX0EeSqhumi7M5OIg"/>
+    </multiRules>
+  </units>
+</henshin:Module>
