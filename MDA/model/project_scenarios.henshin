@@ -10,7 +10,7 @@
     </parameters>
     <lhs xmi:id="_hwWkUQXeEeSzNbZNy5bjwA" name="Lhs">
       <nodes xmi:id="_i9-TYQXxEeSqhumi7M5OIg" name="root">
-        <type href="ScenarioTable.ecore#//Scenarios"/>
+        <type href="ScenarioTable.ecore#//Content"/>
       </nodes>
     </lhs>
     <rhs xmi:id="_hwWkUgXeEeSzNbZNy5bjwA" name="Rhs">
@@ -21,10 +21,10 @@
         </attributes>
       </nodes>
       <nodes xmi:id="_i9-TYgXxEeSqhumi7M5OIg" name="root" outgoing="_i9-TZAXxEeSqhumi7M5OIg">
-        <type href="ScenarioTable.ecore#//Scenarios"/>
+        <type href="ScenarioTable.ecore#//Content"/>
       </nodes>
       <edges xmi:id="_i9-TZAXxEeSqhumi7M5OIg" source="_i9-TYgXxEeSqhumi7M5OIg" target="_V4KfQAXnEeSzNbZNy5bjwA">
-        <type href="ScenarioTable.ecore#//Scenarios/scenarios"/>
+        <type href="ScenarioTable.ecore#//Content/content"/>
       </edges>
     </rhs>
     <mappings xmi:id="_i9-TYwXxEeSqhumi7M5OIg" origin="_i9-TYQXxEeSqhumi7M5OIg" image="_i9-TYgXxEeSqhumi7M5OIg"/>
@@ -42,7 +42,7 @@
   <units xsi:type="henshin:Rule" xmi:id="_7kt5QAXpEeSzNbZNy5bjwA" name="RenameRule">
     <lhs xmi:id="_7kt5RQXpEeSzNbZNy5bjwA" name="Lhs">
       <nodes xmi:id="_oUS30QXxEeSqhumi7M5OIg" name="root">
-        <type href="ScenarioTable.ecore#//Scenarios"/>
+        <type href="ScenarioTable.ecore#//Content"/>
       </nodes>
       <nodes xmi:id="_v5crUAXxEeSqhumi7M5OIg" name="testpd">
         <type href="ScenarioTable.ecore#//ScenarioTable"/>
@@ -53,7 +53,7 @@
     </lhs>
     <rhs xmi:id="_7kt5RgXpEeSzNbZNy5bjwA" name="Rhs">
       <nodes xmi:id="_oUS30gXxEeSqhumi7M5OIg" name="root">
-        <type href="ScenarioTable.ecore#//Scenarios"/>
+        <type href="ScenarioTable.ecore#//Content"/>
       </nodes>
       <nodes xmi:id="_IdawYAXyEeSqhumi7M5OIg" name="testpd">
         <type href="ScenarioTable.ecore#//ScenarioTable"/>
@@ -71,7 +71,7 @@
     </parameters>
     <lhs xmi:id="_r5g1kAXyEeSqhumi7M5OIg" name="Lhs">
       <nodes xmi:id="_hq0-kAXzEeSqhumi7M5OIg" name="">
-        <type href="ScenarioTable.ecore#//Scenarios"/>
+        <type href="ScenarioTable.ecore#//Content"/>
       </nodes>
       <nodes xmi:id="_mb3rsAXzEeSqhumi7M5OIg" name="">
         <type href="ScenarioTable.ecore#//ScenarioRecord"/>
@@ -79,7 +79,7 @@
     </lhs>
     <rhs xmi:id="_r5g1kQXyEeSqhumi7M5OIg" name="Rhs">
       <nodes xmi:id="_hq0-kQXzEeSqhumi7M5OIg">
-        <type href="ScenarioTable.ecore#//Scenarios"/>
+        <type href="ScenarioTable.ecore#//Content"/>
       </nodes>
       <nodes xmi:id="_mb3rsQXzEeSqhumi7M5OIg">
         <type href="ScenarioTable.ecore#//ScenarioRecord"/>
@@ -90,7 +90,7 @@
     <multiRules xmi:id="_j4g-JQXzEeSqhumi7M5OIg">
       <lhs xmi:id="_j4g-JgXzEeSqhumi7M5OIg" name="Lhs">
         <nodes xmi:id="_j4g-KgXzEeSqhumi7M5OIg" name="" outgoing="_j4g-IwXzEeSqhumi7M5OIg">
-          <type href="ScenarioTable.ecore#//Scenarios"/>
+          <type href="ScenarioTable.ecore#//Content"/>
         </nodes>
         <nodes xmi:id="_AZXvgAX0EeSqhumi7M5OIg" name="" incoming="_j4g-IwXzEeSqhumi7M5OIg" outgoing="_qtKhwAXzEeSqhumi7M5OIg">
           <type href="ScenarioTable.ecore#//ScenarioTable"/>
@@ -99,7 +99,7 @@
           <type href="ScenarioTable.ecore#//ScenarioRecord"/>
         </nodes>
         <edges xmi:id="_j4g-IwXzEeSqhumi7M5OIg" source="_j4g-KgXzEeSqhumi7M5OIg" target="_AZXvgAX0EeSqhumi7M5OIg">
-          <type href="ScenarioTable.ecore#//Scenarios/scenarios"/>
+          <type href="ScenarioTable.ecore#//Content/scenarios"/>
         </edges>
         <edges xmi:id="_qtKhwAXzEeSqhumi7M5OIg" source="_AZXvgAX0EeSqhumi7M5OIg" target="_Ecj4IAX0EeSqhumi7M5OIg">
           <type href="ScenarioTable.ecore#//ScenarioTable/records"/>
@@ -107,7 +107,7 @@
       </lhs>
       <rhs xmi:id="_j4g-JwXzEeSqhumi7M5OIg" name="Rhs">
         <nodes xmi:id="_j4g-KAXzEeSqhumi7M5OIg">
-          <type href="ScenarioTable.ecore#//Scenarios"/>
+          <type href="ScenarioTable.ecore#//Content"/>
         </nodes>
         <nodes xmi:id="_Ecj4IwX0EeSqhumi7M5OIg">
           <type href="ScenarioTable.ecore#//ScenarioRecord"/>
