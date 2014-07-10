@@ -247,18 +247,6 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CGGLYgeGEeSvbcPEnyBqwA" points="[-36, 3, 173, -18]$[-192, 21, 17, 0]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_CGInoAeGEeSvbcPEnyBqwA" id="(0.7638888888888888,0.5)"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_MHrlEAeGEeSvbcPEnyBqwA" type="4003" source="_5Q1FwAeDEeSvbcPEnyBqwA" target="_KuN3wAeGEeSvbcPEnyBqwA">
-    <children xmi:type="notation:DecorationNode" xmi:id="_MHrlEweGEeSvbcPEnyBqwA" type="6002">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_MHrlFAeGEeSvbcPEnyBqwA" x="-2" y="-16"/>
-    </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_MHrlFQeGEeSvbcPEnyBqwA" type="6004">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_MHrlFgeGEeSvbcPEnyBqwA" x="1" y="-16"/>
-    </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_MHrlEQeGEeSvbcPEnyBqwA" fontName="Segoe UI"/>
-    <element xmi:type="ecore:EReference" href="IOAutomaton.ecore#//Transition/output"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MHrlEgeGEeSvbcPEnyBqwA" points="[36, 21, -106, -64]$[132, 74, -10, -11]"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MHuBUAeGEeSvbcPEnyBqwA" id="(0.30303030303030304,0.21153846153846154)"/>
-  </edges>
   <edges xmi:type="notation:Connector" xmi:id="_RaneUAeGEeSvbcPEnyBqwA" type="4002" source="_KuN3wAeGEeSvbcPEnyBqwA" target="_Y5rtYAeFEeSvbcPEnyBqwA">
     <children xmi:type="notation:DecorationNode" xmi:id="_RaneUweGEeSvbcPEnyBqwA" type="6001">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_RaneVAeGEeSvbcPEnyBqwA" x="51" y="-15"/>
