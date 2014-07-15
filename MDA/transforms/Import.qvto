@@ -1,6 +1,33 @@
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
-modeltype ScenarioTable uses MDAScenarios('mdaScenarios.de.uni-augsburg');
+modeltype OurScenarios uses MDAScenarios('mdaScenarios.de.uni-augsburg');
 
-transformation Import(in input : UML, out output : ScenarioTable);
+transformation Import(in input : UML, out output : OurScenarios);
 
+main(){
+	var content := object OurScenarios::Content
+	{
+		name:=input.objectsOfType(UML::Model).name->any(true);
+	};
+	content.states += input.objectsOfType(UML::StateInvariant).map transformStateInvariant();
+	content.operations += input.objectsOfType(UML::Message).map transformMessage();
+	content.participants += input.objectsOfType(UML::Lifeline).represents.type.map transformParticipant();
+	content.scenarios += input.objectsOfType(UML::Interaction).map transformScenario();
+	log("Done");
+}
+
+mapping StateInvariant::transformStateInvariant():OurScenarios::State{
+	name:=self.invariant.name;
+}
+
+mapping Message::transformMessage():OurScenarios::Operation{
+	name:=self.name;
+}
+
+mapping Type::transformParticipant():OurScenarios::Participant{
+	name:=self.name;
+}
+
+mapping Interaction::transformScenario():OurScenarios::ScenarioTable{
+	name:=self.name;
+}
 	

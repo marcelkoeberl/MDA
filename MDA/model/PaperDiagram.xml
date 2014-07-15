@@ -1,0 +1,401 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<xmi:XMI xmlns:uml='http://www.eclipse.org/uml2/5.0.0/UML' xmlns:xmi='http://www.omg.org/spec/XMI/20131001'>
+	<uml:Model xmi:type='uml:Model' xmi:id='eee_1045467100313_135436_1' name='Bank-ATM'>
+		<packagedElement xmi:type='uml:Collaboration' xmi:id='_17_0_4_2_ef70352_1405428668960_521973_3238' name='BadAccount' classifierBehavior='_17_0_4_2_ef70352_1405428668959_263913_3237'>
+			<ownedBehavior xmi:type='uml:Interaction' xmi:id='_17_0_4_2_ef70352_1405428668959_263913_3237' name='BadAccount'>
+				<ownedAttribute xmi:type='uml:Property' xmi:id='_17_0_4_2_ef70352_1405428813729_370752_3305' name='customer' visibility='private' type='_17_0_4_2_ef70352_1405434024208_992836_3991'/>
+				<ownedAttribute xmi:type='uml:Property' xmi:id='_17_0_4_2_ef70352_1405428832141_229235_3318' name='atm' visibility='private' type='_17_0_4_2_ef70352_1405432173844_624819_3428'/>
+				<ownedAttribute xmi:type='uml:Property' xmi:id='_17_0_4_2_ef70352_1405428835355_993886_3331' name='consortium' visibility='private' type='_17_0_4_2_ef70352_1405432179790_864360_3429'/>
+				<ownedAttribute xmi:type='uml:Property' xmi:id='_17_0_4_2_ef70352_1405428840202_41781_3344' name='bank' visibility='private' type='_17_0_4_2_ef70352_1405432184369_840054_3430'/>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437646827_211688_3572' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437646827_173174_3573' name='WaitCard'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437646827_187784_3574'>
+							<body>WaitCard</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437705041_566275_3633' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428835354_838438_3330'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437705041_148893_3634' name='WaitVerify'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437705041_956757_3635'>
+							<body>WaitVerify</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437731483_256668_3663' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428840200_373678_3343'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437731483_440394_3664' name='WaitBankVerify'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437731483_270076_3665'>
+							<body>WaitBankVerify</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405428849878_204705_3357' visibility='public' message='_17_0_4_2_ef70352_1405428849877_243752_3356'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428813729_346820_3304'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405428849879_668962_3358' visibility='public' message='_17_0_4_2_ef70352_1405428849877_243752_3356'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405428916539_71759_3388' visibility='public' message='_17_0_4_2_ef70352_1405428916537_72892_3387'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405428916539_10929_3389' visibility='public' message='_17_0_4_2_ef70352_1405428916537_72892_3387'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428813729_346820_3304'/>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437656393_474229_3587' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437656393_428504_3588' name='WaitPassword'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437656393_110164_3589'>
+							<body>WaitPassword</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429070931_340329_3476' visibility='public' message='_17_0_4_2_ef70352_1405429070930_94193_3475'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428813729_346820_3304'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429070931_28388_3477' visibility='public' message='_17_0_4_2_ef70352_1405429070930_94193_3475'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429081938_230411_3487' visibility='public' message='_17_0_4_2_ef70352_1405429081937_626746_3486'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429081939_369087_3488' visibility='public' message='_17_0_4_2_ef70352_1405429081937_626746_3486'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428835354_838438_3330'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429090080_247630_3496' visibility='public' message='_17_0_4_2_ef70352_1405429090079_90765_3495'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428835354_838438_3330'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429090081_737984_3497' visibility='public' message='_17_0_4_2_ef70352_1405429090079_90765_3495'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428840200_373678_3343'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429104409_78580_3506' visibility='public' message='_17_0_4_2_ef70352_1405429104408_831225_3505'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428840200_373678_3343'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429104409_425523_3507' visibility='public' message='_17_0_4_2_ef70352_1405429104408_831225_3505'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428835354_838438_3330'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429112599_683851_3514' visibility='public' message='_17_0_4_2_ef70352_1405429112598_471215_3513'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428835354_838438_3330'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429112599_214625_3515' visibility='public' message='_17_0_4_2_ef70352_1405429112598_471215_3513'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429135657_113270_3530' visibility='public' message='_17_0_4_2_ef70352_1405429135656_756782_3529'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429135657_111627_3531' visibility='public' message='_17_0_4_2_ef70352_1405429135656_756782_3529'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428813729_346820_3304'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429152428_439984_3546' visibility='public' message='_17_0_4_2_ef70352_1405429152427_570790_3545'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429152429_142491_3547' visibility='public' message='_17_0_4_2_ef70352_1405429152427_570790_3545'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428813729_346820_3304'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429159419_283889_3554' visibility='public' message='_17_0_4_2_ef70352_1405429159418_536263_3553'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429159420_326667_3555' visibility='public' message='_17_0_4_2_ef70352_1405429159418_536263_3553'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428813729_346820_3304'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429167583_877254_3562' visibility='public' message='_17_0_4_2_ef70352_1405429167582_302788_3561'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429167583_801322_3563' visibility='public' message='_17_0_4_2_ef70352_1405429167582_302788_3561'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428813729_346820_3304'/>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437662609_97748_3603' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437662609_254895_3604' name='WaitTakeCard'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437662609_157878_3605'>
+							<body>WaitTakeCard</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437741179_897861_3678' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428840200_373678_3343'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437741179_95750_3679' name='WaitBankVerify'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437741179_306937_3680'>
+							<body>WaitBankVerify</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437718075_85594_3648' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428835354_838438_3330'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437718075_652557_3649' name='WaitVerify'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437718075_690481_3650'>
+							<body>WaitVerify</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429189441_4956_3585' visibility='public' message='_17_0_4_2_ef70352_1405429189440_658488_3584'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428813729_346820_3304'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429189441_382661_3586' visibility='public' message='_17_0_4_2_ef70352_1405429189440_658488_3584'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429197616_306812_3595' visibility='public' message='_17_0_4_2_ef70352_1405429197615_137196_3594'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429197617_345344_3596' visibility='public' message='_17_0_4_2_ef70352_1405429197615_137196_3594'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428813729_346820_3304'/>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437669434_850612_3618' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405428832140_347148_3317'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437669434_48573_3619' name='WaitCard'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437669434_730895_3620'>
+							<body>WaitCard</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<lifeline xmi:type='uml:Lifeline' xmi:id='_17_0_4_2_ef70352_1405428813729_346820_3304' name='customer' visibility='public' represents='_17_0_4_2_ef70352_1405428813729_370752_3305'>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405428849878_204705_3357'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405428916539_10929_3389'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429070931_340329_3476'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429135657_111627_3531'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429152429_142491_3547'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429159420_326667_3555'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429167583_801322_3563'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429189441_4956_3585'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429197617_345344_3596'/>
+				</lifeline>
+				<lifeline xmi:type='uml:Lifeline' xmi:id='_17_0_4_2_ef70352_1405428832140_347148_3317' name='atm' visibility='public' represents='_17_0_4_2_ef70352_1405428832141_229235_3318'>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405428849879_668962_3358'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405428916539_71759_3388'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429070931_28388_3477'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429081938_230411_3487'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429112599_214625_3515'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429135657_113270_3530'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429152428_439984_3546'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429159419_283889_3554'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429167583_877254_3562'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429189441_382661_3586'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429197616_306812_3595'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437646827_211688_3572'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437656393_474229_3587'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437662609_97748_3603'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437669434_850612_3618'/>
+				</lifeline>
+				<lifeline xmi:type='uml:Lifeline' xmi:id='_17_0_4_2_ef70352_1405428835354_838438_3330' name='consortium' visibility='public' represents='_17_0_4_2_ef70352_1405428835355_993886_3331'>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429081939_369087_3488'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429090080_247630_3496'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429104409_425523_3507'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429112599_683851_3514'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437705041_566275_3633'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437718075_85594_3648'/>
+				</lifeline>
+				<lifeline xmi:type='uml:Lifeline' xmi:id='_17_0_4_2_ef70352_1405428840200_373678_3343' name='bank' visibility='public' represents='_17_0_4_2_ef70352_1405428840202_41781_3344'>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429090081_737984_3497'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429104409_78580_3506'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437731483_256668_3663'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437741179_897861_3678'/>
+				</lifeline>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405428849877_243752_3356' name='insertCard' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405428849879_668962_3358' sendEvent='_17_0_4_2_ef70352_1405428849878_204705_3357' signature='_17_0_4_2_ef70352_1405433518659_387856_3967'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405428916537_72892_3387' name='requestPassword' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405428916539_10929_3389' sendEvent='_17_0_4_2_ef70352_1405428916539_71759_3388' signature='_17_0_4_2_ef70352_1405434037669_792419_3992'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429070930_94193_3475' name='enterPassword' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429070931_28388_3477' sendEvent='_17_0_4_2_ef70352_1405429070931_340329_3476' signature='_17_0_4_2_ef70352_1405433538611_133642_3968'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429081937_626746_3486' name='verifyAccount' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429081939_369087_3488' sendEvent='_17_0_4_2_ef70352_1405429081938_230411_3487' signature='_17_0_4_2_ef70352_1405434062562_514650_3993'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429090079_90765_3495' name='verifyCardWithBank' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429090081_737984_3497' sendEvent='_17_0_4_2_ef70352_1405429090080_247630_3496' signature='_17_0_4_2_ef70352_1405434074517_325847_3994'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429104408_831225_3505' name='badBankAccount' visibility='public' messageSort='reply' receiveEvent='_17_0_4_2_ef70352_1405429104409_425523_3507' sendEvent='_17_0_4_2_ef70352_1405429104409_78580_3506'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429112598_471215_3513' name='badAccount' visibility='public' messageSort='reply' receiveEvent='_17_0_4_2_ef70352_1405429112599_214625_3515' sendEvent='_17_0_4_2_ef70352_1405429112599_683851_3514'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429135656_756782_3529' name='badAccountMessage' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429135657_111627_3531' sendEvent='_17_0_4_2_ef70352_1405429135657_113270_3530' signature='_17_0_4_2_ef70352_1405434113279_938750_3995'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429152427_570790_3545' name='printReceipt' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429152429_142491_3547' sendEvent='_17_0_4_2_ef70352_1405429152428_439984_3546' signature='_17_0_4_2_ef70352_1405434121457_401549_3996'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429159418_536263_3553' name='ejectCard' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429159420_326667_3555' sendEvent='_17_0_4_2_ef70352_1405429159419_283889_3554' signature='_17_0_4_2_ef70352_1405434126673_52940_3997'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429167582_302788_3561' name='requestTakeCard' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429167583_801322_3563' sendEvent='_17_0_4_2_ef70352_1405429167583_877254_3562' signature='_17_0_4_2_ef70352_1405434131792_556888_3998'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429189440_658488_3584' name='takeCard' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429189441_382661_3586' sendEvent='_17_0_4_2_ef70352_1405429189441_4956_3585' signature='_17_0_4_2_ef70352_1405433552880_537959_3969'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429197615_137196_3594' name='displayMainScreen' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429197617_345344_3596' sendEvent='_17_0_4_2_ef70352_1405429197616_306812_3595' signature='_17_0_4_2_ef70352_1405434138037_734924_3999'/>
+			</ownedBehavior>
+		</packagedElement>
+		<packagedElement xmi:type='uml:Collaboration' xmi:id='_17_0_4_2_ef70352_1405429253546_134327_3648' name='BadPassword' classifierBehavior='_17_0_4_2_ef70352_1405429253546_748048_3647'>
+			<ownedBehavior xmi:type='uml:Interaction' xmi:id='_17_0_4_2_ef70352_1405429253546_748048_3647' name='BadPassword'>
+				<ownedAttribute xmi:type='uml:Property' xmi:id='_17_0_4_2_ef70352_1405429270361_398021_3690' name='customer' visibility='private' type='_17_0_4_2_ef70352_1405434024208_992836_3991'/>
+				<ownedAttribute xmi:type='uml:Property' xmi:id='_17_0_4_2_ef70352_1405429278091_807266_3703' name='atm' visibility='private' type='_17_0_4_2_ef70352_1405432173844_624819_3428'/>
+				<ownedAttribute xmi:type='uml:Property' xmi:id='_17_0_4_2_ef70352_1405429281817_129629_3716' name='consortium' visibility='private' type='_17_0_4_2_ef70352_1405432179790_864360_3429'/>
+				<ownedAttribute xmi:type='uml:Property' xmi:id='_17_0_4_2_ef70352_1405429285812_984056_3736' name='bank' visibility='private' type='_17_0_4_2_ef70352_1405432184369_840054_3430'/>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437431804_423770_3455' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429278090_517831_3702'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437431804_757799_3456' name='WaitPassword'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437431804_38953_3457'>
+							<body>WaitPassword</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437469104_414530_3470' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429281816_309058_3715'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437469104_198896_3471' name='WaitVerify'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437469104_992722_3472'>
+							<body>WaitVerify</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437479314_505339_3485' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429285811_738437_3735'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437479314_992062_3486' name='WaitBankVerify'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437479314_252413_3487'>
+							<body>WaitBankVerify</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429340865_348613_3801' visibility='public' message='_17_0_4_2_ef70352_1405429340864_503343_3800'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429270361_233858_3689'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429340865_421543_3802' visibility='public' message='_17_0_4_2_ef70352_1405429340864_503343_3800'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429278090_517831_3702'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429362482_284684_3841' visibility='public' message='_17_0_4_2_ef70352_1405429362481_623625_3840'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429278090_517831_3702'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429362483_170459_3842' visibility='public' message='_17_0_4_2_ef70352_1405429362481_623625_3840'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429281816_309058_3715'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429370612_197360_3851' visibility='public' message='_17_0_4_2_ef70352_1405429370611_207517_3850'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429281816_309058_3715'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429370613_229921_3852' visibility='public' message='_17_0_4_2_ef70352_1405429370611_207517_3850'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429285811_738437_3735'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429390611_106716_3861' visibility='public' message='_17_0_4_2_ef70352_1405429390610_583118_3860'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429285811_738437_3735'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429390611_375755_3862' visibility='public' message='_17_0_4_2_ef70352_1405429390610_583118_3860'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429281816_309058_3715'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429431253_664625_3870' visibility='public' message='_17_0_4_2_ef70352_1405429431252_940817_3869'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429281816_309058_3715'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429431254_258427_3871' visibility='public' message='_17_0_4_2_ef70352_1405429431252_940817_3869'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429278090_517831_3702'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429539406_497155_3878' visibility='public' message='_17_0_4_2_ef70352_1405429539405_846240_3877'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429278090_517831_3702'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429539406_61241_3879' visibility='public' message='_17_0_4_2_ef70352_1405429539405_846240_3877'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429270361_233858_3689'/>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437588000_354643_3532' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429278090_517831_3702'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437588000_840793_3533' name='WaitPassword'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437588000_878723_3534'>
+							<body>WaitPassword</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429559450_625271_3901' visibility='public' message='_17_0_4_2_ef70352_1405429559449_608533_3900'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429270361_233858_3689'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429559451_149867_3902' visibility='public' message='_17_0_4_2_ef70352_1405429559449_608533_3900'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429278090_517831_3702'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429812499_168635_3917' visibility='public' message='_17_0_4_2_ef70352_1405429812498_524635_3916'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429278090_517831_3702'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429812499_967524_3918' visibility='public' message='_17_0_4_2_ef70352_1405429812498_524635_3916'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429270361_233858_3689'/>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437496810_974989_3515' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429281816_309058_3715'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437496810_649138_3516' name='WaitVerify'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437496810_532965_3517'>
+							<body>WaitVerify</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437489704_131961_3500' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429285811_738437_3735'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437489704_114373_3501' name='WaitBankVerify'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437489704_774566_3502'>
+							<body>WaitBankVerify</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429819791_384931_3925' visibility='public' message='_17_0_4_2_ef70352_1405429819790_18792_3924'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429278090_517831_3702'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429819791_229572_3926' visibility='public' message='_17_0_4_2_ef70352_1405429819790_18792_3924'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429270361_233858_3689'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429825642_815806_3933' visibility='public' message='_17_0_4_2_ef70352_1405429825641_977597_3932'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429278090_517831_3702'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405429825642_900078_3934' visibility='public' message='_17_0_4_2_ef70352_1405429825641_977597_3932'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429270361_233858_3689'/>
+				</fragment>
+				<fragment xmi:type='uml:StateInvariant' xmi:id='_17_0_4_2_ef70352_1405437606564_335579_3547' visibility='public'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405429278090_517831_3702'/>
+					<invariant xmi:type='uml:Constraint' xmi:id='_17_0_4_2_ef70352_1405437606564_984379_3548' name='WaitTakeCard'>
+						<specification xmi:type='uml:OpaqueExpression' xmi:id='_17_0_4_2_ef70352_1405437606564_663657_3549'>
+							<body>WaitTakeCard</body>
+						</specification>
+					</invariant>
+				</fragment>
+				<lifeline xmi:type='uml:Lifeline' xmi:id='_17_0_4_2_ef70352_1405429270361_233858_3689' name='customer' visibility='public' represents='_17_0_4_2_ef70352_1405429270361_398021_3690'>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429340865_348613_3801'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429539406_61241_3879'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429559450_625271_3901'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429812499_967524_3918'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429819791_229572_3926'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429825642_900078_3934'/>
+				</lifeline>
+				<lifeline xmi:type='uml:Lifeline' xmi:id='_17_0_4_2_ef70352_1405429278090_517831_3702' name='atm' visibility='public' represents='_17_0_4_2_ef70352_1405429278091_807266_3703'>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429340865_421543_3802'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429362482_284684_3841'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429431254_258427_3871'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429539406_497155_3878'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429559451_149867_3902'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429812499_168635_3917'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429819791_384931_3925'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429825642_815806_3933'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437431804_423770_3455'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437588000_354643_3532'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437606564_335579_3547'/>
+				</lifeline>
+				<lifeline xmi:type='uml:Lifeline' xmi:id='_17_0_4_2_ef70352_1405429281816_309058_3715' name='consortium' visibility='public' represents='_17_0_4_2_ef70352_1405429281817_129629_3716'>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429362483_170459_3842'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429370612_197360_3851'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429390611_375755_3862'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429431253_664625_3870'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437469104_414530_3470'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437496810_974989_3515'/>
+				</lifeline>
+				<lifeline xmi:type='uml:Lifeline' xmi:id='_17_0_4_2_ef70352_1405429285811_738437_3735' name='bank' visibility='public' represents='_17_0_4_2_ef70352_1405429285812_984056_3736'>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429370613_229921_3852'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405429390611_106716_3861'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437479314_505339_3485'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405437489704_131961_3500'/>
+				</lifeline>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429340864_503343_3800' name='enterPassword' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429340865_421543_3802' sendEvent='_17_0_4_2_ef70352_1405429340865_348613_3801' signature='_17_0_4_2_ef70352_1405433538611_133642_3968'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429362481_623625_3840' name='verifyAccount' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429362483_170459_3842' sendEvent='_17_0_4_2_ef70352_1405429362482_284684_3841' signature='_17_0_4_2_ef70352_1405434062562_514650_3993'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429370611_207517_3850' name='verifyCardWithBank' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429370613_229921_3852' sendEvent='_17_0_4_2_ef70352_1405429370612_197360_3851' signature='_17_0_4_2_ef70352_1405434074517_325847_3994'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429390610_583118_3860' name='badBankPassword' visibility='public' messageSort='reply' receiveEvent='_17_0_4_2_ef70352_1405429390611_375755_3862' sendEvent='_17_0_4_2_ef70352_1405429390611_106716_3861'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429431252_940817_3869' name='badPassword' visibility='public' messageSort='reply' receiveEvent='_17_0_4_2_ef70352_1405429431254_258427_3871' sendEvent='_17_0_4_2_ef70352_1405429431253_664625_3870'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429539405_846240_3877' name='requestPassword' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429539406_61241_3879' sendEvent='_17_0_4_2_ef70352_1405429539406_497155_3878' signature='_17_0_4_2_ef70352_1405434037669_792419_3992'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429559449_608533_3900' name='cancel' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429559451_149867_3902' sendEvent='_17_0_4_2_ef70352_1405429559450_625271_3901' signature='_17_0_4_2_ef70352_1405433557761_659045_3970'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429812498_524635_3916' name='canceledMessage' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429812499_967524_3918' sendEvent='_17_0_4_2_ef70352_1405429812499_168635_3917' signature='_17_0_4_2_ef70352_1405435181620_233796_4326'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429819790_18792_3924' name='ejectCard' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429819791_229572_3926' sendEvent='_17_0_4_2_ef70352_1405429819791_384931_3925' signature='_17_0_4_2_ef70352_1405434126673_52940_3997'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405429825641_977597_3932' name='requestTakeCard' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405429825642_900078_3934' sendEvent='_17_0_4_2_ef70352_1405429825642_815806_3933' signature='_17_0_4_2_ef70352_1405434131792_556888_3998'/>
+			</ownedBehavior>
+		</packagedElement>
+		<packagedElement xmi:type='uml:Class' xmi:id='_17_0_4_2_ef70352_1405432173844_624819_3428' name='ATM'>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405433518659_387856_3967' name='insertCard' visibility='public'/>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405433538611_133642_3968' name='enterPassword' visibility='public'/>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405433552880_537959_3969' name='takeCard' visibility='public'/>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405433557761_659045_3970' name='cancel' visibility='public'/>
+		</packagedElement>
+		<packagedElement xmi:type='uml:Class' xmi:id='_17_0_4_2_ef70352_1405432179790_864360_3429' name='CONSORTIUM'>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405434062562_514650_3993' name='verifyAccount' visibility='public'/>
+		</packagedElement>
+		<packagedElement xmi:type='uml:Class' xmi:id='_17_0_4_2_ef70352_1405432184369_840054_3430' name='BANK'>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405434074517_325847_3994' name='verifyCardWithBank' visibility='public'/>
+		</packagedElement>
+		<packagedElement xmi:type='uml:Class' xmi:id='_17_0_4_2_ef70352_1405434024208_992836_3991' name='CUSTOMER'>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405434037669_792419_3992' name='requestPassword' visibility='public'/>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405434113279_938750_3995' name='badAccountMessage' visibility='public'/>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405434121457_401549_3996' name='printReceipt' visibility='public'/>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405434126673_52940_3997' name='ejectCard' visibility='public'/>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405434131792_556888_3998' name='requestTakeCard' visibility='public'/>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405434138037_734924_3999' name='displayMainScreen' visibility='public'/>
+			<ownedOperation xmi:type='uml:Operation' xmi:id='_17_0_4_2_ef70352_1405435181620_233796_4326' name='canceledMessage' visibility='public'/>
+		</packagedElement>
+	</uml:Model>
+</xmi:XMI>
