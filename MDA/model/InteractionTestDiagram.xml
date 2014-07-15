@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<xmi:XMI xmlns:uml='http://www.omg.org/spec/UML/20110701' xmlns:xmi='http://www.omg.org/spec/XMI/20110701'>
+	<uml:Model xmi:type='uml:Model' xmi:id='eee_1045467100313_135436_1' name='Data'>
+		<packagedElement xmi:type='uml:Collaboration' xmi:id='_17_0_4_2_ef70352_1405421454631_688875_3238' name='TestInteractionDiagram' classifierBehavior='_17_0_4_2_ef70352_1405421454625_866060_3237'>
+			<ownedBehavior xmi:type='uml:Interaction' xmi:id='_17_0_4_2_ef70352_1405421454625_866060_3237' name='TestInteractionDiagram'>
+				<ownedAttribute xmi:type='uml:Property' xmi:id='_17_0_4_2_ef70352_1405421461310_506313_3272' name='Sender' visibility='private'/>
+				<ownedAttribute xmi:type='uml:Property' xmi:id='_17_0_4_2_ef70352_1405421463019_797377_3285' name='Receiver' visibility='private'/>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405422721219_722879_3299' visibility='public' message='_17_0_4_2_ef70352_1405422721211_430967_3298'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405421461307_869679_3271'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405422721221_330530_3300' visibility='public' message='_17_0_4_2_ef70352_1405422721211_430967_3298'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405421463018_79773_3284'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405422759080_233964_3320' visibility='public' message='_17_0_4_2_ef70352_1405422759079_3820_3319'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405421463018_79773_3284'/>
+				</fragment>
+				<fragment xmi:type='uml:MessageOccurrenceSpecification' xmi:id='_17_0_4_2_ef70352_1405422759081_807950_3321' visibility='public' message='_17_0_4_2_ef70352_1405422759079_3820_3319'>
+					<covered xmi:idref='_17_0_4_2_ef70352_1405421461307_869679_3271'/>
+				</fragment>
+				<lifeline xmi:type='uml:Lifeline' xmi:id='_17_0_4_2_ef70352_1405421461307_869679_3271' visibility='public' represents='_17_0_4_2_ef70352_1405421461310_506313_3272'>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405422721219_722879_3299'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405422759081_807950_3321'/>
+				</lifeline>
+				<lifeline xmi:type='uml:Lifeline' xmi:id='_17_0_4_2_ef70352_1405421463018_79773_3284' visibility='public' represents='_17_0_4_2_ef70352_1405421463019_797377_3285'>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405422721221_330530_3300'/>
+					<coveredBy xmi:idref='_17_0_4_2_ef70352_1405422759080_233964_3320'/>
+				</lifeline>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405422721211_430967_3298' name='Testmessage' visibility='public' receiveEvent='_17_0_4_2_ef70352_1405422721221_330530_3300' sendEvent='_17_0_4_2_ef70352_1405422721219_722879_3299'/>
+				<message xmi:type='uml:Message' xmi:id='_17_0_4_2_ef70352_1405422759079_3820_3319' name='Testresponse' visibility='public' messageSort='reply' receiveEvent='_17_0_4_2_ef70352_1405422759081_807950_3321' sendEvent='_17_0_4_2_ef70352_1405422759080_233964_3320'/>
+			</ownedBehavior>
+		</packagedElement>
+	</uml:Model>
+</xmi:XMI>
