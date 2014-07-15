@@ -1,0 +1,117 @@
+modeltype IOAutomaton uses MDAIOAutomata('mdaIOAutomata.de.uni-augsburg');
+modeltype IntermediateStateMachine uses MDAIntermediateStateMachine('mdaIntermediateStateMachine.de.uni-augsburg');
+
+transformation IOAutomationToIntermediate(in automata : IOAutomaton, out stateMachines : IntermediateStateMachine);
+
+main() {
+	automata.objectsOfType(Content).map toStateMachine();
+}
+
+mapping IOAutomaton::Content::toStateMachine() : IntermediateStateMachine::Content {
+	name := self.name;
+	participants += self.participants.map copy();
+	operations += self.operations.map copy();
+	messages += self.messages.map copy();
+	states += self.states.map copy();
+	states += self.automatons.map getActivityStates();
+	automatons += self.automatons.map copy();
+}
+
+mapping IOAutomaton::Participant::copy() : IntermediateStateMachine::Participant {
+	name := self.name;
+}
+
+mapping IOAutomaton::Operation::copy() : IntermediateStateMachine::Operation {
+	name := self.name;
+}
+
+mapping IOAutomaton::Message::copy() : IntermediateStateMachine::Message {
+	operation := self.operation.map copy();
+	receiver := self.receiver.map copy();
+	returnValue := self.returnValue.copy();
+}
+
+mapping IOAutomaton::State::copy() : IntermediateStateMachine::State {
+	name := self.name;
+}
+
+mapping IOAutomaton::Automaton::copy() : IntermediateStateMachine::Automaton {
+	name := self.name;
+	initialState := self.initialState.map copy();
+	participant := self.participant.map copy();
+	states += self.states.map copy();
+	var orderedTransitions := self.transitions->asOrderedSet();
+	var activityStates := orderedTransitions->map toActivityState();
+	states += activityStates;
+	transitions += orderedTransitions->map toInputTransition(activityStates);
+	transitions += orderedTransitions.map toOutputTransition(activityStates);
+}
+
+mapping IOAutomaton::Automaton::getActivityStates() : Set(IntermediateStateMachine::State) {
+	init {
+		result := self.transitions->map toActivityState();
+	}
+}
+
+mapping Set(IOAutomaton::Transition)::toActivityState() : Set(IntermediateStateMachine::State) {
+	init {
+		self->forEach(transition) {
+			var list := result->select(state | transition.input.name = state.name);
+			var state := null.oclAsType(IntermediateStateMachine::State);
+			if(list->isEmpty()) then {
+				state := object IntermediateStateMachine::State {
+					name := transition.input.name;
+				};
+			} else {
+				state := list->asOrderedSet()->first();
+			}endif;
+			state.sequences += transition.output->map toSequence();
+			result += state;
+		}
+	}
+}
+
+mapping IOAutomaton::Transition::toActivityState(in states : Set(IntermediateStateMachine::State)) : IntermediateStateMachine::State {
+	init {
+		var list := states->select(state | state.name = self.input.name);
+		if (not list->isEmpty()) {
+			result := list->asOrderedSet()->first();
+		};
+	}
+}
+
+mapping Set(IOAutomaton::Transition)::toInputTransition(in states : Set(IntermediateStateMachine::State)) : Set(IntermediateStateMachine::Transition) {
+	init {
+		self->forEach(transition) {
+			var list := result->select(tr | transition.input.name = tr.input.name);
+			if(list->isEmpty()) then {
+				var trans := object IntermediateStateMachine::Transition {
+					input := transition.input.map copy();
+					preState := transition.preState.map copy();
+					postState := transition.map toActivityState(states);
+				};
+				result += trans;
+			}endif;
+		}
+	}
+}
+
+mapping IOAutomaton::Transition::toOutputTransition(in states : Set(IntermediateStateMachine::State)) : IntermediateStateMachine::Transition {
+	returnValue := self.returnValue.copy();
+	preState := self.map toActivityState(states);
+	postState := self.postState.map copy();
+}
+
+mapping OrderedSet(IOAutomaton::Message)::toSequence() : IntermediateStateMachine::MessageSequence {
+	self->forEach(message) {
+		messages += message.map copy();
+	}
+}
+
+helper IOAutomaton::Value::copy() : IntermediateStateMachine::Value {
+	var res := object IntermediateStateMachine::Value {
+		value := self.value;
+	};
+	return res;
+}
+
