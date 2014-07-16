@@ -56,15 +56,6 @@ mapping Type::transformParticipant():OurScenarios::Participant{
 	name:=self.name;
 }
 
-//This method just builds up a dictionary of Index and States for defined Lifelines
-//each participant has one Dictionary. This means, it fills up a 2D-Dict
-//Lifeline -> GlobalIndex -> State
-helper StateInvariant::buildStateDict(){
-	//If build. Iterate through the keys per lifeline and search after the biggest a smaller b and the smallest c greater b
-	//b is the MessageOccurance. a < b < c is then the optimum for a = preState and b = postState
-	//Maybe not needed...
-}
-
 mapping Interaction::transformScenario(in c: OurScenarios::Content):OurScenarios::ScenarioTable{
 	name:=self.name;
 	records += self.fragment.map transformFragment(c);
@@ -115,6 +106,7 @@ mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::C
 		log(thePreState + " | " + self.message.signature.name +" | " + thePostState);
 }
 
+//Deprecated and not used...
 helper Set(InteractionFragment)::getObectByIndex(in index: Integer):InteractionFragment{
 	var act := 0;
 	self->forEach(element){
@@ -124,4 +116,15 @@ helper Set(InteractionFragment)::getObectByIndex(in index: Integer):InteractionF
 		act := act +1;
 	};
 	return null;
+}
+
+
+//Also deprecated!
+//This method just builds up a dictionary of Index and States for defined Lifelines
+//each participant has one Dictionary. This means, it fills up a 2D-Dict
+//Lifeline -> GlobalIndex -> State
+helper StateInvariant::buildStateDict(){
+	//If build. Iterate through the keys per lifeline and search after the biggest a smaller b and the smallest c greater b
+	//b is the MessageOccurance. a < b < c is then the optimum for a = preState and b = postState
+	//Maybe not needed...
 }
