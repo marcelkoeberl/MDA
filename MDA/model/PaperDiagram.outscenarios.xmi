@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mdaScenarios:Content xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdaScenarios="mdaScenarios.de.uni-augsburg" xsi:schemaLocation="mdaScenarios.de.uni-augsburg ScenarioTable.ecore" name="Bank-ATM">
-  <scenarios name="BadAccount"/>
-  <scenarios name="BadPassword"/>
+  <scenarios name="BadPassword">
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+  </scenarios>
+  <scenarios name="BadAccount">
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+    <records/>
+  </scenarios>
   <states name="WaitCard"/>
   <states name="WaitVerify"/>
   <states name="WaitBankVerify"/>
   <states name="WaitPassword"/>
   <states name="WaitTakeCard"/>
+  <operations name="printReceipt"/>
   <operations name="requestPassword"/>
+  <operations name="insertCard"/>
+  <operations name="canceledMessage"/>
+  <operations name="verifyAccount"/>
   <operations name="verifyCardWithBank"/>
   <operations name="enterPassword"/>
-  <operations name="canceledMessage"/>
-  <operations name="cancel"/>
-  <operations name="insertCard"/>
-  <operations name="printReceipt"/>
-  <operations name="ejectCard"/>
-  <operations name="badAccountMessage"/>
-  <operations name="verifyAccount"/>
   <operations name="requestTakeCard"/>
   <operations name="displayMainScreen"/>
+  <operations name="cancel"/>
+  <operations name="badAccountMessage"/>
   <operations name="takeCard"/>
-  <participants name="BANK"/>
+  <operations name="ejectCard"/>
   <participants name="CUSTOMER"/>
+  <participants name="BANK"/>
   <participants name="CONSORTIUM"/>
   <participants name="ATM"/>
 </mdaScenarios:Content>

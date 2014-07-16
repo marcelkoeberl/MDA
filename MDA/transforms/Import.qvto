@@ -17,7 +17,7 @@ main(){
 	content.participants += input.objectsOfType(UML::Lifeline).represents.type.map transformParticipant();
 	log("Tranfsormed Participants");
 	
-	content.scenarios += input.objectsOfType(UML::Interaction).map transformScenario();
+	content.scenarios += input.objectsOfType(UML::Interaction).map transformScenario(content);
 	log("Transformed Scenarios");
 
 	log("Done");
@@ -56,8 +56,33 @@ mapping Type::transformParticipant():OurScenarios::Participant{
 	name:=self.name;
 }
 
-mapping Interaction::transformScenario():OurScenarios::ScenarioTable{
-	name:=self.name;
-	records += 
+//This method just builds up a dictionary of Index and States for defined Lifelines
+//each participant has one Dictionary. This means, it fills up a 2D-Dict
+//Lifeline -> GlobalIndex -> State
+helper StateInvariant::buildStateDict(){
+	//If build. Iterate through the keys per lifeline and search after the biggest a smaller b and the smallest c greater b
+	//b is the MessageOccurance. a < b < c is then the optimum for a = preState and b = postState
 }
+
+mapping Interaction::transformScenario(in c: OurScenarios::Content):OurScenarios::ScenarioTable{
+	name:=self.name;
+	records += self.fragment.map transformFragment(c);
+}
+
+mapping InteractionFragment::transformFragment(in c : OurScenarios::Content):OurScenarios::ScenarioRecord
+	disjuncts MessageOccurrenceSpecification::transformFragment;
 	
+mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::Content):OurScenarios::ScenarioRecord
+	when {
+	//Precondition. We only need to take this OccuranceSpec if it is a ReceiveEvent!
+		self.message.receiveEvent = self;
+	}{
+		//we have one receiveEvent here. First get the sender and receiver
+		receiver := c.participants->select(p | p.name = self.covered.represents->any(true).type.name)->first();
+		sender := c.participants->select(p | p.name = self.message.sendEvent.oclAsType(UML::MessageOccurrenceSpecification).covered.represents->any(true).type.name)->first();
+		operation := c.operations->select(o | o.name = self.message.signature.name)->first();
+		returnValue := object OurScenarios::Value{
+			value := "TODO -- Its Unknown yet!";
+		};
+		//TODO Build this all up as helperfunction. You need to get the indezes between
+}
