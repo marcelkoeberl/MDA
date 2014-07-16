@@ -62,6 +62,7 @@ mapping Type::transformParticipant():OurScenarios::Participant{
 helper StateInvariant::buildStateDict(){
 	//If build. Iterate through the keys per lifeline and search after the biggest a smaller b and the smallest c greater b
 	//b is the MessageOccurance. a < b < c is then the optimum for a = preState and b = postState
+	//Maybe not needed...
 }
 
 mapping Interaction::transformScenario(in c: OurScenarios::Content):OurScenarios::ScenarioTable{
@@ -84,5 +85,43 @@ mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::C
 		returnValue := object OurScenarios::Value{
 			value := "TODO -- Its Unknown yet!";
 		};
-		//TODO Build this all up as helperfunction. You need to get the indezes between
+		
+		//It gives us a set. hopefully in the right order :/
+		var fragmentList := input.objectsOfType(UML::InteractionFragment);
+		var before = true;
+		var thePreState := "";
+		var thePostState := "";
+		fragmentList->forEach(element){
+			//We go through every interactionfragment and buffer the prestate until we found the self element
+			//The next state is the postState
+			if (element.oclIsTypeOf(UML::StateInvariant)){
+				var elementState := element.oclAsType(UML::StateInvariant);
+				//It must be our Lifeline!
+				if (elementState.covered = self.covered){
+					if (before){
+						thePreState := element.oclAsType(UML::StateInvariant).invariant.name;
+					}else{
+						thePostState := element.oclAsType(UML::StateInvariant).invariant.name;
+						break;
+					}
+				}
+			}else if (element.oclIsTypeOf(UML::MessageOccurrenceSpecification)){
+				if (element = self){
+					before := false;
+				}
+			};
+		};
+		//TODO This that is in here has to be written back to the usual Content
+		log(thePreState + " | " + self.message.signature.name +" | " + thePostState);
+}
+
+helper Set(InteractionFragment)::getObectByIndex(in index: Integer):InteractionFragment{
+	var act := 0;
+	self->forEach(element){
+		if (act=index){
+			return element;
+		}endif;
+		act := act +1;
+	};
+	return null;
 }
