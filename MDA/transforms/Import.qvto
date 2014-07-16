@@ -8,18 +8,47 @@ main(){
 	{
 		name:=input.objectsOfType(UML::Model).name->any(true);
 	};
-	content.states += input.objectsOfType(UML::StateInvariant).map transformStateInvariant();
-	content.operations += input.objectsOfType(UML::Message).map transformMessage();
+	content.states := input.objectsOfType(UML::StateInvariant)->copyStateInvariant();
+	log("Copied States");
+	log(input.objectsOfType(UML::Message).signature->size().toString());
+	content.operations += input.objectsOfType(UML::Message).signature->oclAsType(UML::NamedElement).map transformMessage();
+	log("Tranfsormed Messages");
+	
 	content.participants += input.objectsOfType(UML::Lifeline).represents.type.map transformParticipant();
+	log("Tranfsormed Participants");
+	
 	content.scenarios += input.objectsOfType(UML::Interaction).map transformScenario();
+	log("Transformed Scenarios");
+
 	log("Done");
 }
 
-mapping StateInvariant::transformStateInvariant():OurScenarios::State{
-	name:=self.invariant.name;
+helper Collection(StateInvariant)::copyStateInvariant():OrderedSet(OurScenarios::State){
+	var retList := object OrderedSet(OurScenarios::State){
+		
+	};
+	self->forEach(element){
+		if (retList->select ( state | state.name = element.invariant.name)->isEmpty()){
+			retList += object OurScenarios::State{
+				name := element.invariant.name;
+			}
+		}endif;
+	};
+	log("reduced to "+ retList->size().toString() +" states");
+	return retList;
 }
 
-mapping Message::transformMessage():OurScenarios::Operation{
+mapping NamedElement::transformMessage():OurScenarios::Operation
+	disjuncts Operation::transformMessage,
+			Signal::transformMessage;
+
+mapping UML::Operation::transformMessage():OurScenarios::Operation{
+	log("Mapped Operation:"+ self.name);
+	name:=self.name;
+}
+
+mapping UML::Signal::transformMessage():OurScenarios::Operation{
+	log("Mapped Signal:" +self.name);
 	name:=self.name;
 }
 
