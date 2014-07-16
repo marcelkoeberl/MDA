@@ -58,5 +58,6 @@ mapping Type::transformParticipant():OurScenarios::Participant{
 
 mapping Interaction::transformScenario():OurScenarios::ScenarioTable{
 	name:=self.name;
+	records += 
 }
 	
