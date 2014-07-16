@@ -67,12 +67,12 @@ mapping InteractionFragment::transformFragment(in c : OurScenarios::Content):Our
 mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::Content):OurScenarios::ScenarioRecord
 	when {
 	//Precondition. We only need to take this OccuranceSpec if it is a ReceiveEvent!
-		self.message.receiveEvent = self;
+		self.message.receiveEvent = self and self.message.messageSort = MessageSort::synchCall;
 	}{
 		//we have one receiveEvent here. First get the sender and receiver
-		receiver := c.participants->select(p | p.name = self.covered.represents->any(true).type.name)->first();
-		sender := c.participants->select(p | p.name = self.message.sendEvent.oclAsType(UML::MessageOccurrenceSpecification).covered.represents->any(true).type.name)->first();
-		operation := c.operations->select(o | o.name = self.message.signature.name)->first();
+		receiver := self.covered->any(true).represents.type.resolveone(OurScenarios::Participant);//c.participants->select(p | p.name = self.covered.represents->any(true).type.name)->first();
+		sender := self.message.sendEvent.oclAsType(MessageOccurrenceSpecification).covered->any(true).represents.type.resolveone(OurScenarios::Participant);//c.participants->select(p | p.name = self.message.sendEvent.oclAsType(UML::MessageOccurrenceSpecification).covered.represents->any(true).type.name)->first();
+		operation := self.message.signature.resolveone(OurScenarios::Operation);//c.operations->select(o | o.name = self.message.signature.name)->first();
 		returnValue := object OurScenarios::Value{
 			value := "TODO -- Its Unknown yet!";
 		};
