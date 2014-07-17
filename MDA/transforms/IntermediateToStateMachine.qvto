@@ -1,0 +1,184 @@
+modeltype IntermediateStateMachine uses MDAIntermediateStateMachine('mdaIntermediateStateMachine.de.uni-augsburg');
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+	
+
+transformation IntermediateToStateMachine(in intermediateSM : IntermediateStateMachine, out stateMachine : UML);
+
+main() {
+	intermediateSM.objectsOfType(Content).map toStateMachine();
+}
+
+mapping IntermediateStateMachine::Content::toStateMachine() : UML::Model {
+	name := self.name;
+	packagedElement += self.automatons.map toStateMachine();
+}
+
+mapping IntermediateStateMachine::Automaton::toStateMachine() : UML::StateMachine {
+	name := self.name;
+	region += object UML::Region {
+		subvertex += self.states.map copy();
+	}
+}
+
+mapping IntermediateStateMachine::State::copy() : UML::State {
+	name := self.name;
+	if (not self.sequences->isEmpty()) {
+		var tmpSequences := self.sequences.map toTemporary();
+		region += tmpSequences->map toSubStateMachine();
+	}
+}
+
+mapping IntermediateStateMachine::MessageSequence::toTemporary() : TmpMessageSequence {
+	messages := self.messages;	
+}
+
+mapping Sequence(TmpMessageSequence)::toSubStateMachine() : UML::Region {
+	var entry := object UML::Pseudostate {
+		kind := UML::PseudostateKind::entryPoint;
+	};
+	subvertex += entry;
+	var firstState := self->createSubStates(result);
+	transition += object UML::Transition {
+		source := entry;
+		target := firstState;
+	};
+}
+
+helper Sequence(TmpMessageSequence)::createSubStates(inout region : UML::Region) : UML::State {
+	if (self->size() = 1) {
+		var onlyState := object UML::State {
+			doActivity := object UML::Interaction {
+				name := self->first().toString();
+			}
+		};
+		region.subvertex += onlyState;
+		var exitPoint := object UML::Pseudostate {
+			kind := UML::PseudostateKind::exitPoint;
+		};
+		region.subvertex += exitPoint;
+		region.transition += object UML::Transition {
+			source := onlyState;
+			target := exitPoint;
+		};
+		return onlyState;
+	} else {
+		var firstState := object UML::State {};
+		region.subvertex += firstState;
+		var commonPrefix := self->findCommonPrefix();
+		var stateInteractions := commonPrefix.toString();
+		var reducedSequences := self.map RemovePrefix(commonPrefix.messages->size());
+		if (reducedSequences->isDeterministicBranch()) {
+			stateInteractions := stateInteractions.concat("check := ")
+												  .concat(reducedSequences->first().messages->first().receiver.name)
+												  .concat(".")
+												  .concat(reducedSequences->first().messages->first().operation.name);
+			var branchValues := reducedSequences->getDeterministicBranchValues();
+			var branches := reducedSequences->splitDeterministic();
+			var i := 0;
+			branches->forEach(branch) {
+				i := i + 1;
+				var branchState := branch->createSubStates(region);
+				region.subvertex += branchState;
+				region.transition += object UML::Transition {
+					source := firstState;
+					target := branchState;
+					guard := object UML::Constraint {
+						specification := object UML::OpaqueExpression {
+							body := "check = ".concat(branchValues->at(i).value);
+						};
+					};
+				};
+			};
+		} else {
+			stateInteractions := stateInteractions.concat("indeterministic branch");
+		};
+		firstState.doActivity := object UML::Interaction {
+			name := stateInteractions;
+		};
+		return firstState;
+	};
+	// unreachable
+	return null;
+}
+
+helper TmpMessageSequence::toString() : String {
+	var output := "";
+	self.messages->forEach(message) {
+		output := output.concat(message.receiver.name).concat(".").concat(message.operation.name);
+	};
+	return output;
+}
+
+helper Sequence(TmpMessageSequence)::findCommonPrefix() : TmpMessageSequence {
+	var output := object TmpMessageSequence {};
+	var i := 1;
+	self->first().messages->forEach(message) {
+		self->forEach(sequence) {
+			if (not (sequence.messages->at(i) = message)) {
+				return output;
+			}
+		};
+		output.messages += message;
+		i := i + 1;
+	};
+	return output;
+}
+
+mapping TmpMessageSequence::RemovePrefix(in prefixLength : Integer) : TmpMessageSequence {
+	var i := 0;
+	self.messages->forEach(message) {
+		if (i < prefixLength) {
+			i := i + 1;
+		} else {
+			result.messages += message;
+		};
+	}
+}
+
+mapping Sequence(TmpMessageSequence)::RemovePrefix(in prefixLength : Integer) : Sequence(TmpMessageSequence) {
+	init {
+		result := self.map RemovePrefix(prefixLength);
+	}
+}
+
+helper Sequence(TmpMessageSequence)::isDeterministicBranch() : Boolean {
+	self->forEach(seq1) {
+		self->forEach(seq2) {
+			if ((not (seq1.messages->first().operation = seq2.messages->first().operation)) or
+				(not (seq1.messages->first().receiver = seq2.messages->first().receiver))) {
+				return false;
+			};
+		};
+	};
+	return true;
+}
+
+helper Sequence(TmpMessageSequence)::getDeterministicBranchValues() : OrderedSet(Value) {
+	var values := object OrderedSet(IntermediateStateMachine::Value) {};
+	self->forEach(sequence) {
+		if (values->select(val | val.value = sequence.messages->first().returnValue.value)->size() = 0) {
+			values += sequence.messages->first().returnValue;
+		};
+	};
+	return values;
+}
+
+helper Sequence(TmpMessageSequence)::splitDeterministic() : Sequence(Sequence(TmpMessageSequence)) {
+	var values := object Sequence(Sequence(TmpMessageSequence)) {};
+	self->forEach(sequence) {
+		var match := values->select(seqSet | seqSet->first().messages->first() = sequence.messages->first());
+		if (match->size() = 0) {
+			var newSet := object Sequence(TmpMessageSequence) {};
+			newSet += sequence;
+			values := values->including(newSet);
+		} else {
+			match->first()->append(sequence);
+		}
+	};
+	return values->map RemovePrefix(1);
+}
+
+intermediate class TmpMessageSequence {
+	messages : Sequence(IntermediateStateMachine::Message);
+}
+	
