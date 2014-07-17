@@ -81,8 +81,8 @@ mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::C
 		//It gives us a set. hopefully in the right order :/
 		var fragmentList := input.objectsOfType(UML::InteractionFragment);
 		var before = true;
-		var thePreState := "";
-		var thePostState := "";
+		var thePreState := null.oclAsType(OurScenarios::State);
+		var thePostState := null.oclAsType(OurScenarios::State);
 		fragmentList->forEach(element){
 			//We go through every interactionfragment and buffer the prestate until we found the self element
 			//The next state is the postState
@@ -91,9 +91,9 @@ mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::C
 				//It must be our Lifeline!
 				if (elementState.covered = self.covered){
 					if (before){
-						thePreState := element.oclAsType(UML::StateInvariant).invariant.name;
+						thePreState := c.getState(element.oclAsType(UML::StateInvariant));
 					}else{
-						thePostState := element.oclAsType(UML::StateInvariant).invariant.name;
+						thePostState := c.getState(element.oclAsType(UML::StateInvariant));
 						break;
 					}
 				}
@@ -103,8 +103,12 @@ mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::C
 				}
 			};
 		};
-		//TODO This that is in here has to be written back to the usual Content
-		log(thePreState + " | " + self.message.signature.name +" | " + thePostState);
+		preState := thePreState;
+		postState := thePostState;
+}
+
+helper Content::getState(in inv : StateInvariant):OurScenarios::State{
+	return self.states->select(state|state.name = inv.invariant.name)->any(true);
 }
 
 helper MessageOccurrenceSpecification::getReturnValue(in invoker:Participant):String{
@@ -114,11 +118,9 @@ helper MessageOccurrenceSpecification::getReturnValue(in invoker:Participant):St
 		if(fragment.oclIsTypeOf(MessageOccurrenceSpecification) and fragment.covered->exists(l|l=lifeline)){
 			if(fragment = self){
 				foundSelf := true;
-				log("found self");
 			}
 			else if(foundSelf and fragment.oclAsType(MessageOccurrenceSpecification).isSendingToParticipant(invoker)){
 				var message := fragment.oclAsType(MessageOccurrenceSpecification).message;
-				log("nextMsg: " + message.signature.name.toString() + " sort: " +message.messageSort.toString());
 				if(message.messageSort = MessageSort::reply){
 					return message.name;
 				}else {
@@ -131,28 +133,7 @@ helper MessageOccurrenceSpecification::getReturnValue(in invoker:Participant):St
 }
 
 helper MessageOccurrenceSpecification::isSendingToParticipant(in participant:Participant):Boolean{
-	log(self.message.receiveEvent.oclAsType(MessageOccurrenceSpecification).covered->any(true).represents.type.name);
 	return self.message.receiveEvent.oclAsType(MessageOccurrenceSpecification).covered->any(true).represents.type.resolveone(Participant) = participant;
-}
-
-//todelete
-helper Interaction::getNextSendMsgOccSpec(in lifeline:Lifeline,in mos:MessageOccurrenceSpecification):MessageOccurrenceSpecification{
-	var foundMOS = false;
-	self.fragment->forEach(fragment){
-		if(fragment.oclIsTypeOf(MessageOccurrenceSpecification) and fragment.covered->exists(l|l=lifeline)) {
-			if(fragment.oclAsType(MessageOccurrenceSpecification)=mos and not foundMOS){
-				foundMOS := true;
-			}endif;
-			if(foundMOS and fragment.oclAsType(MessageOccurrenceSpecification).isSendMsgOccSpec()){
-				return fragment.oclAsType(MessageOccurrenceSpecification);
-			}
-		}endif;
-	};
-	return null;
-}
-
-helper MessageOccurrenceSpecification::isSendMsgOccSpec():Boolean{
-	return self.message.sendEvent=self;
 }
 
 //Deprecated and not used...
