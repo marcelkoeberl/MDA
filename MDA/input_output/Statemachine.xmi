@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" name="Bank-ATM">
+  <packagedElement xsi:type="uml:StateMachine" name="atm">
+    <region>
+      <transition source="//atm/@region.0/WaitCard" target="//atm/@region.0/insertCard/@region.0/@subvertex.0">
+        <trigger name="insertCard"/>
+      </transition>
+      <transition source="//atm/@region.0/WaitTakeCard" target="//atm/@region.0/takeCard/@region.0/@subvertex.0">
+        <trigger name="takeCard"/>
+      </transition>
+      <transition source="//atm/@region.0/WaitPassword" target="//atm/@region.0/enterPassword/@region.0/@subvertex.0">
+        <trigger name="enterPassword"/>
+      </transition>
+      <transition source="//atm/@region.0/WaitPassword" target="//atm/@region.0/cancel/@region.0/@subvertex.0">
+        <trigger name="cancel"/>
+      </transition>
+      <transition source="//atm/@region.0/cancel/@region.0/1" target="//atm/@region.0/WaitTakeCard">
+        <effect xsi:type="uml:Interaction" name="return Void"/>
+      </transition>
+      <transition source="//atm/@region.0/enterPassword/@region.0/1" target="//atm/@region.0/WaitTakeCard">
+        <effect xsi:type="uml:Interaction" name="return Void"/>
+      </transition>
+      <transition source="//atm/@region.0/takeCard/@region.0/1" target="//atm/@region.0/WaitCard">
+        <effect xsi:type="uml:Interaction" name="return Void"/>
+      </transition>
+      <transition source="//atm/@region.0/enterPassword/@region.0/2" target="//atm/@region.0/WaitPassword">
+        <effect xsi:type="uml:Interaction" name="return Void"/>
+      </transition>
+      <transition source="//atm/@region.0/insertCard/@region.0/1" target="//atm/@region.0/WaitPassword">
+        <effect xsi:type="uml:Interaction" name="return Void"/>
+      </transition>
+      <subvertex xsi:type="uml:State" name="WaitPassword"/>
+      <subvertex xsi:type="uml:State" name="WaitTakeCard"/>
+      <subvertex xsi:type="uml:State" name="WaitCard"/>
+      <subvertex xsi:type="uml:State" name="cancel">
+        <region>
+          <transition source="//atm/@region.0/cancel/@region.0/@subvertex.1" target="//atm/@region.0/cancel/@region.0/1"/>
+          <transition source="//atm/@region.0/cancel/@region.0/@subvertex.0" target="//atm/@region.0/cancel/@region.0/@subvertex.1"/>
+          <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+          <subvertex xsi:type="uml:State">
+            <doActivity xsi:type="uml:Interaction" name="user.canceledMessageuser.ejectCarduser.requestTakeCard"/>
+          </subvertex>
+          <subvertex xsi:type="uml:Pseudostate" name="1" kind="exitPoint"/>
+        </region>
+      </subvertex>
+      <subvertex xsi:type="uml:State" name="insertCard">
+        <region>
+          <transition source="//atm/@region.0/insertCard/@region.0/@subvertex.1" target="//atm/@region.0/insertCard/@region.0/1"/>
+          <transition source="//atm/@region.0/insertCard/@region.0/@subvertex.0" target="//atm/@region.0/insertCard/@region.0/@subvertex.1"/>
+          <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+          <subvertex xsi:type="uml:State">
+            <doActivity xsi:type="uml:Interaction" name="user.requestPassword"/>
+          </subvertex>
+          <subvertex xsi:type="uml:Pseudostate" name="1" kind="exitPoint"/>
+        </region>
+      </subvertex>
+      <subvertex xsi:type="uml:State" name="takeCard">
+        <region>
+          <transition source="//atm/@region.0/takeCard/@region.0/@subvertex.1" target="//atm/@region.0/takeCard/@region.0/1"/>
+          <transition source="//atm/@region.0/takeCard/@region.0/@subvertex.0" target="//atm/@region.0/takeCard/@region.0/@subvertex.1"/>
+          <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+          <subvertex xsi:type="uml:State">
+            <doActivity xsi:type="uml:Interaction" name="user.displayMainScreen"/>
+          </subvertex>
+          <subvertex xsi:type="uml:Pseudostate" name="1" kind="exitPoint"/>
+        </region>
+      </subvertex>
+      <subvertex xsi:type="uml:State" name="enterPassword">
+        <region>
+          <transition source="//atm/@region.0/enterPassword/@region.0/@subvertex.2" target="//atm/@region.0/enterPassword/@region.0/1"/>
+          <transition guard="//atm/@region.0/enterPassword/@region.0/@transition.1/@ownedRule.0" source="//atm/@region.0/enterPassword/@region.0/@subvertex.1" target="//atm/@region.0/enterPassword/@region.0/@subvertex.2">
+            <ownedRule>
+              <specification xsi:type="uml:OpaqueExpression">
+                <body>check = badAccount</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition source="//atm/@region.0/enterPassword/@region.0/@subvertex.4" target="//atm/@region.0/enterPassword/@region.0/2"/>
+          <transition guard="//atm/@region.0/enterPassword/@region.0/@transition.3/@ownedRule.0" source="//atm/@region.0/enterPassword/@region.0/@subvertex.1" target="//atm/@region.0/enterPassword/@region.0/@subvertex.4">
+            <ownedRule>
+              <specification xsi:type="uml:OpaqueExpression">
+                <body>check = badPassword</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition source="//atm/@region.0/enterPassword/@region.0/@subvertex.0" target="//atm/@region.0/enterPassword/@region.0/@subvertex.1"/>
+          <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+          <subvertex xsi:type="uml:State">
+            <doActivity xsi:type="uml:Interaction" name="check := consortium.verifyAccount"/>
+          </subvertex>
+          <subvertex xsi:type="uml:State">
+            <doActivity xsi:type="uml:Interaction" name="user.badAccountMessageuser.printReceiptuser.ejectCarduser.requestTakeCard"/>
+          </subvertex>
+          <subvertex xsi:type="uml:Pseudostate" name="1" kind="exitPoint"/>
+          <subvertex xsi:type="uml:State">
+            <doActivity xsi:type="uml:Interaction" name="user.requestPassword"/>
+          </subvertex>
+          <subvertex xsi:type="uml:Pseudostate" name="2" kind="exitPoint"/>
+        </region>
+      </subvertex>
+    </region>
+  </packagedElement>
+  <packagedElement xsi:type="uml:StateMachine" name="bank">
+    <region>
+      <transition source="//bank/@region.0/WaitBankVerify" target="//bank/@region.0/verifyCardWithBank/@region.0/@subvertex.0">
+        <trigger name="verifyCardWithBank"/>
+      </transition>
+      <transition source="//bank/@region.0/verifyCardWithBank/@region.0/1" target="//bank/@region.0/WaitBankVerify">
+        <effect xsi:type="uml:Interaction" name="return badBankAccount"/>
+      </transition>
+      <transition target="//bank/@region.0/WaitBankVerify">
+        <effect xsi:type="uml:Interaction" name="return badBankPassword"/>
+      </transition>
+      <subvertex xsi:type="uml:State" name="WaitBankVerify"/>
+      <subvertex xsi:type="uml:State" name="verifyCardWithBank">
+        <region>
+          <transition source="//bank/@region.0/verifyCardWithBank/@region.0/@subvertex.1" target="//bank/@region.0/verifyCardWithBank/@region.0/1"/>
+          <transition source="//bank/@region.0/verifyCardWithBank/@region.0/@subvertex.0" target="//bank/@region.0/verifyCardWithBank/@region.0/@subvertex.1"/>
+          <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+          <subvertex xsi:type="uml:State">
+            <doActivity xsi:type="uml:Interaction" name=""/>
+          </subvertex>
+          <subvertex xsi:type="uml:Pseudostate" name="1" kind="exitPoint"/>
+        </region>
+      </subvertex>
+    </region>
+  </packagedElement>
+  <packagedElement xsi:type="uml:StateMachine" name="consortium">
+    <region>
+      <transition source="//consortium/@region.0/WaitVerify" target="//consortium/@region.0/verifyAccount/@region.0/@subvertex.0">
+        <trigger name="verifyAccount"/>
+      </transition>
+      <transition source="//consortium/@region.0/verifyAccount/@region.0/1" target="//consortium/@region.0/WaitVerify">
+        <effect xsi:type="uml:Interaction" name="return badPassword"/>
+      </transition>
+      <transition source="//consortium/@region.0/verifyAccount/@region.0/2" target="//consortium/@region.0/WaitVerify">
+        <effect xsi:type="uml:Interaction" name="return badAccount"/>
+      </transition>
+      <subvertex xsi:type="uml:State" name="WaitVerify"/>
+      <subvertex xsi:type="uml:State" name="verifyAccount">
+        <region>
+          <transition source="//consortium/@region.0/verifyAccount/@region.0/@subvertex.2" target="//consortium/@region.0/verifyAccount/@region.0/1"/>
+          <transition guard="//consortium/@region.0/verifyAccount/@region.0/@transition.1/@ownedRule.0" source="//consortium/@region.0/verifyAccount/@region.0/@subvertex.1" target="//consortium/@region.0/verifyAccount/@region.0/@subvertex.2">
+            <ownedRule>
+              <specification xsi:type="uml:OpaqueExpression">
+                <body>check = badBankPassword</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition source="//consortium/@region.0/verifyAccount/@region.0/@subvertex.4" target="//consortium/@region.0/verifyAccount/@region.0/2"/>
+          <transition guard="//consortium/@region.0/verifyAccount/@region.0/@transition.3/@ownedRule.0" source="//consortium/@region.0/verifyAccount/@region.0/@subvertex.1" target="//consortium/@region.0/verifyAccount/@region.0/@subvertex.4">
+            <ownedRule>
+              <specification xsi:type="uml:OpaqueExpression">
+                <body>check = badBankAccount</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition source="//consortium/@region.0/verifyAccount/@region.0/@subvertex.0" target="//consortium/@region.0/verifyAccount/@region.0/@subvertex.1"/>
+          <subvertex xsi:type="uml:Pseudostate" kind="entryPoint"/>
+          <subvertex xsi:type="uml:State">
+            <doActivity xsi:type="uml:Interaction" name="check := bank.verifyCardWithBank"/>
+          </subvertex>
+          <subvertex xsi:type="uml:State">
+            <doActivity xsi:type="uml:Interaction" name=""/>
+          </subvertex>
+          <subvertex xsi:type="uml:Pseudostate" name="1" kind="exitPoint"/>
+          <subvertex xsi:type="uml:State">
+            <doActivity xsi:type="uml:Interaction" name=""/>
+          </subvertex>
+          <subvertex xsi:type="uml:Pseudostate" name="2" kind="exitPoint"/>
+        </region>
+      </subvertex>
+    </region>
+  </packagedElement>
+</uml:Model>

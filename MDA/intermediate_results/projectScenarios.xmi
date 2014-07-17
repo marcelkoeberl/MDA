@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdaParticipantScenarios:Content xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdaParticipantScenarios="mdaParticipantScenarios.de.uni-augsburg" xsi:schemaLocation="mdaParticipantScenarios.de.uni-augsburg ../model/ParticipantsScenarioTable.ecore" name="Bank-ATM">
+  <scenarios name="BadAccount" participant="//@participants.0">
+    <records preState="//@states.0" postState="//@states.3" sender="//@participants.3" receiver="//@participants.0" operation="//@operations.1">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.11">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.3" postState="//@states.4" sender="//@participants.3" receiver="//@participants.0" operation="//@operations.8">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.1" postState="//@states.1" sender="//@participants.0" receiver="//@participants.2" operation="//@operations.4">
+      <returnValue value="badAccount"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.2">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.3">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.6">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.7">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.4" postState="//@states.0" sender="//@participants.3" receiver="//@participants.0" operation="//@operations.0">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.9">
+      <returnValue value="Void"/>
+    </records>
+  </scenarios>
+  <scenarios name="BadPassword" participant="//@participants.0">
+    <records preState="//@states.3" postState="//@states.3" sender="//@participants.3" receiver="//@participants.0" operation="//@operations.8">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.1" postState="//@states.1" sender="//@participants.0" receiver="//@participants.2" operation="//@operations.4">
+      <returnValue value="badPassword"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.11">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.3" postState="//@states.4" sender="//@participants.3" receiver="//@participants.0" operation="//@operations.10">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.12">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.6">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.7">
+      <returnValue value="Void"/>
+    </records>
+  </scenarios>
+  <scenarios name="BadAccount" participant="//@participants.1">
+    <records preState="//@states.2" postState="//@states.2" sender="//@participants.2" receiver="//@participants.1" operation="//@operations.5">
+      <returnValue value="badBankAccount"/>
+    </records>
+  </scenarios>
+  <scenarios name="BadPassword" participant="//@participants.1">
+    <records preState="//@states.2" postState="//@states.2" sender="//@participants.2" receiver="//@participants.1" operation="//@operations.5">
+      <returnValue value="badBankPassword"/>
+    </records>
+  </scenarios>
+  <scenarios name="BadAccount" participant="//@participants.2">
+    <records preState="//@states.1" postState="//@states.1" sender="//@participants.0" receiver="//@participants.2" operation="//@operations.4">
+      <returnValue value="badAccount"/>
+    </records>
+    <records preState="//@states.2" postState="//@states.2" sender="//@participants.2" receiver="//@participants.1" operation="//@operations.5">
+      <returnValue value="badBankAccount"/>
+    </records>
+  </scenarios>
+  <scenarios name="BadPassword" participant="//@participants.2">
+    <records preState="//@states.1" postState="//@states.1" sender="//@participants.0" receiver="//@participants.2" operation="//@operations.4">
+      <returnValue value="badPassword"/>
+    </records>
+    <records preState="//@states.2" postState="//@states.2" sender="//@participants.2" receiver="//@participants.1" operation="//@operations.5">
+      <returnValue value="badBankPassword"/>
+    </records>
+  </scenarios>
+  <scenarios name="BadAccount" participant="//@participants.3">
+    <records preState="//@states.0" postState="//@states.3" sender="//@participants.3" receiver="//@participants.0" operation="//@operations.1">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.11">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.3" postState="//@states.4" sender="//@participants.3" receiver="//@participants.0" operation="//@operations.8">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.2">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.3">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.6">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.7">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.4" postState="//@states.0" sender="//@participants.3" receiver="//@participants.0" operation="//@operations.0">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.9">
+      <returnValue value="Void"/>
+    </records>
+  </scenarios>
+  <scenarios name="BadPassword" participant="//@participants.3">
+    <records preState="//@states.3" postState="//@states.3" sender="//@participants.3" receiver="//@participants.0" operation="//@operations.8">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.11">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.3" postState="//@states.4" sender="//@participants.3" receiver="//@participants.0" operation="//@operations.10">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.12">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.6">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.0" receiver="//@participants.3" operation="//@operations.7">
+      <returnValue value="Void"/>
+    </records>
+  </scenarios>
+  <states name="WaitCard"/>
+  <states name="WaitVerify"/>
+  <states name="WaitBankVerify"/>
+  <states name="WaitPassword"/>
+  <states name="WaitTakeCard"/>
+  <operations name="takeCard"/>
+  <operations name="insertCard"/>
+  <operations name="badAccountMessage"/>
+  <operations name="printReceipt"/>
+  <operations name="verifyAccount"/>
+  <operations name="verifyCardWithBank"/>
+  <operations name="ejectCard"/>
+  <operations name="requestTakeCard"/>
+  <operations name="enterPassword"/>
+  <operations name="displayMainScreen"/>
+  <operations name="cancel"/>
+  <operations name="requestPassword"/>
+  <operations name="canceledMessage"/>
+  <participants name="atm" scenarios="//@scenarios.0 //@scenarios.1"/>
+  <participants name="bank" scenarios="//@scenarios.2 //@scenarios.3"/>
+  <participants name="consortium" scenarios="//@scenarios.4 //@scenarios.5"/>
+  <participants name="user" scenarios="//@scenarios.6 //@scenarios.7"/>
+</mdaParticipantScenarios:Content>

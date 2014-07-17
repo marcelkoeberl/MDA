@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdaBehaviours:Content xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdaBehaviours="mdaBehaviours.de.uni-augsburg" xsi:schemaLocation="mdaBehaviours.de.uni-augsburg ../model/BehaviourTable.ecore" name="Bank-ATM">
+  <states name="WaitCard"/>
+  <states name="WaitVerify"/>
+  <states name="WaitBankVerify"/>
+  <states name="WaitPassword"/>
+  <states name="WaitTakeCard"/>
+  <participants name="atm"/>
+  <participants name="bank"/>
+  <participants name="consortium"/>
+  <participants name="user"/>
+  <operations name="takeCard"/>
+  <operations name="insertCard"/>
+  <operations name="badAccountMessage"/>
+  <operations name="printReceipt"/>
+  <operations name="verifyAccount"/>
+  <operations name="verifyCardWithBank"/>
+  <operations name="ejectCard"/>
+  <operations name="requestTakeCard"/>
+  <operations name="enterPassword"/>
+  <operations name="displayMainScreen"/>
+  <operations name="cancel"/>
+  <operations name="requestPassword"/>
+  <operations name="canceledMessage"/>
+  <messages receiver="//@participants.0" operation="//@operations.0">
+    <returnValue value="Void"/>
+  </messages>
+  <messages receiver="//@participants.0" operation="//@operations.1">
+    <returnValue value="Void"/>
+  </messages>
+  <messages receiver="//@participants.0" operation="//@operations.8">
+    <returnValue value="Void"/>
+  </messages>
+  <messages receiver="//@participants.3" operation="//@operations.2">
+    <returnValue value="Void"/>
+  </messages>
+  <messages receiver="//@participants.3" operation="//@operations.7">
+    <returnValue value="Void"/>
+  </messages>
+  <messages receiver="//@participants.3" operation="//@operations.9">
+    <returnValue value="Void"/>
+  </messages>
+  <messages receiver="//@participants.3" operation="//@operations.11">
+    <returnValue value="Void"/>
+  </messages>
+  <messages receiver="//@participants.2" operation="//@operations.4">
+    <returnValue value="badAccount"/>
+  </messages>
+  <messages receiver="//@participants.3" operation="//@operations.3">
+    <returnValue value="Void"/>
+  </messages>
+  <messages receiver="//@participants.3" operation="//@operations.6">
+    <returnValue value="Void"/>
+  </messages>
+  <messages receiver="//@participants.3" operation="//@operations.12">
+    <returnValue value="Void"/>
+  </messages>
+  <messages receiver="//@participants.2" operation="//@operations.4">
+    <returnValue value="badPassword"/>
+  </messages>
+  <messages receiver="//@participants.0" operation="//@operations.10">
+    <returnValue value="Void"/>
+  </messages>
+  <messages receiver="//@participants.1" operation="//@operations.5">
+    <returnValue value="badBankAccount"/>
+  </messages>
+  <messages receiver="//@participants.1" operation="//@operations.5">
+    <returnValue value="badBankPassword"/>
+  </messages>
+  <behaviours name="BadAccount" participant="//@participants.0">
+    <records preState="//@states.0" postState="//@states.3" messageIn="//@operations.1" messageOut="//@messages.6">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.3" postState="//@states.4" messageIn="//@operations.8" messageOut="//@messages.7 //@messages.3 //@messages.8 //@messages.9 //@messages.4">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.4" postState="//@states.0" messageIn="//@operations.0" messageOut="//@messages.5">
+      <returnValue value="Void"/>
+    </records>
+  </behaviours>
+  <behaviours name="BadPassword" participant="//@participants.0">
+    <records preState="//@states.3" postState="//@states.3" messageIn="//@operations.8" messageOut="//@messages.11 //@messages.6">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.3" postState="//@states.4" messageIn="//@operations.10" messageOut="//@messages.10 //@messages.9 //@messages.4">
+      <returnValue value="Void"/>
+    </records>
+  </behaviours>
+  <behaviours name="BadAccount" participant="//@participants.1">
+    <records preState="//@states.2" postState="//@states.2" messageIn="//@operations.5">
+      <returnValue value="badBankAccount"/>
+    </records>
+  </behaviours>
+  <behaviours name="BadPassword" participant="//@participants.1">
+    <records preState="//@states.2" postState="//@states.2" messageIn="//@operations.5">
+      <returnValue value="badBankPassword"/>
+    </records>
+  </behaviours>
+  <behaviours name="BadAccount" participant="//@participants.2">
+    <records preState="//@states.1" postState="//@states.1" messageIn="//@operations.4" messageOut="//@messages.13">
+      <returnValue value="badAccount"/>
+    </records>
+  </behaviours>
+  <behaviours name="BadPassword" participant="//@participants.2">
+    <records preState="//@states.1" postState="//@states.1" messageIn="//@operations.4" messageOut="//@messages.14">
+      <returnValue value="badPassword"/>
+    </records>
+  </behaviours>
+  <behaviours name="BadAccount" participant="//@participants.3">
+    <records messageIn="//@operations.11" messageOut="//@messages.2">
+      <returnValue value="Void"/>
+    </records>
+    <records messageIn="//@operations.2">
+      <returnValue value="Void"/>
+    </records>
+    <records messageIn="//@operations.3">
+      <returnValue value="Void"/>
+    </records>
+    <records messageIn="//@operations.6">
+      <returnValue value="Void"/>
+    </records>
+    <records messageIn="//@operations.7" messageOut="//@messages.0">
+      <returnValue value="Void"/>
+    </records>
+    <records messageIn="//@operations.9">
+      <returnValue value="Void"/>
+    </records>
+  </behaviours>
+  <behaviours name="BadPassword" participant="//@participants.3">
+    <records messageIn="//@operations.11" messageOut="//@messages.12">
+      <returnValue value="Void"/>
+    </records>
+    <records messageIn="//@operations.12">
+      <returnValue value="Void"/>
+    </records>
+    <records messageIn="//@operations.6">
+      <returnValue value="Void"/>
+    </records>
+    <records messageIn="//@operations.7">
+      <returnValue value="Void"/>
+    </records>
+  </behaviours>
+</mdaBehaviours:Content>
