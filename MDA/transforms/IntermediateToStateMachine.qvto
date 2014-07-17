@@ -16,8 +16,16 @@ mapping IntermediateStateMachine::Automaton::toStateMachine() : UML::StateMachin
 	name := self.name;
 	region += object UML::Region {
 		subvertex += self.states.map copy();
+		var initial := object UML::Pseudostate {
+			kind := UML::PseudostateKind::initial;
+		};
+		subvertex += initial;
 		transition += self.transitions.map copy();
-	}
+		transition += object UML::Transition {
+			source := initial;
+			target := self.initialState.map copy();
+		}
+	};
 }
 
 mapping IntermediateStateMachine::State::copy() : UML::State {
