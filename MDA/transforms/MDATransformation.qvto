@@ -2,12 +2,13 @@ import ScenarioProjection;
 import ScenarioToBehaviour;
 import BehaviourToIOAutomaton;
 import IOAutomatonToIntermediate;
+import IntermediateToStateMachine;
 
 modeltype MDAScenarioTable uses MDAScenarios('mdaScenarios.de.uni-augsburg');
-modeltype MDAIntermediateStateMachine uses MDAIntermediateStateMachine('mdaIntermediateStateMachine.de.uni-augsburg');
+modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 
-transformation MDATransformation(in input : MDAScenarioTable, out output : MDAIntermediateStateMachine);
+transformation MDATransformation(in input : MDAScenarioTable, out output : UML);
 
 main() {
-	input.objectsOfType(Content).map projectParticipants().map toBehaviour().map toIOAutomaton().map toStateMachine();
+	input.objectsOfType(Content).map projectParticipants().map toBehaviour().map toIOAutomaton().map toStateMachine().map toStateMachine();
 }
