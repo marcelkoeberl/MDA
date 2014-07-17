@@ -1,6 +1,5 @@
 modeltype IntermediateStateMachine uses MDAIntermediateStateMachine('mdaIntermediateStateMachine.de.uni-augsburg');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
-	
 
 transformation IntermediateToStateMachine(in intermediateSM : IntermediateStateMachine, out stateMachine : UML);
 
@@ -17,6 +16,7 @@ mapping IntermediateStateMachine::Automaton::toStateMachine() : UML::StateMachin
 	name := self.name;
 	region += object UML::Region {
 		subvertex += self.states.map copy();
+		transition += self.transitions.map copy();
 	}
 }
 
@@ -25,6 +25,40 @@ mapping IntermediateStateMachine::State::copy() : UML::State {
 	if (not self.sequences->isEmpty()) {
 		var tmpSequences := self.sequences.map toTemporary();
 		region += tmpSequences->map toSubStateMachine();
+	}
+}
+
+mapping IntermediateStateMachine::Transition::copy() : UML::Transition {
+	var preState := self.preState.map copy();
+	var postState := self.postState.map copy();
+	if (preState.region->size() = 0) {
+		source := preState;
+	} else {
+		var exits := preState.region->any(true).subvertex[UML::Pseudostate]
+								->select(pseudo | pseudo.kind = UML::PseudostateKind::exitPoint)->asSequence()->sortedBy(pseudo | pseudo.name);
+		exits->forEach(exit) {
+			if (exit.outgoing->size() = 0) {
+				source := exit;
+				break;
+			}
+		}
+	};
+	if (postState.region->size() = 0) {
+		target := postState;
+	} else {
+		target := postState.region->any(true).subvertex[UML::Pseudostate]
+								->any(pseudo | pseudo.kind = UML::PseudostateKind::entryPoint);
+	};
+	if (not self.input.oclIsUndefined()) {
+		trigger := object UML::Trigger {
+//			event := object UML::CallEvent {
+				name := self.input.name;
+//			};
+		};
+	} else if (not self.returnValue.oclIsUndefined()) {
+		effect := object UML::Interaction {
+			name := "return ".concat(self.returnValue.value);
+		}
 	}
 }
 
@@ -54,6 +88,8 @@ helper Sequence(TmpMessageSequence)::createSubStates(inout region : UML::Region)
 		region.subvertex += onlyState;
 		var exitPoint := object UML::Pseudostate {
 			kind := UML::PseudostateKind::exitPoint;
+			name := (region->any(true).subvertex[UML::Pseudostate]
+							->select(pseudo | pseudo.kind = UML::PseudostateKind::exitPoint)->size() + 1).toString();
 		};
 		region.subvertex += exitPoint;
 		region.transition += object UML::Transition {
