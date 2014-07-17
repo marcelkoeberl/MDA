@@ -70,11 +70,12 @@ mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::C
 		self.message.receiveEvent = self and self.message.messageSort = MessageSort::synchCall;
 	}{
 		//we have one receiveEvent here. First get the sender and receiver
-		receiver := self.covered->any(true).represents.type.resolveone(OurScenarios::Participant);//c.participants->select(p | p.name = self.covered.represents->any(true).type.name)->first();
-		sender := self.message.sendEvent.oclAsType(MessageOccurrenceSpecification).covered->any(true).represents.type.resolveone(OurScenarios::Participant);//c.participants->select(p | p.name = self.message.sendEvent.oclAsType(UML::MessageOccurrenceSpecification).covered.represents->any(true).type.name)->first();
+		receiver := self.oclAsType(OccurrenceSpecification).covered.represents.type.resolveone(OurScenarios::Participant);//c.participants->select(p | p.name = self.covered.represents->any(true).type.name)->first();
+		sender := self.message.sendEvent.oclAsType(OccurrenceSpecification).covered.represents.type.resolveone(OurScenarios::Participant);//c.participants->select(p | p.name = self.message.sendEvent.oclAsType(UML::MessageOccurrenceSpecification).covered.represents->any(true).type.name)->first();
 		operation := self.message.signature.resolveone(OurScenarios::Operation);//c.operations->select(o | o.name = self.message.signature.name)->first();
+		log("Searching returnValue for Op: " + operation.name.toString() + " invoker: " + sender.name.toString());
 		returnValue := object OurScenarios::Value{
-			value := "TODO -- Its Unknown yet!";
+			value := self.getReturnValue(sender);
 		};
 		
 		//It gives us a set. hopefully in the right order :/
@@ -104,6 +105,54 @@ mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::C
 		};
 		//TODO This that is in here has to be written back to the usual Content
 		log(thePreState + " | " + self.message.signature.name +" | " + thePostState);
+}
+
+helper MessageOccurrenceSpecification::getReturnValue(in invoker:Participant):String{
+	var foundSelf := false;
+	var lifeline := self.covered->any(true);
+	lifeline.interaction.fragment->forEach(fragment){
+		if(fragment.oclIsTypeOf(MessageOccurrenceSpecification) and fragment.covered->exists(l|l=lifeline)){
+			if(fragment = self){
+				foundSelf := true;
+				log("found self");
+			}
+			else if(foundSelf and fragment.oclAsType(MessageOccurrenceSpecification).isSendingToParticipant(invoker)){
+				var message := fragment.oclAsType(MessageOccurrenceSpecification).message;
+				log("nextMsg: " + message.signature.name.toString() + " sort: " +message.messageSort.toString());
+				if(message.messageSort = MessageSort::reply){
+					return message.name;
+				}else {
+					return "Void";
+				}endif;
+			}endif;
+		}endif;
+	};
+	return "Void";
+}
+
+helper MessageOccurrenceSpecification::isSendingToParticipant(in participant:Participant):Boolean{
+	log(self.message.receiveEvent.oclAsType(MessageOccurrenceSpecification).covered->any(true).represents.type.name);
+	return self.message.receiveEvent.oclAsType(MessageOccurrenceSpecification).covered->any(true).represents.type.resolveone(Participant) = participant;
+}
+
+//todelete
+helper Interaction::getNextSendMsgOccSpec(in lifeline:Lifeline,in mos:MessageOccurrenceSpecification):MessageOccurrenceSpecification{
+	var foundMOS = false;
+	self.fragment->forEach(fragment){
+		if(fragment.oclIsTypeOf(MessageOccurrenceSpecification) and fragment.covered->exists(l|l=lifeline)) {
+			if(fragment.oclAsType(MessageOccurrenceSpecification)=mos and not foundMOS){
+				foundMOS := true;
+			}endif;
+			if(foundMOS and fragment.oclAsType(MessageOccurrenceSpecification).isSendMsgOccSpec()){
+				return fragment.oclAsType(MessageOccurrenceSpecification);
+			}
+		}endif;
+	};
+	return null;
+}
+
+helper MessageOccurrenceSpecification::isSendMsgOccSpec():Boolean{
+	return self.message.sendEvent=self;
 }
 
 //Deprecated and not used...
