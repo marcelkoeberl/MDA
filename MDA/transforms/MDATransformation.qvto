@@ -35,10 +35,17 @@ main() {
 	var ISM2SM := new IntermediateToStateMachine(intermediateStateMachine,output);
 	
 	Seq2Scen.transform();
+	log("Transformed to ScenarioTable");
 	Scen2Proj.transform();
+	log(".. to projected ScenarioTable");
 	Proj2Beh.transform();
+	log(".. to Behaviours");
 	Beh2IOA.transform();
+	log(".. to IOAutomata");
 	IOA2ISM.transform();
+	log(".. to intermediate Statemachine");
 	ISM2SM.transform();
+	log(".. to Statemachine");
+	log("Done");
 	
 }
