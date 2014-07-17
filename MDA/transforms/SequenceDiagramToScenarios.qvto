@@ -1,7 +1,7 @@
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype OurScenarios uses MDAScenarios('mdaScenarios.de.uni-augsburg');
 
-transformation Import(in input : UML, out output : OurScenarios);
+transformation SequenceDiagramToScenario(in input : UML, out output : OurScenarios);
 
 main(){
 	var content := object OurScenarios::Content
@@ -9,18 +9,12 @@ main(){
 		name:=input.objectsOfType(UML::Model).name->any(true);
 	};
 	content.states := input.objectsOfType(UML::StateInvariant)->copyStateInvariant();
-	log("Copied States");
-	log(input.objectsOfType(UML::Message).signature->size().toString());
+
 	content.operations += input.objectsOfType(UML::Message).signature->oclAsType(UML::NamedElement).map transformMessage();
-	log("Tranfsormed Messages");
 	
 	content.participants += input.objectsOfType(UML::Lifeline).represents.type.map transformParticipant();
-	log("Tranfsormed Participants");
 	
 	content.scenarios += input.objectsOfType(UML::Interaction).map transformScenario(content);
-	log("Transformed Scenarios");
-
-	log("Done");
 }
 
 helper Collection(StateInvariant)::copyStateInvariant():OrderedSet(OurScenarios::State){
@@ -34,7 +28,6 @@ helper Collection(StateInvariant)::copyStateInvariant():OrderedSet(OurScenarios:
 			}
 		}endif;
 	};
-	log("reduced to "+ retList->size().toString() +" states");
 	return retList;
 }
 
@@ -43,12 +36,10 @@ mapping NamedElement::transformMessage():OurScenarios::Operation
 			Signal::transformMessage;
 
 mapping UML::Operation::transformMessage():OurScenarios::Operation{
-	log("Mapped Operation:"+ self.name);
 	name:=self.name;
 }
 
 mapping UML::Signal::transformMessage():OurScenarios::Operation{
-	log("Mapped Signal:" +self.name);
 	name:=self.name;
 }
 
@@ -67,21 +58,20 @@ mapping InteractionFragment::transformFragment(in c : OurScenarios::Content):Our
 mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::Content):OurScenarios::ScenarioRecord
 	when {
 	//Precondition. We only need to take this OccuranceSpec if it is a ReceiveEvent!
-		self.message.receiveEvent = self;
+		self.message.receiveEvent = self and self.message.messageSort = MessageSort::synchCall;
 	}{
 		//we have one receiveEvent here. First get the sender and receiver
-		receiver := c.participants->select(p | p.name = self.covered.represents->any(true).type.name)->first();
-		sender := c.participants->select(p | p.name = self.message.sendEvent.oclAsType(UML::MessageOccurrenceSpecification).covered.represents->any(true).type.name)->first();
-		operation := c.operations->select(o | o.name = self.message.signature.name)->first();
+		receiver := self.oclAsType(OccurrenceSpecification).covered.represents.type.resolveone(OurScenarios::Participant);//c.participants->select(p | p.name = self.covered.represents->any(true).type.name)->first();
+		sender := self.message.sendEvent.oclAsType(OccurrenceSpecification).covered.represents.type.resolveone(OurScenarios::Participant);//c.participants->select(p | p.name = self.message.sendEvent.oclAsType(UML::MessageOccurrenceSpecification).covered.represents->any(true).type.name)->first();
+		operation := self.message.signature.resolveone(OurScenarios::Operation);//c.operations->select(o | o.name = self.message.signature.name)->first();
 		returnValue := object OurScenarios::Value{
-			value := "TODO -- Its Unknown yet!";
+			value := self.getReturnValue(sender);
 		};
 		
-		//It gives us a set. hopefully in the right order :/
-		var fragmentList := input.objectsOfType(UML::InteractionFragment);
+		var fragmentList := self.covered->any(true).interaction.fragment;
 		var before = true;
-		var thePreState := "";
-		var thePostState := "";
+		var thePreState : OurScenarios::State;
+		var thePostState : OurScenarios::State;
 		fragmentList->forEach(element){
 			//We go through every interactionfragment and buffer the prestate until we found the self element
 			//The next state is the postState
@@ -90,9 +80,9 @@ mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::C
 				//It must be our Lifeline!
 				if (elementState.covered = self.covered){
 					if (before){
-						thePreState := element.oclAsType(UML::StateInvariant).invariant.name;
+						thePreState := c.getState(element.oclAsType(UML::StateInvariant));
 					}else{
-						thePostState := element.oclAsType(UML::StateInvariant).invariant.name;
+						thePostState := c.getState(element.oclAsType(UML::StateInvariant));
 						break;
 					}
 				}
@@ -102,8 +92,41 @@ mapping MessageOccurrenceSpecification::transformFragment(in c : OurScenarios::C
 				}
 			};
 		};
-		//TODO This that is in here has to be written back to the usual Content
-		log(thePreState + " | " + self.message.signature.name +" | " + thePostState);
+		preState := thePreState;
+		postState := thePostState;
+}
+
+helper Content::getState(in inv : StateInvariant):OurScenarios::State{
+	return self.states->select(state|state.name = inv.invariant.name)->any(true);
+}
+
+helper MessageOccurrenceSpecification::getReturnValue(in invoker:Participant):String{
+	var foundSelf := false;
+	var lifeline := self.covered->any(true);
+	lifeline.interaction.fragment->forEach(fragment){
+		//only check MsgOccSpec if it is covered by the same Lifeline
+		if(fragment.oclIsTypeOf(MessageOccurrenceSpecification) and fragment.covered->exists(l|l=lifeline)){
+			if(fragment = self){
+				foundSelf := true;
+			}
+			//if the current MsgOccSpec was found already -> check the next outgoing MsgOccSpec
+			else if(foundSelf and fragment.oclAsType(MessageOccurrenceSpecification).isSendingToParticipant(invoker)){
+				var message := fragment.oclAsType(MessageOccurrenceSpecification).message;
+				//if it is a replay message, we found the return value
+				if(message.messageSort = MessageSort::reply){
+					return message.name;
+				}else {
+				//the next msg sent to invoker was no reply, so return value must be void
+					return "Void";
+				}endif;
+			}endif;
+		}endif;
+	};
+	return "Void";
+}
+
+helper MessageOccurrenceSpecification::isSendingToParticipant(in participant:Participant):Boolean{
+	return self.message.receiveEvent.oclAsType(MessageOccurrenceSpecification).covered->any(true).represents.type.resolveone(Participant) = participant;
 }
 
 //Deprecated and not used...
