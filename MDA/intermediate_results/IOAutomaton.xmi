@@ -1,103 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mdaIOAutomata:Content xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdaIOAutomata="mdaIOAutomata.de.uni-augsburg" xsi:schemaLocation="mdaIOAutomata.de.uni-augsburg ../model/IOAutomaton.ecore" name="Bank-ATM">
-  <states name="WaitCard"/>
-  <states name="WaitBankVerify"/>
-  <states name="WaitPassword"/>
   <states name="WaitTakeCard"/>
+  <states name="WaitBankVerify"/>
+  <states name="WaitCard"/>
+  <states name="WaitPassword"/>
   <states name="WaitVerify"/>
-  <automatons initialState="//@states.1" states="//@states.1" participant="//@participants.3" name="bank">
-    <transitions preState="//@states.1" postState="//@states.1" input="//@operations.1">
+  <automatons initialState="//@states.1" states="//@states.1" participant="//@participants.2" name="bank">
+    <transitions preState="//@states.1" postState="//@states.1" input="//@operations.4">
       <returnValue value="badBankAccount"/>
     </transitions>
-    <transitions preState="//@states.1" postState="//@states.1" input="//@operations.1">
+    <transitions preState="//@states.1" postState="//@states.1" input="//@operations.4">
       <returnValue value="badBankPassword"/>
     </transitions>
   </automatons>
-  <automatons initialState="//@states.0" states="//@states.0 //@states.2 //@states.3" participant="//@participants.2" name="atm">
-    <transitions preState="//@states.0" postState="//@states.2" input="//@operations.11" output="//@messages.10">
-      <returnValue value="Void"/>
-    </transitions>
-    <transitions preState="//@states.2" postState="//@states.3" input="//@operations.2" output="//@messages.6 //@messages.12 //@messages.13 //@messages.2 //@messages.4">
-      <returnValue value="Void"/>
-    </transitions>
-    <transitions preState="//@states.3" postState="//@states.0" input="//@operations.7" output="//@messages.9">
-      <returnValue value="Void"/>
-    </transitions>
-    <transitions preState="//@states.2" postState="//@states.2" input="//@operations.2" output="//@messages.11 //@messages.10">
-      <returnValue value="Void"/>
-    </transitions>
-    <transitions preState="//@states.2" postState="//@states.3" input="//@operations.6" output="//@messages.1 //@messages.2 //@messages.4">
-      <returnValue value="Void"/>
-    </transitions>
-  </automatons>
-  <automatons initialState="//@states.4" states="//@states.4" participant="//@participants.0" name="consortium">
-    <transitions preState="//@states.4" postState="//@states.4" input="//@operations.3" output="//@messages.8">
+  <automatons initialState="//@states.4" states="//@states.4" participant="//@participants.1" name="consortium">
+    <transitions preState="//@states.4" postState="//@states.4" input="//@operations.11" output="//@messages.10">
       <returnValue value="badPassword"/>
     </transitions>
-    <transitions preState="//@states.4" postState="//@states.4" input="//@operations.3" output="//@messages.0">
+    <transitions preState="//@states.4" postState="//@states.4" input="//@operations.11" output="//@messages.6">
       <returnValue value="badAccount"/>
     </transitions>
   </automatons>
+  <automatons initialState="//@states.2" states="//@states.2 //@states.3 //@states.0" participant="//@participants.0" name="atm">
+    <transitions preState="//@states.2" postState="//@states.3" input="//@operations.7" output="//@messages.7">
+      <returnValue value="Void"/>
+    </transitions>
+    <transitions preState="//@states.3" postState="//@states.0" input="//@operations.6" output="//@messages.5 //@messages.0 //@messages.3 //@messages.1 //@messages.14">
+      <returnValue value="Void"/>
+    </transitions>
+    <transitions preState="//@states.0" postState="//@states.2" input="//@operations.8" output="//@messages.8">
+      <returnValue value="Void"/>
+    </transitions>
+    <transitions preState="//@states.3" postState="//@states.3" input="//@operations.6" output="//@messages.2 //@messages.7">
+      <returnValue value="Void"/>
+    </transitions>
+    <transitions preState="//@states.3" postState="//@states.0" input="//@operations.9" output="//@messages.12 //@messages.1 //@messages.14">
+      <returnValue value="Void"/>
+    </transitions>
+  </automatons>
+  <operations name="requestPassword"/>
   <operations name="ejectCard"/>
+  <operations name="printReceipt"/>
+  <operations name="badAccountMessage"/>
   <operations name="verifyCardWithBank"/>
+  <operations name="canceledMessage"/>
   <operations name="enterPassword"/>
+  <operations name="insertCard"/>
+  <operations name="takeCard"/>
+  <operations name="cancel"/>
+  <operations name="displayMainScreen"/>
   <operations name="verifyAccount"/>
   <operations name="requestTakeCard"/>
-  <operations name="displayMainScreen"/>
-  <operations name="cancel"/>
-  <operations name="takeCard"/>
-  <operations name="requestPassword"/>
-  <operations name="badAccountMessage"/>
-  <operations name="printReceipt"/>
-  <operations name="insertCard"/>
-  <operations name="canceledMessage"/>
-  <participants name="consortium"/>
-  <participants name="user"/>
   <participants name="atm"/>
+  <participants name="consortium"/>
   <participants name="bank"/>
-  <messages operation="//@operations.1" receiver="//@participants.3">
-    <returnValue value="badBankAccount"/>
-  </messages>
-  <messages operation="//@operations.12" receiver="//@participants.1">
-    <returnValue value="Void"/>
-  </messages>
-  <messages operation="//@operations.0" receiver="//@participants.1">
-    <returnValue value="Void"/>
-  </messages>
-  <messages operation="//@operations.7" receiver="//@participants.2">
-    <returnValue value="Void"/>
-  </messages>
-  <messages operation="//@operations.4" receiver="//@participants.1">
-    <returnValue value="Void"/>
-  </messages>
-  <messages operation="//@operations.11" receiver="//@participants.2">
-    <returnValue value="Void"/>
-  </messages>
-  <messages operation="//@operations.3" receiver="//@participants.0">
-    <returnValue value="badAccount"/>
-  </messages>
-  <messages operation="//@operations.2" receiver="//@participants.2">
+  <participants name="user"/>
+  <messages operation="//@operations.3" receiver="//@participants.3">
     <returnValue value="Void"/>
   </messages>
   <messages operation="//@operations.1" receiver="//@participants.3">
-    <returnValue value="badBankPassword"/>
-  </messages>
-  <messages operation="//@operations.5" receiver="//@participants.1">
     <returnValue value="Void"/>
   </messages>
-  <messages operation="//@operations.8" receiver="//@participants.1">
-    <returnValue value="Void"/>
-  </messages>
-  <messages operation="//@operations.3" receiver="//@participants.0">
+  <messages operation="//@operations.11" receiver="//@participants.1">
     <returnValue value="badPassword"/>
   </messages>
-  <messages operation="//@operations.9" receiver="//@participants.1">
+  <messages operation="//@operations.2" receiver="//@participants.3">
     <returnValue value="Void"/>
   </messages>
-  <messages operation="//@operations.10" receiver="//@participants.1">
+  <messages operation="//@operations.7" receiver="//@participants.0">
     <returnValue value="Void"/>
   </messages>
-  <messages operation="//@operations.6" receiver="//@participants.2">
+  <messages operation="//@operations.11" receiver="//@participants.1">
+    <returnValue value="badAccount"/>
+  </messages>
+  <messages operation="//@operations.4" receiver="//@participants.2">
+    <returnValue value="badBankAccount"/>
+  </messages>
+  <messages operation="//@operations.0" receiver="//@participants.3">
+    <returnValue value="Void"/>
+  </messages>
+  <messages operation="//@operations.10" receiver="//@participants.3">
+    <returnValue value="Void"/>
+  </messages>
+  <messages operation="//@operations.8" receiver="//@participants.0">
+    <returnValue value="Void"/>
+  </messages>
+  <messages operation="//@operations.4" receiver="//@participants.2">
+    <returnValue value="badBankPassword"/>
+  </messages>
+  <messages operation="//@operations.6" receiver="//@participants.0">
+    <returnValue value="Void"/>
+  </messages>
+  <messages operation="//@operations.5" receiver="//@participants.3">
+    <returnValue value="Void"/>
+  </messages>
+  <messages operation="//@operations.9" receiver="//@participants.0">
+    <returnValue value="Void"/>
+  </messages>
+  <messages operation="//@operations.12" receiver="//@participants.3">
     <returnValue value="Void"/>
   </messages>
 </mdaIOAutomata:Content>
