@@ -1,14 +1,44 @@
+import SequenceDiagramToScenarios;
 import ScenarioProjection;
 import ScenarioToBehaviour;
 import BehaviourToIOAutomaton;
 import IOAutomatonToIntermediate;
 import IntermediateToStateMachine;
 
-modeltype MDAScenarioTable uses MDAScenarios('mdaScenarios.de.uni-augsburg');
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype Scenarios uses MDAScenarios('mdaScenarios.de.uni-augsburg');
+modeltype ProjectedScenarios uses MDAParticipantScenarios('mdaParticipantScenarios.de.uni-augsburg');
+modeltype Behaviours uses MDABehaviours('mdaBehaviours.de.uni-augsburg');
+modeltype IOAutomaton uses MDAIOAutomata('mdaIOAutomata.de.uni-augsburg');
+modeltype IntermediateStateMachine uses MDAIntermediateStateMachine('mdaIntermediateStateMachine.de.uni-augsburg');
 
-transformation MDATransformation(in input : MDAScenarioTable, out output : UML);
+transformation MDATransformation(in input : UML, out output : UML)
+	access transformation SequenceDiagramToScenario(in UML, Scenarios)
+	access transformation projectScenarios(in Scenarios, out ProjectedScenarios)
+	access transformation ScenarioToBehaviour(in ProjectedScenarios, out Behaviours)
+	access transformation BehavioursToIOAutomaton(in Behaviours, out IOAutomaton)
+	access transformation IOAutomationToIntermediate(in IOAutomaton, out IntermediateStateMachine)
+	access transformation IntermediateToStateMachine(in IntermediateStateMachine, out UML);
 
 main() {
-	input.objectsOfType(Content).map projectParticipants().map toBehaviour().map toIOAutomaton().map toStateMachine().map toStateMachine();
+	var scenarios := new Scenarios();
+	var projections := new ProjectedScenarios();
+	var behaviours := new Behaviours();
+	var ioAutomata := new IOAutomaton();
+	var intermediateStateMachine := new IntermediateStateMachine();
+	
+	var Seq2Scen := new SequenceDiagramToScenario(input,scenarios);
+	var Scen2Proj := new projectScenarios(scenarios,projections);
+	var Proj2Beh := new ScenarioToBehaviour(projections,behaviours);
+	var Beh2IOA := new BehavioursToIOAutomaton(behaviours,ioAutomata);
+	var IOA2ISM := new IOAutomationToIntermediate(ioAutomata,intermediateStateMachine);
+	var ISM2SM := new IntermediateToStateMachine(intermediateStateMachine,output);
+	
+	Seq2Scen.transform();
+	Scen2Proj.transform();
+	Proj2Beh.transform();
+	Beh2IOA.transform();
+	IOA2ISM.transform();
+	ISM2SM.transform();
+	
 }

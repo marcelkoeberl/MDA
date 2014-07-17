@@ -1,7 +1,7 @@
 modeltype UML uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype OurScenarios uses MDAScenarios('mdaScenarios.de.uni-augsburg');
 
-transformation Import(in input : UML, out output : OurScenarios);
+transformation SequenceDiagramToScenario(in input : UML, out output : OurScenarios);
 
 main(){
 	var content := object OurScenarios::Content
