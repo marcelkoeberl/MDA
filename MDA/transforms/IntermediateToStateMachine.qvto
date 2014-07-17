@@ -40,7 +40,8 @@ mapping IntermediateStateMachine::Transition::copy() : UML::Transition {
 			if (exit.outgoing->size() = 0) {
 				source := exit;
 				break;
-			}
+			};
+			source := exit;
 		}
 	};
 	if (postState.region->size() = 0) {
@@ -140,7 +141,7 @@ helper Sequence(TmpMessageSequence)::createSubStates(inout region : UML::Region)
 helper TmpMessageSequence::toString() : String {
 	var output := "";
 	self.messages->forEach(message) {
-		output := output.concat(message.receiver.name).concat(".").concat(message.operation.name);
+		output := output.concat(message.receiver.name).concat(".").concat(message.operation.name).concat(";\n");
 	};
 	return output;
 }
