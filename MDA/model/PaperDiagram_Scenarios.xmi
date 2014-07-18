@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdaScenarios:Content xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdaScenarios="mdaScenarios.de.uni-augsburg" xsi:schemaLocation="mdaScenarios.de.uni-augsburg ScenarioTable.ecore" name="Bank-ATM">
+  <scenarios name="BadAccount">
+    <records preState="//@states.0" postState="//@states.3" sender="//@participants.1" receiver="//@participants.2" operation="//@operations.12">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.2" receiver="//@participants.1" operation="//@operations.9">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.3" postState="//@states.4" sender="//@participants.1" receiver="//@participants.2" operation="//@operations.11">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.1" postState="//@states.1" sender="//@participants.2" receiver="//@participants.0" operation="//@operations.10">
+      <returnValue value="badAccount"/>
+    </records>
+    <records preState="//@states.2" postState="//@states.2" sender="//@participants.0" receiver="//@participants.3" operation="//@operations.8">
+      <returnValue value="badBankAccount"/>
+    </records>
+    <records sender="//@participants.2" receiver="//@participants.1" operation="//@operations.0">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.2" receiver="//@participants.1" operation="//@operations.3">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.2" receiver="//@participants.1" operation="//@operations.1">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.2" receiver="//@participants.1" operation="//@operations.5">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.4" postState="//@states.0" sender="//@participants.1" receiver="//@participants.2" operation="//@operations.7">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.2" receiver="//@participants.1" operation="//@operations.2">
+      <returnValue value="Void"/>
+    </records>
+  </scenarios>
+  <scenarios name="BadPassword">
+    <records preState="//@states.0" postState="//@states.3" sender="//@participants.1" receiver="//@participants.2" operation="//@operations.11">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.1" postState="//@states.1" sender="//@participants.2" receiver="//@participants.0" operation="//@operations.10">
+      <returnValue value="badPassword"/>
+    </records>
+    <records preState="//@states.2" postState="//@states.2" sender="//@participants.0" receiver="//@participants.3" operation="//@operations.8">
+      <returnValue value="badBankPassword"/>
+    </records>
+    <records sender="//@participants.2" receiver="//@participants.1" operation="//@operations.9">
+      <returnValue value="Void"/>
+    </records>
+    <records preState="//@states.3" postState="//@states.4" sender="//@participants.1" receiver="//@participants.2" operation="//@operations.4">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.2" receiver="//@participants.1" operation="//@operations.6">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.2" receiver="//@participants.1" operation="//@operations.1">
+      <returnValue value="Void"/>
+    </records>
+    <records sender="//@participants.2" receiver="//@participants.1" operation="//@operations.5">
+      <returnValue value="Void"/>
+    </records>
+  </scenarios>
+  <states name="WaitCard"/>
+  <states name="WaitVerify"/>
+  <states name="WaitBankVerify"/>
+  <states name="WaitPassword"/>
+  <states name="WaitTakeCard"/>
+  <operations name="badAccountMessage"/>
+  <operations name="ejectCard"/>
+  <operations name="displayMainScreen"/>
+  <operations name="printReceipt"/>
+  <operations name="cancel"/>
+  <operations name="requestTakeCard"/>
+  <operations name="canceledMessage"/>
+  <operations name="takeCard"/>
+  <operations name="verifyCardWithBank"/>
+  <operations name="requestPassword"/>
+  <operations name="verifyAccount"/>
+  <operations name="enterPassword"/>
+  <operations name="insertCard"/>
+  <participants name="CONSORTIUM"/>
+  <participants name="CUSTOMER"/>
+  <participants name="ATM"/>
+  <participants name="BANK"/>
+</mdaScenarios:Content>
