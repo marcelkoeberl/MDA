@@ -1,222 +1,387 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="eee_1045467100313_135436_1" name="Bank-ATM">
-  <packagedElement xsi:type="uml:Collaboration" xmi:id="_17_0_4_2_ef70352_1405428668960_521973_3238" name="BadAccount" classifierBehavior="_17_0_4_2_ef70352_1405428668959_263913_3237">
-    <ownedBehavior xsi:type="uml:Interaction" xmi:id="_17_0_4_2_ef70352_1405428668959_263913_3237" name="BadAccount">
-      <ownedAttribute xmi:id="_17_0_4_2_ef70352_1405428813729_370752_3305" name="customer" visibility="private" type="_17_0_4_2_ef70352_1405434024208_992836_3991"/>
-      <ownedAttribute xmi:id="_17_0_4_2_ef70352_1405428832141_229235_3318" name="atm" visibility="private" type="_17_0_4_2_ef70352_1405432173844_624819_3428"/>
-      <ownedAttribute xmi:id="_17_0_4_2_ef70352_1405428835355_993886_3331" name="consortium" visibility="private" type="_17_0_4_2_ef70352_1405432179790_864360_3429"/>
-      <ownedAttribute xmi:id="_17_0_4_2_ef70352_1405428840202_41781_3344" name="bank" visibility="private" type="_17_0_4_2_ef70352_1405432184369_840054_3430"/>
-      <lifeline xmi:id="_17_0_4_2_ef70352_1405428813729_346820_3304" name="customer" visibility="public" represents="_17_0_4_2_ef70352_1405428813729_370752_3305" coveredBy="_17_0_4_2_ef70352_1405428849878_204705_3357 _17_0_4_2_ef70352_1405428916539_10929_3389 _17_0_4_2_ef70352_1405429070931_340329_3476 _17_0_4_2_ef70352_1405429135657_111627_3531 _17_0_4_2_ef70352_1405429152429_142491_3547 _17_0_4_2_ef70352_1405429159420_326667_3555 _17_0_4_2_ef70352_1405429167583_801322_3563 _17_0_4_2_ef70352_1405429189441_4956_3585 _17_0_4_2_ef70352_1405429197617_345344_3596"/>
-      <lifeline xmi:id="_17_0_4_2_ef70352_1405428832140_347148_3317" name="atm" visibility="public" represents="_17_0_4_2_ef70352_1405428832141_229235_3318" coveredBy="_17_0_4_2_ef70352_1405428849879_668962_3358 _17_0_4_2_ef70352_1405428916539_71759_3388 _17_0_4_2_ef70352_1405429070931_28388_3477 _17_0_4_2_ef70352_1405429081938_230411_3487 _17_0_4_2_ef70352_1405429112599_214625_3515 _17_0_4_2_ef70352_1405429135657_113270_3530 _17_0_4_2_ef70352_1405429152428_439984_3546 _17_0_4_2_ef70352_1405429159419_283889_3554 _17_0_4_2_ef70352_1405429167583_877254_3562 _17_0_4_2_ef70352_1405429189441_382661_3586 _17_0_4_2_ef70352_1405429197616_306812_3595 _17_0_4_2_ef70352_1405437646827_211688_3572 _17_0_4_2_ef70352_1405437656393_474229_3587 _17_0_4_2_ef70352_1405437662609_97748_3603 _17_0_4_2_ef70352_1405437669434_850612_3618"/>
-      <lifeline xmi:id="_17_0_4_2_ef70352_1405428835354_838438_3330" name="consortium" visibility="public" represents="_17_0_4_2_ef70352_1405428835355_993886_3331" coveredBy="_17_0_4_2_ef70352_1405429081939_369087_3488 _17_0_4_2_ef70352_1405429090080_247630_3496 _17_0_4_2_ef70352_1405429104409_425523_3507 _17_0_4_2_ef70352_1405429112599_683851_3514 _17_0_4_2_ef70352_1405437705041_566275_3633 _17_0_4_2_ef70352_1405437718075_85594_3648"/>
-      <lifeline xmi:id="_17_0_4_2_ef70352_1405428840200_373678_3343" name="bank" visibility="public" represents="_17_0_4_2_ef70352_1405428840202_41781_3344" coveredBy="_17_0_4_2_ef70352_1405429090081_737984_3497 _17_0_4_2_ef70352_1405429104409_78580_3506 _17_0_4_2_ef70352_1405437731483_256668_3663 _17_0_4_2_ef70352_1405437741179_897861_3678"/>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437646827_211688_3572" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437646827_173174_3573" name="WaitCard">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437646827_187784_3574">
-            <body>WaitCard</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437705041_566275_3633" visibility="public" covered="_17_0_4_2_ef70352_1405428835354_838438_3330">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437705041_148893_3634" name="WaitVerify">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437705041_956757_3635">
-            <body>WaitVerify</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437731483_256668_3663" visibility="public" covered="_17_0_4_2_ef70352_1405428840200_373678_3343">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437731483_440394_3664" name="WaitBankVerify">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437731483_270076_3665">
-            <body>WaitBankVerify</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405428849878_204705_3357" visibility="public" covered="_17_0_4_2_ef70352_1405428813729_346820_3304" message="_17_0_4_2_ef70352_1405428849877_243752_3356"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405428849879_668962_3358" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317" message="_17_0_4_2_ef70352_1405428849877_243752_3356"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405428916539_71759_3388" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317" message="_17_0_4_2_ef70352_1405428916537_72892_3387"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405428916539_10929_3389" visibility="public" covered="_17_0_4_2_ef70352_1405428813729_346820_3304" message="_17_0_4_2_ef70352_1405428916537_72892_3387"/>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437656393_474229_3587" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437656393_428504_3588" name="WaitPassword">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437656393_110164_3589">
-            <body>WaitPassword</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429070931_340329_3476" visibility="public" covered="_17_0_4_2_ef70352_1405428813729_346820_3304" message="_17_0_4_2_ef70352_1405429070930_94193_3475"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429070931_28388_3477" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317" message="_17_0_4_2_ef70352_1405429070930_94193_3475"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429081938_230411_3487" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317" message="_17_0_4_2_ef70352_1405429081937_626746_3486"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429081939_369087_3488" visibility="public" covered="_17_0_4_2_ef70352_1405428835354_838438_3330" message="_17_0_4_2_ef70352_1405429081937_626746_3486"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429090080_247630_3496" visibility="public" covered="_17_0_4_2_ef70352_1405428835354_838438_3330" message="_17_0_4_2_ef70352_1405429090079_90765_3495"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429090081_737984_3497" visibility="public" covered="_17_0_4_2_ef70352_1405428840200_373678_3343" message="_17_0_4_2_ef70352_1405429090079_90765_3495"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429104409_78580_3506" visibility="public" covered="_17_0_4_2_ef70352_1405428840200_373678_3343" message="_17_0_4_2_ef70352_1405429104408_831225_3505"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429104409_425523_3507" visibility="public" covered="_17_0_4_2_ef70352_1405428835354_838438_3330" message="_17_0_4_2_ef70352_1405429104408_831225_3505"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429112599_683851_3514" visibility="public" covered="_17_0_4_2_ef70352_1405428835354_838438_3330" message="_17_0_4_2_ef70352_1405429112598_471215_3513"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429112599_214625_3515" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317" message="_17_0_4_2_ef70352_1405429112598_471215_3513"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429135657_113270_3530" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317" message="_17_0_4_2_ef70352_1405429135656_756782_3529"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429135657_111627_3531" visibility="public" covered="_17_0_4_2_ef70352_1405428813729_346820_3304" message="_17_0_4_2_ef70352_1405429135656_756782_3529"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429152428_439984_3546" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317" message="_17_0_4_2_ef70352_1405429152427_570790_3545"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429152429_142491_3547" visibility="public" covered="_17_0_4_2_ef70352_1405428813729_346820_3304" message="_17_0_4_2_ef70352_1405429152427_570790_3545"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429159419_283889_3554" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317" message="_17_0_4_2_ef70352_1405429159418_536263_3553"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429159420_326667_3555" visibility="public" covered="_17_0_4_2_ef70352_1405428813729_346820_3304" message="_17_0_4_2_ef70352_1405429159418_536263_3553"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429167583_877254_3562" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317" message="_17_0_4_2_ef70352_1405429167582_302788_3561"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429167583_801322_3563" visibility="public" covered="_17_0_4_2_ef70352_1405428813729_346820_3304" message="_17_0_4_2_ef70352_1405429167582_302788_3561"/>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437662609_97748_3603" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437662609_254895_3604" name="WaitTakeCard">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437662609_157878_3605">
-            <body>WaitTakeCard</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437741179_897861_3678" visibility="public" covered="_17_0_4_2_ef70352_1405428840200_373678_3343">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437741179_95750_3679" name="WaitBankVerify">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437741179_306937_3680">
-            <body>WaitBankVerify</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437718075_85594_3648" visibility="public" covered="_17_0_4_2_ef70352_1405428835354_838438_3330">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437718075_652557_3649" name="WaitVerify">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437718075_690481_3650">
-            <body>WaitVerify</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429189441_4956_3585" visibility="public" covered="_17_0_4_2_ef70352_1405428813729_346820_3304" message="_17_0_4_2_ef70352_1405429189440_658488_3584"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429189441_382661_3586" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317" message="_17_0_4_2_ef70352_1405429189440_658488_3584"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429197616_306812_3595" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317" message="_17_0_4_2_ef70352_1405429197615_137196_3594"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429197617_345344_3596" visibility="public" covered="_17_0_4_2_ef70352_1405428813729_346820_3304" message="_17_0_4_2_ef70352_1405429197615_137196_3594"/>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437669434_850612_3618" visibility="public" covered="_17_0_4_2_ef70352_1405428832140_347148_3317">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437669434_48573_3619" name="WaitCard">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437669434_730895_3620">
-            <body>WaitCard</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <message xmi:id="_17_0_4_2_ef70352_1405428849877_243752_3356" name="insertCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405428849879_668962_3358" sendEvent="_17_0_4_2_ef70352_1405428849878_204705_3357" signature="_17_0_4_2_ef70352_1405433518659_387856_3967"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405428916537_72892_3387" name="requestPassword" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405428916539_10929_3389" sendEvent="_17_0_4_2_ef70352_1405428916539_71759_3388" signature="_17_0_4_2_ef70352_1405434037669_792419_3992"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429070930_94193_3475" name="enterPassword" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429070931_28388_3477" sendEvent="_17_0_4_2_ef70352_1405429070931_340329_3476" signature="_17_0_4_2_ef70352_1405433538611_133642_3968"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429081937_626746_3486" name="verifyAccount" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429081939_369087_3488" sendEvent="_17_0_4_2_ef70352_1405429081938_230411_3487" signature="_17_0_4_2_ef70352_1405434062562_514650_3993"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429090079_90765_3495" name="verifyCardWithBank" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429090081_737984_3497" sendEvent="_17_0_4_2_ef70352_1405429090080_247630_3496" signature="_17_0_4_2_ef70352_1405434074517_325847_3994"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429104408_831225_3505" name="badBankAccount" visibility="public" messageSort="reply" receiveEvent="_17_0_4_2_ef70352_1405429104409_425523_3507" sendEvent="_17_0_4_2_ef70352_1405429104409_78580_3506"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429112598_471215_3513" name="badAccount" visibility="public" messageSort="reply" receiveEvent="_17_0_4_2_ef70352_1405429112599_214625_3515" sendEvent="_17_0_4_2_ef70352_1405429112599_683851_3514"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429135656_756782_3529" name="badAccountMessage" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429135657_111627_3531" sendEvent="_17_0_4_2_ef70352_1405429135657_113270_3530" signature="_17_0_4_2_ef70352_1405434113279_938750_3995"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429152427_570790_3545" name="printReceipt" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429152429_142491_3547" sendEvent="_17_0_4_2_ef70352_1405429152428_439984_3546" signature="_17_0_4_2_ef70352_1405434121457_401549_3996"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429159418_536263_3553" name="ejectCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429159420_326667_3555" sendEvent="_17_0_4_2_ef70352_1405429159419_283889_3554" signature="_17_0_4_2_ef70352_1405434126673_52940_3997"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429167582_302788_3561" name="requestTakeCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429167583_801322_3563" sendEvent="_17_0_4_2_ef70352_1405429167583_877254_3562" signature="_17_0_4_2_ef70352_1405434131792_556888_3998"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429189440_658488_3584" name="takeCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429189441_382661_3586" sendEvent="_17_0_4_2_ef70352_1405429189441_4956_3585" signature="_17_0_4_2_ef70352_1405433552880_537959_3969"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429197615_137196_3594" name="displayMainScreen" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429197617_345344_3596" sendEvent="_17_0_4_2_ef70352_1405429197616_306812_3595" signature="_17_0_4_2_ef70352_1405434138037_734924_3999"/>
-    </ownedBehavior>
-  </packagedElement>
-  <packagedElement xsi:type="uml:Collaboration" xmi:id="_17_0_4_2_ef70352_1405429253546_134327_3648" name="BadPassword" classifierBehavior="_17_0_4_2_ef70352_1405429253546_748048_3647">
-    <ownedBehavior xsi:type="uml:Interaction" xmi:id="_17_0_4_2_ef70352_1405429253546_748048_3647" name="BadPassword">
-      <ownedAttribute xmi:id="_17_0_4_2_ef70352_1405429270361_398021_3690" name="customer" visibility="private" type="_17_0_4_2_ef70352_1405434024208_992836_3991"/>
-      <ownedAttribute xmi:id="_17_0_4_2_ef70352_1405429278091_807266_3703" name="atm" visibility="private" type="_17_0_4_2_ef70352_1405432173844_624819_3428"/>
-      <ownedAttribute xmi:id="_17_0_4_2_ef70352_1405429281817_129629_3716" name="consortium" visibility="private" type="_17_0_4_2_ef70352_1405432179790_864360_3429"/>
-      <ownedAttribute xmi:id="_17_0_4_2_ef70352_1405429285812_984056_3736" name="bank" visibility="private" type="_17_0_4_2_ef70352_1405432184369_840054_3430"/>
-      <lifeline xmi:id="_17_0_4_2_ef70352_1405429270361_233858_3689" name="customer" visibility="public" represents="_17_0_4_2_ef70352_1405429270361_398021_3690" coveredBy="_17_0_4_2_ef70352_1405429340865_348613_3801 _17_0_4_2_ef70352_1405429539406_61241_3879 _17_0_4_2_ef70352_1405429559450_625271_3901 _17_0_4_2_ef70352_1405429812499_967524_3918 _17_0_4_2_ef70352_1405429819791_229572_3926 _17_0_4_2_ef70352_1405429825642_900078_3934"/>
-      <lifeline xmi:id="_17_0_4_2_ef70352_1405429278090_517831_3702" name="atm" visibility="public" represents="_17_0_4_2_ef70352_1405429278091_807266_3703" coveredBy="_17_0_4_2_ef70352_1405429340865_421543_3802 _17_0_4_2_ef70352_1405429362482_284684_3841 _17_0_4_2_ef70352_1405429431254_258427_3871 _17_0_4_2_ef70352_1405429539406_497155_3878 _17_0_4_2_ef70352_1405429559451_149867_3902 _17_0_4_2_ef70352_1405429812499_168635_3917 _17_0_4_2_ef70352_1405429819791_384931_3925 _17_0_4_2_ef70352_1405429825642_815806_3933 _17_0_4_2_ef70352_1405437431804_423770_3455 _17_0_4_2_ef70352_1405437588000_354643_3532 _17_0_4_2_ef70352_1405437606564_335579_3547"/>
-      <lifeline xmi:id="_17_0_4_2_ef70352_1405429281816_309058_3715" name="consortium" visibility="public" represents="_17_0_4_2_ef70352_1405429281817_129629_3716" coveredBy="_17_0_4_2_ef70352_1405429362483_170459_3842 _17_0_4_2_ef70352_1405429370612_197360_3851 _17_0_4_2_ef70352_1405429390611_375755_3862 _17_0_4_2_ef70352_1405429431253_664625_3870 _17_0_4_2_ef70352_1405437469104_414530_3470 _17_0_4_2_ef70352_1405437496810_974989_3515"/>
-      <lifeline xmi:id="_17_0_4_2_ef70352_1405429285811_738437_3735" name="bank" visibility="public" represents="_17_0_4_2_ef70352_1405429285812_984056_3736" coveredBy="_17_0_4_2_ef70352_1405429370613_229921_3852 _17_0_4_2_ef70352_1405429390611_106716_3861 _17_0_4_2_ef70352_1405437479314_505339_3485 _17_0_4_2_ef70352_1405437489704_131961_3500"/>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437431804_423770_3455" visibility="public" covered="_17_0_4_2_ef70352_1405429278090_517831_3702">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437431804_757799_3456" name="WaitPassword">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437431804_38953_3457">
-            <body>WaitPassword</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437469104_414530_3470" visibility="public" covered="_17_0_4_2_ef70352_1405429281816_309058_3715">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437469104_198896_3471" name="WaitVerify">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437469104_992722_3472">
-            <body>WaitVerify</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437479314_505339_3485" visibility="public" covered="_17_0_4_2_ef70352_1405429285811_738437_3735">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437479314_992062_3486" name="WaitBankVerify">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437479314_252413_3487">
-            <body>WaitBankVerify</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429340865_348613_3801" visibility="public" covered="_17_0_4_2_ef70352_1405429270361_233858_3689" message="_17_0_4_2_ef70352_1405429340864_503343_3800"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429340865_421543_3802" visibility="public" covered="_17_0_4_2_ef70352_1405429278090_517831_3702" message="_17_0_4_2_ef70352_1405429340864_503343_3800"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429362482_284684_3841" visibility="public" covered="_17_0_4_2_ef70352_1405429278090_517831_3702" message="_17_0_4_2_ef70352_1405429362481_623625_3840"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429362483_170459_3842" visibility="public" covered="_17_0_4_2_ef70352_1405429281816_309058_3715" message="_17_0_4_2_ef70352_1405429362481_623625_3840"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429370612_197360_3851" visibility="public" covered="_17_0_4_2_ef70352_1405429281816_309058_3715" message="_17_0_4_2_ef70352_1405429370611_207517_3850"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429370613_229921_3852" visibility="public" covered="_17_0_4_2_ef70352_1405429285811_738437_3735" message="_17_0_4_2_ef70352_1405429370611_207517_3850"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429390611_106716_3861" visibility="public" covered="_17_0_4_2_ef70352_1405429285811_738437_3735" message="_17_0_4_2_ef70352_1405429390610_583118_3860"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429390611_375755_3862" visibility="public" covered="_17_0_4_2_ef70352_1405429281816_309058_3715" message="_17_0_4_2_ef70352_1405429390610_583118_3860"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429431253_664625_3870" visibility="public" covered="_17_0_4_2_ef70352_1405429281816_309058_3715" message="_17_0_4_2_ef70352_1405429431252_940817_3869"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429431254_258427_3871" visibility="public" covered="_17_0_4_2_ef70352_1405429278090_517831_3702" message="_17_0_4_2_ef70352_1405429431252_940817_3869"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429539406_497155_3878" visibility="public" covered="_17_0_4_2_ef70352_1405429278090_517831_3702" message="_17_0_4_2_ef70352_1405429539405_846240_3877"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429539406_61241_3879" visibility="public" covered="_17_0_4_2_ef70352_1405429270361_233858_3689" message="_17_0_4_2_ef70352_1405429539405_846240_3877"/>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437588000_354643_3532" visibility="public" covered="_17_0_4_2_ef70352_1405429278090_517831_3702">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437588000_840793_3533" name="WaitPassword">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437588000_878723_3534">
-            <body>WaitPassword</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429559450_625271_3901" visibility="public" covered="_17_0_4_2_ef70352_1405429270361_233858_3689" message="_17_0_4_2_ef70352_1405429559449_608533_3900"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429559451_149867_3902" visibility="public" covered="_17_0_4_2_ef70352_1405429278090_517831_3702" message="_17_0_4_2_ef70352_1405429559449_608533_3900"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429812499_168635_3917" visibility="public" covered="_17_0_4_2_ef70352_1405429278090_517831_3702" message="_17_0_4_2_ef70352_1405429812498_524635_3916"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429812499_967524_3918" visibility="public" covered="_17_0_4_2_ef70352_1405429270361_233858_3689" message="_17_0_4_2_ef70352_1405429812498_524635_3916"/>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437496810_974989_3515" visibility="public" covered="_17_0_4_2_ef70352_1405429281816_309058_3715">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437496810_649138_3516" name="WaitVerify">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437496810_532965_3517">
-            <body>WaitVerify</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437489704_131961_3500" visibility="public" covered="_17_0_4_2_ef70352_1405429285811_738437_3735">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437489704_114373_3501" name="WaitBankVerify">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437489704_774566_3502">
-            <body>WaitBankVerify</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429819791_384931_3925" visibility="public" covered="_17_0_4_2_ef70352_1405429278090_517831_3702" message="_17_0_4_2_ef70352_1405429819790_18792_3924"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429819791_229572_3926" visibility="public" covered="_17_0_4_2_ef70352_1405429270361_233858_3689" message="_17_0_4_2_ef70352_1405429819790_18792_3924"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429825642_815806_3933" visibility="public" covered="_17_0_4_2_ef70352_1405429278090_517831_3702" message="_17_0_4_2_ef70352_1405429825641_977597_3932"/>
-      <fragment xsi:type="uml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429825642_900078_3934" visibility="public" covered="_17_0_4_2_ef70352_1405429270361_233858_3689" message="_17_0_4_2_ef70352_1405429825641_977597_3932"/>
-      <fragment xsi:type="uml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405437606564_335579_3547" visibility="public" covered="_17_0_4_2_ef70352_1405429278090_517831_3702">
-        <invariant xmi:id="_17_0_4_2_ef70352_1405437606564_984379_3548" name="WaitTakeCard">
-          <specification xsi:type="uml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405437606564_663657_3549">
-            <body>WaitTakeCard</body>
-          </specification>
-        </invariant>
-      </fragment>
-      <message xmi:id="_17_0_4_2_ef70352_1405429340864_503343_3800" name="enterPassword" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429340865_421543_3802" sendEvent="_17_0_4_2_ef70352_1405429340865_348613_3801" signature="_17_0_4_2_ef70352_1405433538611_133642_3968"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429362481_623625_3840" name="verifyAccount" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429362483_170459_3842" sendEvent="_17_0_4_2_ef70352_1405429362482_284684_3841" signature="_17_0_4_2_ef70352_1405434062562_514650_3993"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429370611_207517_3850" name="verifyCardWithBank" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429370613_229921_3852" sendEvent="_17_0_4_2_ef70352_1405429370612_197360_3851" signature="_17_0_4_2_ef70352_1405434074517_325847_3994"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429390610_583118_3860" name="badBankPassword" visibility="public" messageSort="reply" receiveEvent="_17_0_4_2_ef70352_1405429390611_375755_3862" sendEvent="_17_0_4_2_ef70352_1405429390611_106716_3861"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429431252_940817_3869" name="badPassword" visibility="public" messageSort="reply" receiveEvent="_17_0_4_2_ef70352_1405429431254_258427_3871" sendEvent="_17_0_4_2_ef70352_1405429431253_664625_3870"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429539405_846240_3877" name="requestPassword" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429539406_61241_3879" sendEvent="_17_0_4_2_ef70352_1405429539406_497155_3878" signature="_17_0_4_2_ef70352_1405434037669_792419_3992"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429559449_608533_3900" name="cancel" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429559451_149867_3902" sendEvent="_17_0_4_2_ef70352_1405429559450_625271_3901" signature="_17_0_4_2_ef70352_1405433557761_659045_3970"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429812498_524635_3916" name="canceledMessage" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429812499_967524_3918" sendEvent="_17_0_4_2_ef70352_1405429812499_168635_3917" signature="_17_0_4_2_ef70352_1405435181620_233796_4326"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429819790_18792_3924" name="ejectCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429819791_229572_3926" sendEvent="_17_0_4_2_ef70352_1405429819791_384931_3925" signature="_17_0_4_2_ef70352_1405434126673_52940_3997"/>
-      <message xmi:id="_17_0_4_2_ef70352_1405429825641_977597_3932" name="requestTakeCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429825642_900078_3934" sendEvent="_17_0_4_2_ef70352_1405429825642_815806_3933" signature="_17_0_4_2_ef70352_1405434131792_556888_3998"/>
-    </ownedBehavior>
-  </packagedElement>
-  <packagedElement xsi:type="uml:Class" xmi:id="_17_0_4_2_ef70352_1405432173844_624819_3428" name="atm">
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405433518659_387856_3967" name="insertCard" visibility="public"/>
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405433538611_133642_3968" name="enterPassword" visibility="public"/>
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405433552880_537959_3969" name="takeCard" visibility="public"/>
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405433557761_659045_3970" name="cancel" visibility="public"/>
-  </packagedElement>
-  <packagedElement xsi:type="uml:Class" xmi:id="_17_0_4_2_ef70352_1405432179790_864360_3429" name="consortium">
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405434062562_514650_3993" name="verifyAccount" visibility="public"/>
-  </packagedElement>
-  <packagedElement xsi:type="uml:Class" xmi:id="_17_0_4_2_ef70352_1405432184369_840054_3430" name="bank">
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405434074517_325847_3994" name="verifyCardWithBank" visibility="public"/>
-  </packagedElement>
-  <packagedElement xsi:type="uml:Class" xmi:id="_17_0_4_2_ef70352_1405434024208_992836_3991" name="user">
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405434037669_792419_3992" name="requestPassword" visibility="public"/>
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405434113279_938750_3995" name="badAccountMessage" visibility="public"/>
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405434121457_401549_3996" name="printReceipt" visibility="public"/>
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405434126673_52940_3997" name="ejectCard" visibility="public"/>
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405434131792_556888_3998" name="requestTakeCard" visibility="public"/>
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405434138037_734924_3999" name="displayMainScreen" visibility="public"/>
-    <ownedOperation xmi:id="_17_0_4_2_ef70352_1405435181620_233796_4326" name="canceledMessage" visibility="public"/>
-  </packagedElement>
-</uml:Model>
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:euml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:MagicDraw_Profile="http://www.omg.org/spec/UML/20110701/MagicDrawProfile">
+	
+	<euml:Model xmi:type="euml:Model" xmi:id="eee_1045467100313_135436_1" name="Bank-ATM">
+<packagedElement xmi:type="euml:Collaboration" xmi:id="_17_0_4_2_ef70352_1405428668960_521973_3238" name="BadAccount" classifierBehavior="_17_0_4_2_ef70352_1405428668959_263913_3237">
+<ownedBehavior xmi:type="euml:Interaction" xmi:id="_17_0_4_2_ef70352_1405428668959_263913_3237" name="BadAccount">
+<ownedAttribute xmi:type="euml:Property" xmi:id="_17_0_4_2_ef70352_1405428813729_370752_3305" visibility="private" type="_17_0_4_2_ef70352_1405665953635_62243_3499"/>
+<ownedAttribute xmi:type="euml:Property" xmi:id="_17_0_4_2_ef70352_1405428832141_229235_3318" visibility="private" type="_17_0_4_2_ef70352_1405665953635_318719_3496"/>
+<ownedAttribute xmi:type="euml:Property" xmi:id="_17_0_4_2_ef70352_1405428835355_993886_3331" visibility="private" type="_17_0_4_2_ef70352_1405665953635_245665_3498"/>
+<ownedAttribute xmi:type="euml:Property" xmi:id="_17_0_4_2_ef70352_1405428840202_41781_3344" visibility="private" type="_17_0_4_2_ef70352_1405665953635_968395_3497"/>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405428942736_792477_3397" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405428942736_587070_3398" name="WaitCard">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405428942737_889521_3399"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405428994320_204621_3427" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428835354_838438_3330"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405428994320_981034_3428" name="WaitVerify">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405428994320_556626_3429"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405428999225_60766_3442" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428840200_373678_3343"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405428999225_641613_3443" name="WaitBankVerify">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405428999225_726282_3444"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405428849878_204705_3357" visibility="public" message="_17_0_4_2_ef70352_1405428849877_243752_3356">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428813729_346820_3304"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405428849879_668962_3358" visibility="public" message="_17_0_4_2_ef70352_1405428849877_243752_3356">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405428916539_71759_3388" visibility="public" message="_17_0_4_2_ef70352_1405428916537_72892_3387">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405428916539_10929_3389" visibility="public" message="_17_0_4_2_ef70352_1405428916537_72892_3387">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428813729_346820_3304"/>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429034335_620165_3462" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429034335_835671_3463" name="WaitPassword">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429034335_468358_3464"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429070931_340329_3476" visibility="public" message="_17_0_4_2_ef70352_1405429070930_94193_3475">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428813729_346820_3304"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429070931_28388_3477" visibility="public" message="_17_0_4_2_ef70352_1405429070930_94193_3475">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405667731210_592878_3414" visibility="public" message="_17_0_4_2_ef70352_1405667731210_76075_3413">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405667731226_541021_3415" visibility="public" message="_17_0_4_2_ef70352_1405667731210_76075_3413">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428835354_838438_3330"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405667739135_975888_3423" visibility="public" message="_17_0_4_2_ef70352_1405667739135_668714_3422">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428835354_838438_3330"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405667739135_296686_3424" visibility="public" message="_17_0_4_2_ef70352_1405667739135_668714_3422">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428840200_373678_3343"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429104409_78580_3506" visibility="public" message="_17_0_4_2_ef70352_1405429104408_831225_3505">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428840200_373678_3343"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429104409_425523_3507" visibility="public" message="_17_0_4_2_ef70352_1405429104408_831225_3505">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428835354_838438_3330"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429112599_683851_3514" visibility="public" message="_17_0_4_2_ef70352_1405429112598_471215_3513">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428835354_838438_3330"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429112599_214625_3515" visibility="public" message="_17_0_4_2_ef70352_1405429112598_471215_3513">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429135657_113270_3530" visibility="public" message="_17_0_4_2_ef70352_1405429135656_756782_3529">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429135657_111627_3531" visibility="public" message="_17_0_4_2_ef70352_1405429135656_756782_3529">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428813729_346820_3304"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429152428_439984_3546" visibility="public" message="_17_0_4_2_ef70352_1405429152427_570790_3545">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429152429_142491_3547" visibility="public" message="_17_0_4_2_ef70352_1405429152427_570790_3545">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428813729_346820_3304"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429159419_283889_3554" visibility="public" message="_17_0_4_2_ef70352_1405429159418_536263_3553">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429159420_326667_3555" visibility="public" message="_17_0_4_2_ef70352_1405429159418_536263_3553">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428813729_346820_3304"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429167583_877254_3562" visibility="public" message="_17_0_4_2_ef70352_1405429167582_302788_3561">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429167583_801322_3563" visibility="public" message="_17_0_4_2_ef70352_1405429167582_302788_3561">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428813729_346820_3304"/>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429178397_882606_3571" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429178397_429124_3572" name="WaitTakeCard">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429178397_907687_3573"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429189441_4956_3585" visibility="public" message="_17_0_4_2_ef70352_1405429189440_658488_3584">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428813729_346820_3304"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429189441_382661_3586" visibility="public" message="_17_0_4_2_ef70352_1405429189440_658488_3584">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429197616_306812_3595" visibility="public" message="_17_0_4_2_ef70352_1405429197615_137196_3594">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429197617_345344_3596" visibility="public" message="_17_0_4_2_ef70352_1405429197615_137196_3594">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428813729_346820_3304"/>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429205660_881374_3604" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428832140_347148_3317"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429205660_847545_3605" name="WaitCard">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429205660_997828_3606"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429216247_50942_3634" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428840200_373678_3343"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429216247_809187_3635" name="WaitBankVerify">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429216247_526159_3636"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429211883_220289_3619" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405428835354_838438_3330"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429211884_947201_3620" name="WaitVerify">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429211884_955182_3621"/>
+</invariant>
+</fragment>
+<lifeline xmi:type="euml:Lifeline" xmi:id="_17_0_4_2_ef70352_1405428813729_346820_3304" visibility="public" represents="_17_0_4_2_ef70352_1405428813729_370752_3305">
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405428849878_204705_3357"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405428916539_10929_3389"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429070931_340329_3476"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429135657_111627_3531"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429152429_142491_3547"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429159420_326667_3555"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429167583_801322_3563"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429189441_4956_3585"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429197617_345344_3596"/>
+</lifeline>
+<lifeline xmi:type="euml:Lifeline" xmi:id="_17_0_4_2_ef70352_1405428832140_347148_3317" visibility="public" represents="_17_0_4_2_ef70352_1405428832141_229235_3318">
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405428942736_792477_3397"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405428849879_668962_3358"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405428916539_71759_3388"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429034335_620165_3462"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429070931_28388_3477"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405667731210_592878_3414"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429112599_214625_3515"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429135657_113270_3530"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429152428_439984_3546"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429159419_283889_3554"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429167583_877254_3562"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429178397_882606_3571"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429189441_382661_3586"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429197616_306812_3595"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429205660_881374_3604"/>
+</lifeline>
+<lifeline xmi:type="euml:Lifeline" xmi:id="_17_0_4_2_ef70352_1405428835354_838438_3330" visibility="public" represents="_17_0_4_2_ef70352_1405428835355_993886_3331">
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405428994320_204621_3427"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405667731226_541021_3415"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405667739135_975888_3423"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429104409_425523_3507"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429112599_683851_3514"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429211883_220289_3619"/>
+</lifeline>
+<lifeline xmi:type="euml:Lifeline" xmi:id="_17_0_4_2_ef70352_1405428840200_373678_3343" visibility="public" represents="_17_0_4_2_ef70352_1405428840202_41781_3344">
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405428999225_60766_3442"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405667739135_296686_3424"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429104409_78580_3506"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429216247_50942_3634"/>
+</lifeline>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405428849877_243752_3356" name="insertCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405428849879_668962_3358" sendEvent="_17_0_4_2_ef70352_1405428849878_204705_3357" signature="_17_0_4_2_ef70352_1405665953635_351939_3500"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405428916537_72892_3387" name="requestPassword" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405428916539_10929_3389" sendEvent="_17_0_4_2_ef70352_1405428916539_71759_3388" signature="_17_0_4_2_ef70352_1405665953651_728747_3506"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429070930_94193_3475" name="enterPassword" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429070931_28388_3477" sendEvent="_17_0_4_2_ef70352_1405429070931_340329_3476" signature="_17_0_4_2_ef70352_1405665953635_519090_3501"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429104408_831225_3505" name="badBankAccount" visibility="public" messageSort="reply" receiveEvent="_17_0_4_2_ef70352_1405429104409_425523_3507" sendEvent="_17_0_4_2_ef70352_1405429104409_78580_3506"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429112598_471215_3513" name="badAccount" visibility="public" messageSort="reply" receiveEvent="_17_0_4_2_ef70352_1405429112599_214625_3515" sendEvent="_17_0_4_2_ef70352_1405429112599_683851_3514"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429135656_756782_3529" name="badAccountMessage" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429135657_111627_3531" sendEvent="_17_0_4_2_ef70352_1405429135657_113270_3530" signature="_17_0_4_2_ef70352_1405665953651_530205_3507"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429152427_570790_3545" name="printReceipt" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429152429_142491_3547" sendEvent="_17_0_4_2_ef70352_1405429152428_439984_3546" signature="_17_0_4_2_ef70352_1405665953651_689590_3508"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429159418_536263_3553" name="ejectCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429159420_326667_3555" sendEvent="_17_0_4_2_ef70352_1405429159419_283889_3554" signature="_17_0_4_2_ef70352_1405665953651_789140_3509"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429167582_302788_3561" name="requestTakeCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429167583_801322_3563" sendEvent="_17_0_4_2_ef70352_1405429167583_877254_3562" signature="_17_0_4_2_ef70352_1405665953651_432367_3510"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429189440_658488_3584" name="takeCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429189441_382661_3586" sendEvent="_17_0_4_2_ef70352_1405429189441_4956_3585" signature="_17_0_4_2_ef70352_1405665953635_910196_3502"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429197615_137196_3594" name="displayMainScreen" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429197617_345344_3596" sendEvent="_17_0_4_2_ef70352_1405429197616_306812_3595" signature="_17_0_4_2_ef70352_1405665953651_455246_3511"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405667731210_76075_3413" name="verifyAccount" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405667731226_541021_3415" sendEvent="_17_0_4_2_ef70352_1405667731210_592878_3414" signature="_17_0_4_2_ef70352_1405667774188_184900_3433"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405667739135_668714_3422" name="verifyCardWithBank" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405667739135_296686_3424" sendEvent="_17_0_4_2_ef70352_1405667739135_975888_3423" signature="_17_0_4_2_ef70352_1405667765327_511973_3432"/>
+</ownedBehavior>
+</packagedElement>
+<packagedElement xmi:type="euml:Collaboration" xmi:id="_17_0_4_2_ef70352_1405429253546_134327_3648" name="BadPassword" classifierBehavior="_17_0_4_2_ef70352_1405429253546_748048_3647">
+<ownedBehavior xmi:type="euml:Interaction" xmi:id="_17_0_4_2_ef70352_1405429253546_748048_3647" name="BadPassword">
+<ownedAttribute xmi:type="euml:Property" xmi:id="_17_0_4_2_ef70352_1405429270361_398021_3690" visibility="private" type="_17_0_4_2_ef70352_1405665953635_62243_3499"/>
+<ownedAttribute xmi:type="euml:Property" xmi:id="_17_0_4_2_ef70352_1405429278091_807266_3703" visibility="private" type="_17_0_4_2_ef70352_1405665953635_318719_3496"/>
+<ownedAttribute xmi:type="euml:Property" xmi:id="_17_0_4_2_ef70352_1405429281817_129629_3716" visibility="private" type="_17_0_4_2_ef70352_1405665953635_245665_3498"/>
+<ownedAttribute xmi:type="euml:Property" xmi:id="_17_0_4_2_ef70352_1405429285812_984056_3736" visibility="private" type="_17_0_4_2_ef70352_1405665953635_968395_3497"/>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429330338_892772_3775" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429278090_517831_3702"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429330338_574038_3776" name="WaitCard">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429330338_251341_3777"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429350443_380614_3812" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429281816_309058_3715"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429350443_453261_3813" name="WaitVerify">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429350443_915587_3814"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429354195_377404_3827" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429285811_738437_3735"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429354195_90436_3828" name="WaitBankVerify">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429354195_917902_3829"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429340865_348613_3801" visibility="public" message="_17_0_4_2_ef70352_1405429340864_503343_3800">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429270361_233858_3689"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429340865_421543_3802" visibility="public" message="_17_0_4_2_ef70352_1405429340864_503343_3800">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429278090_517831_3702"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429362482_284684_3841" visibility="public" message="_17_0_4_2_ef70352_1405429362481_623625_3840">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429278090_517831_3702"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429362483_170459_3842" visibility="public" message="_17_0_4_2_ef70352_1405429362481_623625_3840">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429281816_309058_3715"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429370612_197360_3851" visibility="public" message="_17_0_4_2_ef70352_1405429370611_207517_3850">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429281816_309058_3715"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429370613_229921_3852" visibility="public" message="_17_0_4_2_ef70352_1405429370611_207517_3850">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429285811_738437_3735"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429390611_106716_3861" visibility="public" message="_17_0_4_2_ef70352_1405429390610_583118_3860">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429285811_738437_3735"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429390611_375755_3862" visibility="public" message="_17_0_4_2_ef70352_1405429390610_583118_3860">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429281816_309058_3715"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429431253_664625_3870" visibility="public" message="_17_0_4_2_ef70352_1405429431252_940817_3869">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429281816_309058_3715"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429431254_258427_3871" visibility="public" message="_17_0_4_2_ef70352_1405429431252_940817_3869">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429278090_517831_3702"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429539406_497155_3878" visibility="public" message="_17_0_4_2_ef70352_1405429539405_846240_3877">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429278090_517831_3702"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429539406_61241_3879" visibility="public" message="_17_0_4_2_ef70352_1405429539405_846240_3877">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429270361_233858_3689"/>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429550926_851772_3887" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429278090_517831_3702"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429550926_731189_3888" name="WaitPassword">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429550926_550486_3889"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429559450_625271_3901" visibility="public" message="_17_0_4_2_ef70352_1405429559449_608533_3900">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429270361_233858_3689"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429559451_149867_3902" visibility="public" message="_17_0_4_2_ef70352_1405429559449_608533_3900">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429278090_517831_3702"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429812499_168635_3917" visibility="public" message="_17_0_4_2_ef70352_1405429812498_524635_3916">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429278090_517831_3702"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429812499_967524_3918" visibility="public" message="_17_0_4_2_ef70352_1405429812498_524635_3916">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429270361_233858_3689"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429819791_384931_3925" visibility="public" message="_17_0_4_2_ef70352_1405429819790_18792_3924">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429278090_517831_3702"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429819791_229572_3926" visibility="public" message="_17_0_4_2_ef70352_1405429819790_18792_3924">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429270361_233858_3689"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429825642_815806_3933" visibility="public" message="_17_0_4_2_ef70352_1405429825641_977597_3932">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429278090_517831_3702"/>
+</fragment>
+<fragment xmi:type="euml:MessageOccurrenceSpecification" xmi:id="_17_0_4_2_ef70352_1405429825642_900078_3934" visibility="public" message="_17_0_4_2_ef70352_1405429825641_977597_3932">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429270361_233858_3689"/>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429831348_561889_3942" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429278090_517831_3702"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429831348_651025_3943" name="WaitTakeCard">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429831348_9864_3944"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429836084_950342_3957" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429281816_309058_3715"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429836085_823725_3958" name="WaitVerify">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429836085_858577_3959"/>
+</invariant>
+</fragment>
+<fragment xmi:type="euml:StateInvariant" xmi:id="_17_0_4_2_ef70352_1405429840388_244589_3972" visibility="public">
+<covered xmi:idref="_17_0_4_2_ef70352_1405429285811_738437_3735"/>
+<invariant xmi:type="euml:Constraint" xmi:id="_17_0_4_2_ef70352_1405429840388_707960_3973" name="WaitBankVerify">
+<specification xmi:type="euml:OpaqueExpression" xmi:id="_17_0_4_2_ef70352_1405429840388_578863_3974"/>
+</invariant>
+</fragment>
+<lifeline xmi:type="euml:Lifeline" xmi:id="_17_0_4_2_ef70352_1405429270361_233858_3689" visibility="public" represents="_17_0_4_2_ef70352_1405429270361_398021_3690">
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429340865_348613_3801"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429539406_61241_3879"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429559450_625271_3901"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429812499_967524_3918"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429819791_229572_3926"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429825642_900078_3934"/>
+</lifeline>
+<lifeline xmi:type="euml:Lifeline" xmi:id="_17_0_4_2_ef70352_1405429278090_517831_3702" visibility="public" represents="_17_0_4_2_ef70352_1405429278091_807266_3703">
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429330338_892772_3775"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429340865_421543_3802"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429362482_284684_3841"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429431254_258427_3871"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429539406_497155_3878"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429550926_851772_3887"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429559451_149867_3902"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429812499_168635_3917"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429819791_384931_3925"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429825642_815806_3933"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429831348_561889_3942"/>
+</lifeline>
+<lifeline xmi:type="euml:Lifeline" xmi:id="_17_0_4_2_ef70352_1405429281816_309058_3715" visibility="public" represents="_17_0_4_2_ef70352_1405429281817_129629_3716">
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429350443_380614_3812"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429362483_170459_3842"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429370612_197360_3851"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429390611_375755_3862"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429431253_664625_3870"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429836084_950342_3957"/>
+</lifeline>
+<lifeline xmi:type="euml:Lifeline" xmi:id="_17_0_4_2_ef70352_1405429285811_738437_3735" visibility="public" represents="_17_0_4_2_ef70352_1405429285812_984056_3736">
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429354195_377404_3827"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429370613_229921_3852"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429390611_106716_3861"/>
+<coveredBy xmi:idref="_17_0_4_2_ef70352_1405429840388_244589_3972"/>
+</lifeline>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429340864_503343_3800" name="enterPassword" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429340865_421543_3802" sendEvent="_17_0_4_2_ef70352_1405429340865_348613_3801" signature="_17_0_4_2_ef70352_1405665953635_519090_3501"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429362481_623625_3840" name="verifyAccount" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429362483_170459_3842" sendEvent="_17_0_4_2_ef70352_1405429362482_284684_3841" signature="_17_0_4_2_ef70352_1405667774188_184900_3433"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429370611_207517_3850" name="verifyCardWithBank" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429370613_229921_3852" sendEvent="_17_0_4_2_ef70352_1405429370612_197360_3851" signature="_17_0_4_2_ef70352_1405667765327_511973_3432"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429390610_583118_3860" name="badBankPassword" visibility="public" messageSort="reply" receiveEvent="_17_0_4_2_ef70352_1405429390611_375755_3862" sendEvent="_17_0_4_2_ef70352_1405429390611_106716_3861"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429431252_940817_3869" name="badPassword" visibility="public" messageSort="reply" receiveEvent="_17_0_4_2_ef70352_1405429431254_258427_3871" sendEvent="_17_0_4_2_ef70352_1405429431253_664625_3870"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429539405_846240_3877" name="requestPassword" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429539406_61241_3879" sendEvent="_17_0_4_2_ef70352_1405429539406_497155_3878" signature="_17_0_4_2_ef70352_1405665953651_728747_3506"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429559449_608533_3900" name="cancel" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429559451_149867_3902" sendEvent="_17_0_4_2_ef70352_1405429559450_625271_3901" signature="_17_0_4_2_ef70352_1405665953635_480288_3503"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429812498_524635_3916" name="canceledMessage" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429812499_967524_3918" sendEvent="_17_0_4_2_ef70352_1405429812499_168635_3917" signature="_17_0_4_2_ef70352_1405665953651_942425_3512"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429819790_18792_3924" name="ejectCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429819791_229572_3926" sendEvent="_17_0_4_2_ef70352_1405429819791_384931_3925" signature="_17_0_4_2_ef70352_1405665953651_789140_3509"/>
+<message xmi:type="euml:Message" xmi:id="_17_0_4_2_ef70352_1405429825641_977597_3932" name="requestTakeCard" visibility="public" receiveEvent="_17_0_4_2_ef70352_1405429825642_900078_3934" sendEvent="_17_0_4_2_ef70352_1405429825642_815806_3933" signature="_17_0_4_2_ef70352_1405665953651_432367_3510"/>
+</ownedBehavior>
+</packagedElement>
+<packagedElement xmi:type="euml:Class" xmi:id="_17_0_4_2_ef70352_1405665953635_318719_3496" name="atm">
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405665953635_351939_3500" name="insertCard" visibility="public"/>
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405665953635_519090_3501" name="enterPassword" visibility="public"/>
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405665953635_910196_3502" name="takeCard" visibility="public"/>
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405665953635_480288_3503" name="cancel" visibility="public"/>
+</packagedElement>
+<packagedElement xmi:type="euml:Class" xmi:id="_17_0_4_2_ef70352_1405665953635_968395_3497" name="bank">
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405667765327_511973_3432" name="verifyCardWithBank" visibility="public"/>
+</packagedElement>
+<packagedElement xmi:type="euml:Class" xmi:id="_17_0_4_2_ef70352_1405665953635_245665_3498" name="consortium">
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405667774188_184900_3433" name="verifyAccount" visibility="public"/>
+</packagedElement>
+<packagedElement xmi:type="euml:Class" xmi:id="_17_0_4_2_ef70352_1405665953635_62243_3499" name="user">
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405665953651_728747_3506" name="requestPassword" visibility="public"/>
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405665953651_530205_3507" name="badAccountMessage" visibility="public"/>
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405665953651_689590_3508" name="printReceipt" visibility="public"/>
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405665953651_789140_3509" name="ejectCard" visibility="public"/>
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405665953651_432367_3510" name="requestTakeCard" visibility="public"/>
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405665953651_455246_3511" name="displayMainScreen" visibility="public"/>
+<ownedOperation xmi:type="euml:Operation" xmi:id="_17_0_4_2_ef70352_1405665953651_942425_3512" name="canceledMessage" visibility="public"/>
+</packagedElement>
+</euml:Model>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</xmi:XMI>
